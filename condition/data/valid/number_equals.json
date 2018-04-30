@@ -1,0 +1,5 @@
+{
+  "identifier": "foo",
+  "operator": "equals",
+  "value": 10
+}

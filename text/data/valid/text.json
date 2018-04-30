@@ -1,0 +1,24 @@
+{
+  "_id": "componentId",
+  "_type": "text",
+  "name": "wibble",
+  "model": "sanu",
+  "label": "Labble dabble",
+  "required": {
+    "identifier": "troo",
+    "operator": "is",
+    "value": "tar"
+  },
+  "show": {
+    "identifier": "troo",
+    "operator": "is",
+    "value": "tar"
+  },
+  "classes": "wibble dibble",
+  "attributes": {
+    "data-foo": "deeee"
+  },
+  "minLength": 2,
+  "maxLength": 10,
+  "pattern": "gosh"
+}

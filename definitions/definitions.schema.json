@@ -1,0 +1,119 @@
+{
+  "$id": "http://gov.uk/schema/definitions/v1.0.0",
+  "title": "Definitions",
+  "type": "object",
+  "validations": {
+    "$ref": "http://gov.uk/schema/validations/v1.0.0#/definitions"
+  },
+  "definitions": {
+    "_type": {
+      "title": "Data type",
+      "type": "string"
+    },
+    "model": {
+      "title": "Model to store field in",
+      "type": "string"
+    },
+    "booleanOrCondition": {
+      "oneOf": [{
+          "type": "boolean"
+        },
+        {
+          "$ref": "http://gov.uk/schema/condition/v1.0.0#"
+        }
+      ]
+    },
+    "block": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "title": "Block ID",
+          "type": "string"
+        },
+        "_isa": {
+          "title": "Based on",
+          "type": "string",
+          "blockReference": true
+        },
+        "show": {
+          "title": "Whether to show block or not",
+          "allOf": [
+            {
+              "$ref": "#/definitions/booleanOrCondition"
+            }
+          ],
+          "default": true
+        },
+        "classes": {
+          "title": "Additional classes",
+          "type": "string"
+        },
+        "attributes": {
+          "title": "Additional attributes",
+          "type": "object"
+        }
+      },
+      "required": [
+        "_id",
+        "_type"
+      ]
+    },
+    "field": {
+      "type": "object",
+      "allOf": [{
+          "$ref": "#/definitions/block"
+        },
+        {
+          "properties": {
+            "label": {
+              "title": "Label",
+              "type": "string"
+            },
+            "hint": {
+              "title": "Hint text",
+              "type": "string"
+            },
+            "name": {
+              "title": "Field name",
+              "type": "string"
+            },
+            "model": {
+              "$ref": "#/definitions/model"
+            },
+            "required": {
+              "title": "Required",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/booleanOrCondition"
+                }
+              ],
+              "default": true    
+            },
+            "disabled": {
+              "title": "Disabled",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/booleanOrCondition"
+                }
+              ],
+              "default": false
+            
+            },
+            "error_required": {
+              "title": "Required error message",
+              "type": "string"
+            },
+            "errorHeader_required": {
+              "title": "Required error message for header",
+              "type": "string"
+            }
+          },
+          "required": [
+            "label",
+            "name"
+          ]
+        }
+      ]
+    }
+  }
+}

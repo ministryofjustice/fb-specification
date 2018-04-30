@@ -1,0 +1,26 @@
+{
+  "$id": "http://gov.uk/schema/number/v1.0.0",
+  "title": "Number",
+  "description": "Component that provides a number input field",
+  "type": "object",
+  "allOf": [{
+      "$ref": "/schema/definitions/v1.0.0#/definitions/field"
+    },
+    {
+      "properties": {
+        "_type": {
+          "allOf": [{
+              "$ref": "/schema/definitions/v1.0.0#/definitions/_type"
+            },
+            {
+              "const": "number"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "$ref": "/schema/definitions/v1.0.0#/validations/validationNumber"
+    }
+  ]
+}

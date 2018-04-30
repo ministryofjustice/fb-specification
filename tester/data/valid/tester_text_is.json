@@ -1,0 +1,38 @@
+{
+  "showIf": {
+    "_id": "showIfId",
+    "_type": "Condition",
+    "identifier": "foo",
+    "operator": "is",
+    "value": "bar"
+  },
+  "requiredIf": {
+    "_id": "requiredIfId",
+    "_type": "Condition",
+    "allOfConditions": [{
+      "_id": "alOfXrequiredIfId",
+      "_type": "Condition",
+      "identifier": "zoo",
+      "operator": "is",
+      "value": "zar"
+    },{
+      "_id": "allOfYrequiredIfId",
+      "_type": "Condition",
+      "identifier": "hoo",
+      "operator": "equals",
+      "value": 20
+    }]
+  },
+  "redirectIf": [
+    {
+      "page": "hello",
+      "condition": {
+        "_id": "redirectIfId",
+        "_type": "Condition",
+        "identifier": "foo",
+        "operator": "is",
+        "value": "bar"
+      }
+    }
+  ]
+}

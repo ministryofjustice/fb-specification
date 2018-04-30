@@ -1,0 +1,233 @@
+{
+  "$id": "http://gov.uk/schema/condition/v1.0.0",
+  "title": "Condition",
+  "type": "object",
+  "xrequired": [
+    "_id",
+    "_type"
+  ],
+  "allOf": [{
+      "properties": {
+        "_id": {
+          "title": "Condition",
+          "type": "string"
+        },
+        "_type": {
+          "title": "Type",
+          "type": "string",
+          "const": "Condition"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "negated": {
+          "title": "Negated",
+          "type": "boolean"
+        }
+      }
+    },
+    {
+      "oneOf": [{
+          "$ref": "#/definitions/condition"
+        },
+        {
+          "$ref": "#/definitions/allOfConditions"
+        },
+        {
+          "$ref": "#/definitions/anyOfConditions"
+        },
+        {
+          "$ref": "#/definitions/oneOfConditions"
+        }
+      ]
+    }
+  ],
+  "definitions": {
+    "condition": {
+      "type": "object",
+      "oneOf": [{
+          "$ref": "#/definitions/definedCondition"
+        },
+        {
+          "$ref": "#/definitions/textCondition"
+        },
+        {
+          "$ref": "#/definitions/numberCondition"
+        },
+        {
+          "$ref": "#/definitions/booleanCondition"
+        }
+      ]
+    },
+    "baseCondition": {
+      "title": "Base Condition",
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "title": "Identifier",
+          "type": "string"
+        },
+        "identifierType": {
+          "title": "Identifier type",
+          "type": "string",
+          "enum": [
+            "input",
+            "feature"
+          ]
+        }
+      },
+      "required": [
+        "identifier"
+      ]
+    },
+    "definedCondition": {
+      "title": "Defined Condition",
+      "type": "object",
+      "allOf": [{
+          "$ref": "#/definitions/baseCondition"
+        },
+        {
+          "properties": {
+            "operator": {
+              "title": "Operator",
+              "type": "string",
+              "enum": [
+                "defined"
+              ]
+            }
+          },
+          "required": [
+            "operator"
+          ]
+        }
+      ]
+    },
+    "textCondition": {
+      "title": "Text Condition",
+      "type": "object",
+      "allOf": [{
+          "$ref": "#/definitions/baseCondition"
+        },
+        {
+          "properties": {
+            "operator": {
+              "title": "Operator",
+              "type": "string",
+              "enum": [
+                "is",
+                "startsWith",
+                "endsWith",
+                "includes"
+              ]
+            },
+            "value": {
+              "title": "Value",
+              "type": "string"
+            }
+          },
+          "required": [
+            "operator",
+            "value"
+          ]
+        }
+      ]
+    },
+    "numberCondition": {
+      "title": "Number Condition",
+      "type": "object",
+      "allOf": [{
+          "$ref": "#/definitions/baseCondition"
+        },
+        {
+          "properties": {
+            "operator": {
+              "title": "Operator",
+              "type": "string",
+              "enum": [
+                "equals",
+                "greaterThan",
+                "greaterThanOrEqualTo",
+                "lessThan",
+                "lessThanOrEqualTo",
+                "multipleOf"
+              ]
+            },
+            "value": {
+              "title": "Value",
+              "type": "number"
+            }
+          },
+          "required": [
+            "operator",
+            "value"
+          ]
+        }
+      ]
+    },
+    "booleanCondition": {
+      "title": "Boolean Condition",
+      "type": "object",
+      "allOf": [{
+          "$ref": "#/definitions/baseCondition"
+        },
+        {
+          "properties": {
+            "operator": {
+              "title": "Operator",
+              "type": "string",
+              "enum": [
+                "isTrue"
+              ]
+            }
+          },
+          "required": [
+            "operator"
+          ]
+        }
+      ]
+    },
+    "allOfConditions": {
+      "title": "Allof Condition Met definitions",
+      "type": "object",
+      "properties": {
+        "allOfConditions": {
+          "title": "All Conditions Met",
+          "type": "array",
+          "items": {
+            "$ref": "#"
+          }
+        }
+      },
+      "required": ["allOfConditions"]
+    },
+    "anyOfConditions": {
+      "title": "Anyof Condition Met definitions",
+      "type": "object",
+      "properties": {
+        "anyOfConditions": {
+          "title": "Any Conditions Met",
+          "type": "array",
+          "items": {
+            "$ref": "#"
+          }
+        }
+      },
+      "required": ["anyOfConditions"]
+    },
+    "oneOfConditions": {
+      "title": "One Condition Met definitions",
+      "type": "object",
+      "properties": {
+        "oneOfConditions": {
+          "title": "One Condition Met",
+          "type": "array",
+          "items": {
+            "$ref": "#"
+          }
+        }
+      },
+      "required": ["oneOfConditions"]
+    }
+  }
+}

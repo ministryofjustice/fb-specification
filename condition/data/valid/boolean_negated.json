@@ -1,0 +1,5 @@
+{
+  "identifier": "foo",
+  "operator": "isTrue",
+  "negated": true
+}

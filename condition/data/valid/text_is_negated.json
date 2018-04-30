@@ -1,0 +1,6 @@
+{
+  "identifier": "foo",
+  "operator": "is",
+  "value": "bar",
+  "negated": true
+}
