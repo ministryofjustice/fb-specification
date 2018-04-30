@@ -4,23 +4,42 @@
   "name": "wibble",
   "model": "sanu",
   "label": "Labble dabble",
-  "required": {
-    "identifier": "troo",
-    "operator": "is",
-    "value": "tar"
+  "validation": {
+    "required": {
+      "identifier": "troo",
+      "operator": "is",
+      "value": "tar"
+    },
+    "minimum": 20,
+    "maximum": 100
+  },
+  "errors": {
+    "required": {
+      "inline": "You don't want to do that",
+      "summary": "Oh cripes"
+    }
   },
   "show": {
-    "identifier": "troo",
-    "operator": "is",
-    "value": "tar"
+    "_id": "gosh",
+    "anyOfConditions": [{
+      "identifier": "foo",
+      "operator": "is",
+      "value": "bar"
+    }, {
+      "allOfConditions": [{
+        "identifier": "bam",
+        "operator": "equals",
+        "value": 20
+      }, {
+        "identifier": "baz",
+        "operator": "is",
+        "value": "bar",
+        "negated": true
+      }]
+    }]
   },
   "classes": "wibble dibble",
   "attributes": {
     "data-foo": "deeee"
-  },
-  "multipleOf": 2,
-  "maximum": 10,
-  "exclusiveMaximum": 12,
-  "minimum": 2,
-  "exclusiveMinimum": 2
+  }
 }

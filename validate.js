@@ -73,9 +73,11 @@ const dataSchema = require(schemaPath)
 const conditionSchema = require(path.resolve('condition/condition.schema.json'))
 const definitionsSchema = require(path.resolve('definitions/definitions.schema.json'))
 const validationsSchema = require(path.resolve('validations/validations.schema.json'))
+const errorsSchema = require(path.resolve('errors/errors.schema.json'))
 ajv.addSchema(conditionSchema)
 ajv.addSchema(definitionsSchema)
 ajv.addSchema(validationsSchema)
+ajv.addSchema(errorsSchema)
 
 const validateData = (dataPath) => {
   const data = require(path.resolve(dataPath))

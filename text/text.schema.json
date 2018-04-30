@@ -3,24 +3,22 @@
   "title": "Text",
   "description": "Component that provides a text input field",
   "type": "object",
-  "allOf": [{
-      "$ref": "http://gov.uk/schema/definitions/v1.0.0#/definitions/field"
+  "allOf": [
+    {
+      "$ref": "/schema/definitions/v1.0.0#/definitions/field"
     },
     {
       "properties": {
         "_type": {
-          "allOf": [{
-              "$ref": "http://gov.uk/schema/definitions/v1.0.0#/definitions/_type"
-            },
-            {
-              "const": "text"
-            }
-          ]
+          "const": "text"
         }
       }
     },
     {
-      "$ref": "http://gov.uk/schema/definitions/v1.0.0#/validations/string"
+      "$ref": "/schema/validations/v1.0.0#/definitions/stringValidation"
+    },
+    {
+      "$ref": "/schema/errors/v1.0.0#/definitions/stringErrors"
     }
   ]
 }

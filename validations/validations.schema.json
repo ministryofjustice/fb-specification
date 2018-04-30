@@ -3,6 +3,103 @@
   "title": "Validations",
   "type": "object",
   "definitions": {
+    "required": {
+      "title": "Required",
+      "allOf": [{
+        "$ref": "http://gov.uk/schema/definitions/v1.0.0#/definitions/booleanOrCondition"
+      }],
+      "default": true
+    },
+    "minLength": {
+      "title": "Minimum length",
+      "type": "number",
+      "minimum": 0
+    },
+    "maxLength": {
+      "title": "Maximum length",
+      "type": "number",
+      "minimum": 0
+    },
+    "pattern": {
+      "title": "Pattern to match string against",
+      "type": "string"
+    },
+    "multipleOf": {
+      "title": "Multiple of",
+      "type": "number",
+      "minimum": 0
+    },
+    "maximum": {
+      "title": "Maximum",
+      "type": "number",
+      "minimum": 0
+    },
+    "exclusiveMaximum": {
+      "title": "Exclusive maximum",
+      "type": "number",
+      "minimum": 0
+    },
+    "minimum": {
+      "title": "Minimum",
+      "type": "number",
+      "minimum": 0
+    },
+    "exclusiveMinimum": {
+      "title": "Exclusive minimum",
+      "type": "number",
+      "minimum": 0
+    },
+    "requiredValidation": {
+      "properties": {
+        "validation": {
+          "properties": {
+            "required": {
+              "$ref": "#/definitions/required"
+            }
+          }
+        }
+      }
+    },
+    "stringValidation": {
+      "properties": {
+        "validation": {
+          "properties": {
+            "minLength": {
+              "$ref": "#/definitions/minLength"
+            },
+            "maxLength": {
+              "$ref": "#/definitions/maxLength"
+            },
+            "pattern": {
+              "$ref": "#/definitions/pattern"
+            }
+          }
+        }
+      }
+    },
+    "numberValidation": {
+      "properties": {
+        "validation": {
+          "properties": {
+            "multipleOf": {
+              "$ref": "#/definitions/multipleOf"
+            },
+            "maximum": {
+              "$ref": "#/definitions/maximum"
+            },
+            "exclusiveMaximum": {
+              "$ref": "#/definitions/exclusiveMaximum"
+            },
+            "minimum": {
+              "$ref": "#/definitions/minimum"
+            },
+            "exclusiveMinimum": {
+              "$ref": "#/definitions/exclusiveMinimum"
+            }
+          }
+        }
+      }
+    },
     "validationMinLength": {
       "properties": {
         "minLength": {

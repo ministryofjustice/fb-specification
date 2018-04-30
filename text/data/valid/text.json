@@ -4,10 +4,15 @@
   "name": "wibble",
   "model": "sanu",
   "label": "Labble dabble",
-  "required": {
-    "identifier": "troo",
-    "operator": "is",
-    "value": "tar"
+  "validation": {
+    "required": {
+      "identifier": "troo",
+      "operator": "is",
+      "value": "tar"
+    },
+    "minLength": 20,
+    "maxLength": 100,
+    "pattern": "^a{1,2}.+$"
   },
   "show": {
     "identifier": "troo",

@@ -23,7 +23,7 @@
       "value": 20
     }]
   },
-  "redirectIf": [
+  "vextPage": [
     {
       "page": "hello",
       "condition": {
@@ -33,6 +33,14 @@
         "operator": "is",
         "value": "bar"
       }
-    }
+    },
+    "wibble"
+  ],
+  "nextPage": [
+    {
+      "page": "hello",
+      "condition": true
+    },
+    "wibble"
   ]
 }

@@ -23,6 +23,9 @@
     "requiredIf": {
       "$ref": "http://gov.uk/schema/condition/v1.0.0#"
     },
+    "nextPage": {
+      "$ref": "http://gov.uk/schema/definitions/v1.0.0#/definitions/nextPage"
+    },
     "redirectIf": {
       "type": "array",
       "items": {

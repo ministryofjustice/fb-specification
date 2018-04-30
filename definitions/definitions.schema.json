@@ -6,10 +6,6 @@
     "$ref": "http://gov.uk/schema/validations/v1.0.0#/definitions"
   },
   "definitions": {
-    "_type": {
-      "title": "Data type",
-      "type": "string"
-    },
     "model": {
       "title": "Model to store field in",
       "type": "string"
@@ -23,11 +19,44 @@
         }
       ]
     },
+    "nextPage": {
+      "title": "What page (if any), and under what condtions, to go to next",
+      "oneOf": [{
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [{
+              "type": "object",
+              "properties": {
+                "page": {
+                  "type": "string"
+                },
+                "condition": {
+                  "$ref": "#/definitions/booleanOrCondition"
+                }
+              },
+              "required": [
+                "page",
+                "condition"
+              ]
+            },
+            { "type" : "string" }
+          ]
+          }
+        }
+      ]
+    },
     "block": {
       "type": "object",
       "properties": {
         "_id": {
           "title": "Block ID",
+          "type": "string"
+        },
+        "_type": {
+          "title": "Data type",
           "type": "string"
         },
         "_isa": {
@@ -37,19 +66,17 @@
         },
         "show": {
           "title": "Whether to show block or not",
-          "allOf": [
-            {
-              "$ref": "#/definitions/booleanOrCondition"
-            }
-          ],
+          "allOf": [{
+            "$ref": "#/definitions/booleanOrCondition"
+          }],
           "default": true
         },
         "classes": {
-          "title": "Additional classes",
+          "title": "Additional HTML classes",
           "type": "string"
         },
         "attributes": {
-          "title": "Additional attributes",
+          "title": "Additional HTML attributes",
           "type": "object"
         }
       },
@@ -62,6 +89,12 @@
       "type": "object",
       "allOf": [{
           "$ref": "#/definitions/block"
+        },
+        {
+          "$ref": "http://gov.uk/schema/validations/v1.0.0#/definitions/requiredValidation"
+        },
+        {
+          "$ref": "http://gov.uk/schema/errors/v1.0.0#/definitions/requiredErrors"
         },
         {
           "properties": {
@@ -80,32 +113,12 @@
             "model": {
               "$ref": "#/definitions/model"
             },
-            "required": {
-              "title": "Required",
-              "allOf": [
-                {
-                  "$ref": "#/definitions/booleanOrCondition"
-                }
-              ],
-              "default": true    
-            },
             "disabled": {
               "title": "Disabled",
-              "allOf": [
-                {
-                  "$ref": "#/definitions/booleanOrCondition"
-                }
-              ],
+              "allOf": [{
+                "$ref": "#/definitions/booleanOrCondition"
+              }],
               "default": false
-            
-            },
-            "error_required": {
-              "title": "Required error message",
-              "type": "string"
-            },
-            "errorHeader_required": {
-              "title": "Required error message for header",
-              "type": "string"
             }
           },
           "required": [
