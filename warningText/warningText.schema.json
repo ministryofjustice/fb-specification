@@ -21,7 +21,7 @@
   },
   "allOf": [
     {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/block"
+      "$ref": "/schema/definitions/v1.0.0#/definitions/content"
     }
   ]
 }

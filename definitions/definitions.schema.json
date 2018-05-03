@@ -3,6 +3,10 @@
   "title": "Definitions",
   "type": "object",
   "definitions": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
     "name": {
       "title": "Input name",
       "type": "string"
@@ -20,6 +24,7 @@
       "type": "string"
     },
     "labelHint": {
+      "title": "Label and hint text",
       "type": "object",
       "properties": {
         "label": {
@@ -28,6 +33,12 @@
         "hint": {
           "$ref": "#/definitions/hint"
         }
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/block"
       }
     },
     "nextPage": {
@@ -62,6 +73,9 @@
     "propsAttributes": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "classes": {
           "title": "Additional HTML classes",
           "type": "string"
@@ -132,6 +146,9 @@
     },
     "block": {
       "type": "object",
+      "category": [
+        "block"
+      ],
       "properties": {
         "show": {
           "title": "Whether to show block or not",
@@ -164,8 +181,43 @@
         "value"
       ]
     },
+    "grouping": {
+      "type": "object",
+      "category": [
+        "grouping"
+      ],
+      "properties": {
+        "model": {
+          "$ref": "#/definitions/model"
+        },
+        "items": {
+          "$ref": "#/definitions/items"
+        }
+      },
+      "allOf": [{
+          "$ref": "#/definitions/block"
+        },{
+          "$ref": "#/definitions/propsAttributes"
+        }
+      ]
+    },
+    "content": {
+      "type": "object",
+      "category": [
+        "content"
+      ],
+      "allOf": [{
+          "$ref": "#/definitions/block"
+        },{
+          "$ref": "#/definitions/propsAttributes"
+        }
+      ]
+    },
     "control": {
       "type": "object",
+      "category": [
+        "control"
+      ],
       "allOf": [{
           "$ref": "#/definitions/block"
         },{
@@ -190,6 +242,9 @@
     },
     "field": {
       "type": "object",
+      "category": [
+        "field"
+      ],
       "allOf": [{
           "$ref": "#/definitions/control"
         },{

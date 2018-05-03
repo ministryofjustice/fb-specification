@@ -1,0 +1,33 @@
+{
+  "$id": "http://gov.uk/schema/fieldset/v1.0.0",
+  "title": "Fieldset",
+  "description": "Component for fieldset",
+  "type": "object",
+  "category": [
+    "control",
+    "fieldset"
+  ],
+  "properties": {
+    "_type": {
+      "const": "fieldset"
+    },
+    "legendHtml": {
+      "title": "Legend",
+      "description": "Text to use in fieldset legend",
+      "type": "string"
+    },
+    "legendHintHtml": {
+      "title": "Hint",
+      "description": "Hint text to use in fieldset legend",
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "/schema/definitions/v1.0.0#/definitions/grouping"
+    }
+  ],
+  "required": [
+    "legendHtml"
+  ]
+}

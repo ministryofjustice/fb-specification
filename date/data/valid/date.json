@@ -1,0 +1,10 @@
+{
+  "_id": "date sample",
+  "_type": "date",
+  "label": "Date label",
+  "name": "dob",
+  "dateType": "day-month-year",
+  "validation": {
+    "formatMinimum": "23d"
+  }
+}

@@ -62,7 +62,17 @@ const dereffle = (schema) => {
     }
   })
   .then(schema => {
-    let processedSchema = mergeAllOf(schema)
+    let processedSchema = mergeAllOf(schema, { 
+      resolvers: {
+        category: function(values, path, mergeSchemas, options) {
+          console.log({
+            values,
+            path
+          })
+          const flattened = values.reduce((acc, val) => acc.concat(val), [])
+          return Array.from(new Set(flattened)).sort()
+        }
+      }})
     expandedSchemas[processedSchema.$id] = processedSchema
     console.log(Object.keys(expandedSchemas))
     return processedSchema

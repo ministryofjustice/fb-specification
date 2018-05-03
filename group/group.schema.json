@@ -1,0 +1,16 @@
+{
+  "$id": "http://gov.uk/schema/group/v1.0.0",
+  "title": "Group",
+  "description": "Component for grouping blocks",
+  "type": "object",
+  "properties": {
+    "_type": {
+      "const": "group"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "/schema/definitions/v1.0.0#/definitions/grouping"
+    }
+  ]
+}
