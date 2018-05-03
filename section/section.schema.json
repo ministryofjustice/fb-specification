@@ -13,7 +13,10 @@
     "heading": {
       "type": "string"
     },
-    "body": {
+    "lede": {
+      "type": "string"
+    },
+    "content": {
       "type": "string",
       "multiline": true
     },

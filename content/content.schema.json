@@ -1,0 +1,26 @@
+{
+  "$id": "http://gov.uk/schema/content/v1.0.0",
+  "title": "Content",
+  "description": "Component for creating content",
+  "type": "object",
+  "category": [
+    "content"
+  ],
+  "properties": {
+    "_type": {
+      "const": "content"
+    },
+    "html": {
+      "type": "string",
+      "multiline": true
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "/schema/definitions/v1.0.0#/definitions/content"
+    }
+  ],
+  "required": [
+    "html"
+  ]
+}
