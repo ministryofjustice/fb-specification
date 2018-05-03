@@ -1,0 +1,16 @@
+{
+  "$id": "http://gov.uk/schema/radio/v1.0.0",
+  "title": "Radio option",
+  "description": "Component that provides a radio option",
+  "type": "object",
+  "properties": {
+    "_type": {
+      "const": "radio"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "/schema/definitions/v1.0.0#/definitions/option"
+    }
+  ]
+}

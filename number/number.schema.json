@@ -3,22 +3,23 @@
   "title": "Number",
   "description": "Component that provides a number input field",
   "type": "object",
+  "properties": {
+    "_type": {
+      "const": "number"
+    },
+    "widthClassInput": {
+      "allOf": [{
+        "$ref": "/schema/definitions/v1.0.0#/definitions/widthClassInput"
+      }],
+      "default": "10"
+    }
+  },
   "allOf": [
     {
       "$ref": "/schema/definitions/v1.0.0#/definitions/field"
     },
     {
-      "properties": {
-        "_type": {
-          "const": "number"
-        }
-      }
-    },
-    {
-      "$ref": "/schema/validations/v1.0.0#/definitions/numberValidation"
-    },
-    {
-      "$ref": "/schema/errors/v1.0.0#/definitions/numberErrors"
+      "$ref": "/schema/validations/v1.0.0#/definitions/numberBundle"
     }
   ]
 }

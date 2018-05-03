@@ -1,0 +1,26 @@
+{
+  "$id": "http://gov.uk/schema/option/v1.0.0",
+  "title": "Select option",
+  "description": "Component that provides a select option",
+  "type": "object",
+  "properties": {
+    "_type": {
+      "const": "option"
+    },
+    "option": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "/schema/definitions/v1.0.0#/definitions/block"
+    }
+  ],
+  "required": [
+    "option",
+    "value"
+  ]
+}

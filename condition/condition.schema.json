@@ -44,6 +44,15 @@
     }
   ],
   "definitions": {
+    "booleanOrCondition": {
+      "oneOf": [{
+          "type": "boolean"
+        },
+        {
+          "$ref": "#"
+        }
+      ]
+    },
     "condition": {
       "type": "object",
       "oneOf": [{

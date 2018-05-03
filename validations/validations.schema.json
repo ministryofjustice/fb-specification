@@ -3,64 +3,140 @@
   "title": "Validations",
   "type": "object",
   "definitions": {
-    "required": {
-      "title": "Required",
-      "allOf": [{
-        "$ref": "http://gov.uk/schema/definitions/v1.0.0#/definitions/booleanOrCondition"
-      }],
-      "default": true
+    "errorStrings": {
+      "type": "object",
+      "properties": {
+        "inline": {
+          "type": "string",
+          "role": "errorString"
+        },
+        "summary": {
+          "type": "string",
+          "role": "errorString"
+        }
+      }
     },
+    "required": {
+        "title": "Required",
+        "oneOf": [{
+          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+        }],
+        "default": true
+      },
+      "errorsRequired": {
+        "title": "Error strings for required",
+        "allOf": [{
+          "$ref": "#/definitions/errorStrings"
+        }]
+      },
     "minLength": {
       "title": "Minimum length",
       "type": "number",
       "minimum": 0
+    },
+    "errorsMinLength": {
+      "title": "Error strings for minLength",
+      "allOf": [{
+        "$ref": "#/definitions/errorStrings"
+      }]
     },
     "maxLength": {
       "title": "Maximum length",
       "type": "number",
       "minimum": 0
     },
+    "errorsMaxLength": {
+      "title": "Error strings for maxLength",
+      "allOf": [{
+        "$ref": "#/definitions/errorStrings"
+      }]
+    },
     "pattern": {
       "title": "Pattern to match string against",
       "type": "string"
+    },
+    "errorsPattern": {
+      "title": "Error strings for pattern",
+      "allOf": [{
+        "$ref": "#/definitions/errorStrings"
+      }]
     },
     "multipleOf": {
       "title": "Multiple of",
       "type": "number",
       "minimum": 0
     },
+    "errorsMultipleOf": {
+      "title": "Error strings for multipleOf",
+      "allOf": [{
+        "$ref": "#/definitions/errorStrings"
+      }]
+    },
     "maximum": {
       "title": "Maximum",
       "type": "number",
       "minimum": 0
+    },
+    "errorsMaximum": {
+      "title": "Error strings for maximum",
+      "allOf": [{
+        "$ref": "#/definitions/errorStrings"
+      }]
     },
     "exclusiveMaximum": {
       "title": "Exclusive maximum",
       "type": "number",
       "minimum": 0
     },
+    "errorsExclusiveMaximum": {
+      "title": "Error strings for exclusiveMaximum",
+      "allOf": [{
+        "$ref": "#/definitions/errorStrings"
+      }]
+    },
     "minimum": {
       "title": "Minimum",
       "type": "number",
       "minimum": 0
+    },
+    "errorsMinimum": {
+      "title": "Error strings for minimum",
+      "allOf": [{
+        "$ref": "#/definitions/errorStrings"
+      }]
     },
     "exclusiveMinimum": {
       "title": "Exclusive minimum",
       "type": "number",
       "minimum": 0
     },
-    "requiredValidation": {
+    "errorsExclusiveMinimum": {
+      "title": "Error strings for exclusiveMinimum",
+      "allOf": [{
+        "$ref": "#/definitions/errorStrings"
+      }]
+    },
+    "requiredBundle": {
       "properties": {
         "validation": {
+          "role": "validation",
           "properties": {
             "required": {
               "$ref": "#/definitions/required"
             }
           }
+        },
+        "errors": {
+          "role": "errorStrings",
+          "properties": {
+            "required": {
+              "$ref": "#/definitions/errorsRequired"
+            }
+          }
         }
       }
     },
-    "stringValidation": {
+    "stringBundle": {
       "properties": {
         "validation": {
           "properties": {
@@ -74,10 +150,23 @@
               "$ref": "#/definitions/pattern"
             }
           }
+        },
+        "errors": {
+          "properties": {
+            "minLength": {
+              "$ref": "#/definitions/errorsMinLength"
+            },
+            "maxLength": {
+              "$ref": "#/definitions/errorsMaxLength"
+            },
+            "pattern": {
+              "$ref": "#/definitions/errorsPattern"
+            }
+          }
         }
       }
     },
-    "numberValidation": {
+    "numberBundle": {
       "properties": {
         "validation": {
           "properties": {
@@ -97,175 +186,27 @@
               "$ref": "#/definitions/exclusiveMinimum"
             }
           }
+        },
+        "errors": {
+          "properties": {
+            "multipleOf": {
+              "$ref": "#/definitions/errorsMultipleOf"
+            },
+            "maximum": {
+              "$ref": "#/definitions/errorsMaximum"
+            },
+            "exclusiveMaximum": {
+              "$ref": "#/definitions/errorsExclusiveMaximum"
+            },
+            "minimum": {
+              "$ref": "#/definitions/errorsMinimum"
+            },
+            "exclusiveMinimum": {
+              "$ref": "#/definitions/errorsExclusiveMinimum"
+            }
+          }
         }
       }
-    },
-    "validationMinLength": {
-      "properties": {
-        "minLength": {
-          "title": "Minimum length",
-          "type": "number",
-          "minimum": 0
-        },
-        "error_minLength": {
-          "title": "Minimum length error message",
-          "type": "string"
-        },
-        "errorHeader_minLength": {
-          "title": "Minimum length error message for header",
-          "type": "string"
-        }
-      }
-    },
-    "validationMaxLength": {
-      "properties": {
-        "maxLength": {
-          "title": "Maximum length",
-          "type": "number",
-          "minimum": 0
-        },
-        "error_maxLength": {
-          "title": "Maximum length error message",
-          "type": "string"
-        },
-        "errorHeader_maxLength": {
-          "title": "Maximum length error message for header",
-          "type": "string"
-        }
-      }
-    },
-    "validationPattern": {
-      "properties": {
-        "pattern": {
-          "title": "Pattern to match string against",
-          "type": "string"
-        },
-        "error_pattern": {
-          "title": "Pattern error message",
-          "type": "string"
-        },
-        "errorHeader_pattern": {
-          "title": "Pattern error message for header",
-          "type": "string"
-        }
-      }
-    },
-    "string": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/validationMinLength"
-        },
-        {
-          "$ref": "#/definitions/validationMaxLength"
-        },
-        {
-          "$ref": "#/definitions/validationPattern"
-        }
-      ]
-    },
-    "validationMultipleOf": {
-      "properties": {
-        "multipleOf": {
-          "title": "Multiple of",
-          "type": "number",
-          "minimum": 0
-        },
-        "error_multipleOf": {
-          "title": "Multiple of error message",
-          "type": "string"
-        },
-        "errorHeader_multipleOf": {
-          "title": "Multiple of error message for header",
-          "type": "string"
-        }
-      }
-    },
-    "validationMaximum": {
-      "properties": {
-        "maximum": {
-          "title": "Maximum",
-          "type": "number",
-          "minimum": 0
-        },
-        "error_maximum": {
-          "title": "Maximum error message",
-          "type": "string"
-        },
-        "errorHeader_maximum": {
-          "title": "Maximum error message for header",
-          "type": "string"
-        }
-      }
-    },
-    "validationExclusiveMaximum": {
-      "properties": {
-        "exclusiveMaximum": {
-          "title": "Exclusive maximum",
-          "type": "number",
-          "minimum": 0
-        },
-        "error_exclusiveMaximum": {
-          "title": "Exclusive maximum error message",
-          "type": "string"
-        },
-        "errorHeader_exclusiveMaximum": {
-          "title": "Exclusive maximum error message for header",
-          "type": "string"
-        }
-      }
-    },
-    "validationMinimum": {
-      "properties": {
-        "minimum": {
-          "title": "Minimum",
-          "type": "number",
-          "minimum": 0
-        },
-        "error_minimum": {
-          "title": "Minimum error message",
-          "type": "string"
-        },
-        "errorHeader_minimum": {
-          "title": "Minimum error message for header",
-          "type": "string"
-        }
-      }
-    },
-    "validationExclusiveMinimum": {
-      "properties": {
-        "exclusiveMinimum": {
-          "title": "Exclusive minimum",
-          "type": "number",
-          "minimum": 0
-        },
-        "error_exclusiveMinimum": {
-          "title": "Exclusive minimum error message",
-          "type": "string"
-        },
-        "errorHeader_exclusiveMinimum": {
-          "title": "Exclusive minimum error message for header",
-          "type": "string"
-        }
-      }
-    },
-    "validationNumber": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/validationMultipleOf"
-        },
-        {
-          "$ref": "#/definitions/validationMaximum"
-        },
-        {
-          "$ref": "#/definitions/validationExclusiveMaximum"
-        },
-        {
-          "$ref": "#/definitions/validationMinimum"
-        },
-        {
-          "$ref": "#/definitions/validationExclusiveMinimum"
-        }
-      ]
     }
   }
 }

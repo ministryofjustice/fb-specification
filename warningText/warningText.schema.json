@@ -1,0 +1,27 @@
+{
+  "$id": "http://gov.uk/schema/warningText/v1.0.0",
+  "title": "Warning text",
+  "description": "Component that provides warning text",
+  "usage": "Use when there are consequences - for example, a fine or prison sentence",
+  "type": "object",
+  "properties": {
+    "_type": {
+      "const": "warningText"
+    },
+    "iconFallbackText": {
+      "title": "Fallback text for the icon",
+      "type": "string"
+    },
+    "html": {
+      "title": "Text",
+      "description": "Warning text content",
+      "type": "string",
+      "multiline": true
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "/schema/definitions/v1.0.0#/definitions/block"
+    }
+  ]
+}

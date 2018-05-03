@@ -2,22 +2,33 @@
   "$id": "http://gov.uk/schema/definitions/v1.0.0",
   "title": "Definitions",
   "type": "object",
-  "validations": {
-    "$ref": "http://gov.uk/schema/validations/v1.0.0#/definitions"
-  },
   "definitions": {
+    "name": {
+      "title": "Input name",
+      "type": "string"
+    },
     "model": {
       "title": "Model to store field in",
       "type": "string"
     },
-    "booleanOrCondition": {
-      "oneOf": [{
-          "type": "boolean"
+    "label": {
+      "title": "Label",
+      "type": "string"
+    },
+    "hint": {
+      "title": "Hint text",
+      "type": "string"
+    },
+    "labelHint": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "$ref": "#/definitions/label"
         },
-        {
-          "$ref": "http://gov.uk/schema/condition/v1.0.0#"
+        "hint": {
+          "$ref": "#/definitions/hint"
         }
-      ]
+      }
     },
     "nextPage": {
       "title": "What page (if any), and under what condtions, to go to next",
@@ -34,7 +45,7 @@
                   "type": "string"
                 },
                 "condition": {
-                  "$ref": "#/definitions/booleanOrCondition"
+                  "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
                 }
               },
               "required": [
@@ -48,11 +59,60 @@
         }
       ]
     },
-    "block": {
+    "propsAttributes": {
+      "type": "object",
+      "properties": {
+        "classes": {
+          "title": "Additional HTML classes",
+          "type": "string"
+        },
+        "attributes": {
+          "title": "Additional HTML attributes",
+          "type": "object"
+        }
+      }
+    },
+    "widthClassMap": {
+      "10": "govuk-c-input--width-10",
+      "20": "govuk-c-input--width-20",
+      "30": "govuk-c-input--width-30",
+      "three-quarters": "govuk-!-width-three-quarters",
+      "two-thirds": "govuk-!-width-two-thirds",
+      "one-half": "govuk-!-width-one-half",
+      "one-third": "govuk-!-width-one-third",
+      "one-quarter": "govuk-!-width-one-quarter"
+    },
+    "widthClass": {
+      "type": "string",
+      "enumMap": "widthClassMap",
+      "enum": [
+        "three-quarters",
+        "two-thirds",
+        "one-half",
+        "one-third",
+        "one-quarter"
+      ]
+    },
+
+    "widthClassInput": {
+      "type": "string",
+      "enumMap": "widthClassMap",
+      "enum": [
+        "10",
+        "20",
+        "30",
+        "three-quarters",
+        "two-thirds",
+        "one-half",
+        "one-third",
+        "one-quarter"
+      ]
+    },
+    "data": {
       "type": "object",
       "properties": {
         "_id": {
-          "title": "Block ID",
+          "title": "Data ID",
           "type": "string"
         },
         "_type": {
@@ -63,21 +123,6 @@
           "title": "Based on",
           "type": "string",
           "blockReference": true
-        },
-        "show": {
-          "title": "Whether to show block or not",
-          "allOf": [{
-            "$ref": "#/definitions/booleanOrCondition"
-          }],
-          "default": true
-        },
-        "classes": {
-          "title": "Additional HTML classes",
-          "type": "string"
-        },
-        "attributes": {
-          "title": "Additional HTML attributes",
-          "type": "object"
         }
       },
       "required": [
@@ -85,47 +130,100 @@
         "_type"
       ]
     },
-    "field": {
+    "block": {
+      "type": "object",
+      "properties": {
+        "show": {
+          "title": "Whether to show block or not",
+          "oneOf": [{
+            "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+          }],
+          "default": true
+        }
+      },
+      "allOf": [{
+          "$ref": "#/definitions/data"
+        }
+      ]
+    },
+    "option": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "title": "Option value",
+          "type": "string"
+        }
+      },
+      "allOf": [{
+          "$ref": "#/definitions/block"
+        },{
+          "$ref": "#/definitions/labelHint"
+        }
+      ],
+      "required": [
+        "value"
+      ]
+    },
+    "control": {
       "type": "object",
       "allOf": [{
           "$ref": "#/definitions/block"
+        },{
+          "$ref": "#/definitions/propsAttributes"
         },
         {
-          "$ref": "http://gov.uk/schema/validations/v1.0.0#/definitions/requiredValidation"
-        },
-        {
-          "$ref": "http://gov.uk/schema/errors/v1.0.0#/definitions/requiredErrors"
-        },
-        {
-          "properties": {
-            "label": {
-              "title": "Label",
-              "type": "string"
-            },
-            "hint": {
-              "title": "Hint text",
-              "type": "string"
-            },
-            "name": {
-              "title": "Field name",
-              "type": "string"
-            },
-            "model": {
-              "$ref": "#/definitions/model"
-            },
-            "disabled": {
-              "title": "Disabled",
-              "allOf": [{
-                "$ref": "#/definitions/booleanOrCondition"
-              }],
-              "default": false
-            }
-          },
-          "required": [
-            "label",
-            "name"
-          ]
+          "$ref": "http://gov.uk/schema/validations/v1.0.0#/definitions/requiredBundle"
         }
+      ],
+      "properties": {
+        "model": {
+          "$ref": "#/definitions/model"
+        },
+        "disabled": {
+          "title": "Disabled",
+          "oneOf": [{
+            "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+          }],
+          "default": false
+        }
+      }
+    },
+    "field": {
+      "type": "object",
+      "allOf": [{
+          "$ref": "#/definitions/control"
+        },{
+          "$ref": "#/definitions/labelHint"
+        }
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/name"
+        }
+      },
+      "required": [
+        "name",
+        "label"
+      ]
+    },
+    "fieldset": {
+      "type": "object",
+      "allOf": [{
+          "$ref": "#/definitions/control"
+        }
+      ],
+      "properties": {
+        "legend": {
+          "title": "Legend",
+          "type": "string"
+        },
+        "hint": {
+          "title": "Hint text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "legend"
       ]
     }
   }
