@@ -8,9 +8,11 @@
       "const": "number"
     },
     "widthClassInput": {
-      "allOf": [{
-        "$ref": "/schema/definitions/v1.0.0#/definitions/widthClassInput"
-      }],
+      "allOf": [
+        {
+          "$ref": "/schema/definitions/v1.0.0#/definitions/widthClassInput"
+        }
+      ],
       "default": "10"
     }
   },

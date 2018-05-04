@@ -1,19 +1,25 @@
 {
   "_id": "gosh",
-  "anyOfConditions": [{
-    "identifier": "foo",
-    "operator": "is",
-    "value": "bar"
-  }, {
-    "allOfConditions": [{
-      "identifier": "bam",
-      "operator": "equals",
-      "value": "20"
-    }, {
-      "identifier": "baz",
+  "anyOfConditions": [
+    {
+      "identifier": "foo",
       "operator": "is",
-      "value": "bar",
-      "negated": true
-    }]
-  }]
+      "value": "bar"
+    },
+    {
+      "allOfConditions": [
+        {
+          "identifier": "bam",
+          "operator": "equals",
+          "value": "20"
+        },
+        {
+          "identifier": "baz",
+          "operator": "is",
+          "value": "bar",
+          "negated": true
+        }
+      ]
+    }
+  ]
 }

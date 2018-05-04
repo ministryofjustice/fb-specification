@@ -3,8 +3,7 @@
   "title": "Single question page",
   "description": "Single question page",
   "type": "object",
-  "category": [
-  ],
+  "category": [],
   "properties": {
     "_type": {
       "const": "pageSingleQuestion"

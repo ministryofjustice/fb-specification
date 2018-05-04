@@ -75,29 +75,33 @@
     },
     "nextPage": {
       "title": "What page (if any), and under what condtions, to go to next",
-      "oneOf": [{
+      "oneOf": [
+        {
           "type": "string"
         },
         {
           "type": "array",
           "items": {
-            "oneOf": [{
-              "type": "object",
-              "properties": {
-                "page": {
-                  "type": "string"
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "page": {
+                    "type": "string"
+                  },
+                  "condition": {
+                    "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+                  }
                 },
-                "condition": {
-                  "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
-                }
+                "required": [
+                  "page",
+                  "condition"
+                ]
               },
-              "required": [
-                "page",
-                "condition"
-              ]
-            },
-            { "type" : "string" }
-          ]
+              {
+                "type": "string"
+              }
+            ]
           }
         }
       ]
@@ -139,7 +143,6 @@
         "one-quarter"
       ]
     },
-
     "widthClassInput": {
       "type": "string",
       "enumMap": "widthClassMap",
@@ -181,13 +184,16 @@
       "properties": {
         "show": {
           "title": "Whether to show block or not",
-          "oneOf": [{
-            "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
-          }],
+          "oneOf": [
+            {
+              "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+            }
+          ],
           "default": true
         }
       },
-      "allOf": [{
+      "allOf": [
+        {
           "$ref": "#/definitions/data"
         }
       ]
@@ -228,7 +234,8 @@
           }
         }
       },
-      "allOf": [{
+      "allOf": [
+        {
           "$ref": "#/definitions/showComponent"
         }
       ],
@@ -242,7 +249,8 @@
       "category": [
         "contentPage"
       ],
-      "allOf": [{
+      "allOf": [
+        {
           "$ref": "#/definitions/page"
         }
       ]
@@ -273,9 +281,11 @@
           "$ref": "#/definitions/nextPage"
         }
       },
-      "allOf": [{
+      "allOf": [
+        {
           "$ref": "#/definitions/page"
-        },{
+        },
+        {
           "$ref": "#/definitions/multipleProperties"
         }
       ]
@@ -285,7 +295,8 @@
       "category": [
         "block"
       ],
-      "allOf": [{
+      "allOf": [
+        {
           "$ref": "#/definitions/showComponent"
         }
       ]
@@ -298,9 +309,11 @@
           "type": "string"
         }
       },
-      "allOf": [{
+      "allOf": [
+        {
           "$ref": "#/definitions/showComponent"
-        },{
+        },
+        {
           "$ref": "#/definitions/labelHint"
         }
       ],
@@ -318,11 +331,14 @@
           "$ref": "#/definitions/items"
         }
       },
-      "allOf": [{
+      "allOf": [
+        {
           "$ref": "#/definitions/block"
-        },{
+        },
+        {
           "$ref": "#/definitions/modelProperties"
-        },{
+        },
+        {
           "$ref": "#/definitions/propsAttributes"
         }
       ]
@@ -332,9 +348,11 @@
       "category": [
         "content"
       ],
-      "allOf": [{
+      "allOf": [
+        {
           "$ref": "#/definitions/block"
-        },{
+        },
+        {
           "$ref": "#/definitions/propsAttributes"
         }
       ]
@@ -344,9 +362,11 @@
       "category": [
         "control"
       ],
-      "allOf": [{
+      "allOf": [
+        {
           "$ref": "#/definitions/block"
-        },{
+        },
+        {
           "$ref": "#/definitions/propsAttributes"
         },
         {
@@ -359,9 +379,11 @@
       "properties": {
         "disabled": {
           "title": "Disabled",
-          "oneOf": [{
-            "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
-          }],
+          "oneOf": [
+            {
+              "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+            }
+          ],
           "default": false
         }
       }
@@ -371,9 +393,11 @@
       "category": [
         "field"
       ],
-      "allOf": [{
+      "allOf": [
+        {
           "$ref": "#/definitions/control"
-        },{
+        },
+        {
           "$ref": "#/definitions/labelHint"
         }
       ],
@@ -389,7 +413,8 @@
     },
     "fieldset": {
       "type": "object",
-      "allOf": [{
+      "allOf": [
+        {
           "$ref": "#/definitions/control"
         }
       ],

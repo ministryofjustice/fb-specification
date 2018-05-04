@@ -3,8 +3,7 @@
   "title": "Confirmation page",
   "description": "Confirmation page",
   "type": "object",
-  "category": [
-  ],
+  "category": [],
   "properties": {
     "_type": {
       "const": "pageConfirmation"

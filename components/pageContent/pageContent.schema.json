@@ -3,8 +3,7 @@
   "title": "Content page",
   "description": "Content page",
   "type": "object",
-  "category": [
-  ],
+  "category": [],
   "properties": {
     "_type": {
       "const": "pageContent"

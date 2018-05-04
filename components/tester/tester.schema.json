@@ -11,7 +11,9 @@
       "title": "Type",
       "type": "string",
       "default": "ShowIf",
-      "enum": ["ShowIf"]
+      "enum": [
+        "ShowIf"
+      ]
     },
     "description": {
       "title": "Description",

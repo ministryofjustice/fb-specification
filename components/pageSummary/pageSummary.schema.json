@@ -3,8 +3,7 @@
   "title": "Summary page",
   "description": "Check your answers page",
   "type": "object",
-  "category": [
-  ],
+  "category": [],
   "properties": {
     "_type": {
       "const": "pageSummary"

@@ -17,18 +17,22 @@
       }
     },
     "required": {
-        "title": "Required",
-        "oneOf": [{
+      "title": "Required",
+      "oneOf": [
+        {
           "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
-        }],
-        "default": true
-      },
-      "errorsRequired": {
-        "title": "Error strings for required",
-        "allOf": [{
+        }
+      ],
+      "default": true
+    },
+    "errorsRequired": {
+      "title": "Error strings for required",
+      "allOf": [
+        {
           "$ref": "#/definitions/errorStrings"
-        }]
-      },
+        }
+      ]
+    },
     "minLength": {
       "title": "Minimum length",
       "type": "number",
@@ -36,9 +40,11 @@
     },
     "errorsMinLength": {
       "title": "Error strings for minLength",
-      "allOf": [{
-        "$ref": "#/definitions/errorStrings"
-      }]
+      "allOf": [
+        {
+          "$ref": "#/definitions/errorStrings"
+        }
+      ]
     },
     "maxLength": {
       "title": "Maximum length",
@@ -47,9 +53,11 @@
     },
     "errorsMaxLength": {
       "title": "Error strings for maxLength",
-      "allOf": [{
-        "$ref": "#/definitions/errorStrings"
-      }]
+      "allOf": [
+        {
+          "$ref": "#/definitions/errorStrings"
+        }
+      ]
     },
     "pattern": {
       "title": "Pattern to match string against",
@@ -57,9 +65,11 @@
     },
     "errorsPattern": {
       "title": "Error strings for pattern",
-      "allOf": [{
-        "$ref": "#/definitions/errorStrings"
-      }]
+      "allOf": [
+        {
+          "$ref": "#/definitions/errorStrings"
+        }
+      ]
     },
     "multipleOf": {
       "title": "Multiple of",
@@ -68,9 +78,11 @@
     },
     "errorsMultipleOf": {
       "title": "Error strings for multipleOf",
-      "allOf": [{
-        "$ref": "#/definitions/errorStrings"
-      }]
+      "allOf": [
+        {
+          "$ref": "#/definitions/errorStrings"
+        }
+      ]
     },
     "maximum": {
       "title": "Maximum",
@@ -79,9 +91,11 @@
     },
     "errorsMaximum": {
       "title": "Error strings for maximum",
-      "allOf": [{
-        "$ref": "#/definitions/errorStrings"
-      }]
+      "allOf": [
+        {
+          "$ref": "#/definitions/errorStrings"
+        }
+      ]
     },
     "exclusiveMaximum": {
       "title": "Exclusive maximum",
@@ -90,9 +104,11 @@
     },
     "errorsExclusiveMaximum": {
       "title": "Error strings for exclusiveMaximum",
-      "allOf": [{
-        "$ref": "#/definitions/errorStrings"
-      }]
+      "allOf": [
+        {
+          "$ref": "#/definitions/errorStrings"
+        }
+      ]
     },
     "minimum": {
       "title": "Minimum",
@@ -101,9 +117,11 @@
     },
     "errorsMinimum": {
       "title": "Error strings for minimum",
-      "allOf": [{
-        "$ref": "#/definitions/errorStrings"
-      }]
+      "allOf": [
+        {
+          "$ref": "#/definitions/errorStrings"
+        }
+      ]
     },
     "exclusiveMinimum": {
       "title": "Exclusive minimum",
@@ -112,9 +130,11 @@
     },
     "errorsExclusiveMinimum": {
       "title": "Error strings for exclusiveMinimum",
-      "allOf": [{
-        "$ref": "#/definitions/errorStrings"
-      }]
+      "allOf": [
+        {
+          "$ref": "#/definitions/errorStrings"
+        }
+      ]
     },
     "requiredBundle": {
       "properties": {

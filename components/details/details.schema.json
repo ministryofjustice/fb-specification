@@ -24,7 +24,6 @@
       "type": "boolean",
       "default": false
     }
-
   },
   "allOf": [
     {

@@ -42,14 +42,16 @@
       "day-month": "Day / Month"
     },
     "validDate": {
-      "oneOf": [{
-        "type": "string",
-        "format": "date"
-      },
-      {
-        "type": "string",
-        "pattern": "^\\d+\\w$"
-      }]
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date"
+        },
+        {
+          "type": "string",
+          "pattern": "^\\d+\\w$"
+        }
+      ]
     }
   }
 }

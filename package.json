@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "validate": "SCHEMA=$1; echo test -r definitions/definitions.schema.json -r condition/condition.schema.json -s \"$SCHEMA/$SCHEMA.schema.json\" -d \"$SCHEMA/data/valid/*.json\" --valid"
+    "validate": "SCHEMA=$1; echo test -r definitions/definitions.schema.json -r condition/condition.schema.json -s \"$SCHEMA/$SCHEMA.schema.json\" -d \"$SCHEMA/data/valid/*.json\" --valid",
+    "lint:schemas": "find components/**/*.schema.json | xargs -P 20 -L 1 jsonlint -q",
+    "format:schemas": "find components/**/*.schema.json | xargs -P 20 -L 1 jsonlint -qi",
+    "lint:data": "find components/**/data/**/*.json | xargs -P 20 -L 1 jsonlint -q",
+    "format:data": "find components/**/data/**/*.json | xargs -P 20 -L 1 jsonlint -qi"
   },
   "author": "",
   "license": "ISC",

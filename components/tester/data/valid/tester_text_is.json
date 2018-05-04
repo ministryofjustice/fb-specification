@@ -9,19 +9,22 @@
   "requiredIf": {
     "_id": "requiredIfId",
     "_type": "Condition",
-    "allOfConditions": [{
-      "_id": "alOfXrequiredIfId",
-      "_type": "Condition",
-      "identifier": "zoo",
-      "operator": "is",
-      "value": "zar"
-    },{
-      "_id": "allOfYrequiredIfId",
-      "_type": "Condition",
-      "identifier": "hoo",
-      "operator": "equals",
-      "value": 20
-    }]
+    "allOfConditions": [
+      {
+        "_id": "alOfXrequiredIfId",
+        "_type": "Condition",
+        "identifier": "zoo",
+        "operator": "is",
+        "value": "zar"
+      },
+      {
+        "_id": "allOfYrequiredIfId",
+        "_type": "Condition",
+        "identifier": "hoo",
+        "operator": "equals",
+        "value": 20
+      }
+    ]
   },
   "vextPage": [
     {

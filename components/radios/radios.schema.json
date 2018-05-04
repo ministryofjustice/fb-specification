@@ -13,7 +13,9 @@
     "items": {
       "type": "array",
       "items": [
-        {"$ref": "/schema/radio/v1.0.0#"}
+        {
+          "$ref": "/schema/radio/v1.0.0#"
+        }
       ]
     }
   },

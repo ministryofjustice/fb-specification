@@ -3,8 +3,7 @@
   "title": "Form page",
   "description": "Form page",
   "type": "object",
-  "category": [
-  ],
+  "category": [],
   "properties": {
     "_type": {
       "const": "pageForm"

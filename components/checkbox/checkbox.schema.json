@@ -11,9 +11,10 @@
       "$ref": "/schema/definitions/v1.0.0#/definitions/name"
     }
   },
-  "allOf": [{
-    "$ref": "/schema/definitions/v1.0.0#/definitions/modelProperties"
-  },
+  "allOf": [
+    {
+      "$ref": "/schema/definitions/v1.0.0#/definitions/modelProperties"
+    },
     {
       "$ref": "/schema/definitions/v1.0.0#/definitions/option"
     }

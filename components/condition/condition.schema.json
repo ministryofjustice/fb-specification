@@ -6,7 +6,8 @@
     "_id",
     "_type"
   ],
-  "allOf": [{
+  "allOf": [
+    {
       "properties": {
         "_id": {
           "title": "Condition",
@@ -28,7 +29,8 @@
       }
     },
     {
-      "oneOf": [{
+      "oneOf": [
+        {
           "$ref": "#/definitions/condition"
         },
         {
@@ -45,7 +47,8 @@
   ],
   "definitions": {
     "booleanOrCondition": {
-      "oneOf": [{
+      "oneOf": [
+        {
           "type": "boolean"
         },
         {
@@ -55,7 +58,8 @@
     },
     "condition": {
       "type": "object",
-      "oneOf": [{
+      "oneOf": [
+        {
           "$ref": "#/definitions/definedCondition"
         },
         {
@@ -93,7 +97,8 @@
     "definedCondition": {
       "title": "Defined Condition",
       "type": "object",
-      "allOf": [{
+      "allOf": [
+        {
           "$ref": "#/definitions/baseCondition"
         },
         {
@@ -115,7 +120,8 @@
     "textCondition": {
       "title": "Text Condition",
       "type": "object",
-      "allOf": [{
+      "allOf": [
+        {
           "$ref": "#/definitions/baseCondition"
         },
         {
@@ -145,7 +151,8 @@
     "numberCondition": {
       "title": "Number Condition",
       "type": "object",
-      "allOf": [{
+      "allOf": [
+        {
           "$ref": "#/definitions/baseCondition"
         },
         {
@@ -177,7 +184,8 @@
     "booleanCondition": {
       "title": "Boolean Condition",
       "type": "object",
-      "allOf": [{
+      "allOf": [
+        {
           "$ref": "#/definitions/baseCondition"
         },
         {
@@ -208,7 +216,9 @@
           }
         }
       },
-      "required": ["allOfConditions"]
+      "required": [
+        "allOfConditions"
+      ]
     },
     "anyOfConditions": {
       "title": "Anyof Condition Met definitions",
@@ -222,7 +232,9 @@
           }
         }
       },
-      "required": ["anyOfConditions"]
+      "required": [
+        "anyOfConditions"
+      ]
     },
     "oneOfConditions": {
       "title": "One Condition Met definitions",
@@ -236,7 +248,9 @@
           }
         }
       },
-      "required": ["oneOfConditions"]
+      "required": [
+        "oneOfConditions"
+      ]
     }
   }
 }

@@ -3,8 +3,7 @@
   "title": "Start page",
   "description": "Start page",
   "type": "object",
-  "category": [
-  ],
+  "category": [],
   "properties": {
     "_type": {
       "const": "pageStart"

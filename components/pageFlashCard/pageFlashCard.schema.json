@@ -3,8 +3,7 @@
   "title": "Flash card page",
   "description": "Flash card page",
   "type": "object",
-  "category": [
-  ],
+  "category": [],
   "properties": {
     "_type": {
       "const": "pageFlashCard"

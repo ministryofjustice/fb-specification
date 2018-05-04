@@ -1,13 +1,16 @@
 {
   "_id": "gosh",
-  "allOfConditions": [{
-    "identifier": "foo",
-    "operator": "is",
-    "value": "bar"
-  },{
-    "identifier": "baz",
-    "operator": "is",
-    "value": "bar",
-    "negated": true
-  }]
+  "allOfConditions": [
+    {
+      "identifier": "foo",
+      "operator": "is",
+      "value": "bar"
+    },
+    {
+      "identifier": "baz",
+      "operator": "is",
+      "value": "bar",
+      "negated": true
+    }
+  ]
 }
