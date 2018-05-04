@@ -13,6 +13,7 @@
     "ajv": "^6.4.0",
     "ajv-cli": "^3.0.0",
     "glob": "^7.1.2",
+    "glob-promise": "^3.4.0",
     "json-schema-merge-allof": "^0.6.0",
     "json-schema-ref-parser": "^5.0.3",
     "jsonlint": "^1.6.3",
