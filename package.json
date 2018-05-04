@@ -15,6 +15,7 @@
     "glob": "^7.1.2",
     "json-schema-merge-allof": "^0.6.0",
     "json-schema-ref-parser": "^5.0.3",
+    "jsonlint": "^1.6.3",
     "yargs": "^11.0.0"
   }
 }

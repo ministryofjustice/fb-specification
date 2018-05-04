@@ -9,7 +9,7 @@ const ajv = new Ajv();
 const schema = process.argv[2] || 'zap'
 
 const doLoad = name => {
-  const loaded = require(path.resolve(`${name}/${name}.schema.json`))
+  const loaded = require(path.resolve(`components/${name}/${name}.schema.json`))
   let refSchema = JSON.stringify(loaded)
   refSchema = refSchema.replace(/"\$ref":\s*("(http:\/\/gov.uk)*\/schema\/condition\/v1.0.0#\/definitions\/booleanOrCondition")/g, '"GOSHref": $1')
   refSchema = JSON.parse(refSchema)

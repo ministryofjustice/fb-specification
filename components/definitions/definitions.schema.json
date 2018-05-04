@@ -18,19 +18,11 @@
     "modelProperties": {
       "properties": {
         "model": {
-          "$ref": "#/definitions/model",
-          "type": "string"
+          "$ref": "#/definitions/model"
         },
         "modelProtect": {
           "type": "boolean",
           "default": false
-        }
-      },
-      "dependencies": {
-        "model": {
-          "required": [
-            "modelProtect"
-          ]
         }
       }
     },
