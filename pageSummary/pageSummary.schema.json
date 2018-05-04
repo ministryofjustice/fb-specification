@@ -1,0 +1,18 @@
+{
+  "$id": "http://gov.uk/schema/pageSummary/v1.0.0",
+  "title": "Summary page",
+  "description": "Check your answers page",
+  "type": "object",
+  "category": [
+  ],
+  "properties": {
+    "_type": {
+      "const": "pageSummary"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "/schema/definitions/v1.0.0#/definitions/formPage"
+    }
+  ]
+}

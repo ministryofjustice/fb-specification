@@ -1,0 +1,21 @@
+{
+  "$id": "http://gov.uk/schema/pageConfirmation/v1.0.0",
+  "title": "Confirmation page",
+  "description": "Confirmation page",
+  "type": "object",
+  "category": [
+  ],
+  "properties": {
+    "_type": {
+      "const": "pageConfirmation"
+    },
+    "continue": {
+      "const": "makes no sense"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "/schema/definitions/v1.0.0#/definitions/formPage"
+    }
+  ]
+}

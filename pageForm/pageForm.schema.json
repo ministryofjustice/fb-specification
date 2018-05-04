@@ -1,0 +1,28 @@
+{
+  "$id": "http://gov.uk/schema/pageForm/v1.0.0",
+  "title": "Form page",
+  "description": "Form page",
+  "type": "object",
+  "category": [
+  ],
+  "properties": {
+    "_type": {
+      "const": "pageForm"
+    },
+    "continue": {
+      "type": "string",
+      "enum": [
+        "continue",
+        "saveContinue",
+        "save",
+        "confirm"
+      ],
+      "default": "continue"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "/schema/definitions/v1.0.0#/definitions/formPage"
+    }
+  ]
+}

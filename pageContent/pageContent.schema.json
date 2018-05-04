@@ -1,0 +1,18 @@
+{
+  "$id": "http://gov.uk/schema/pageContent/v1.0.0",
+  "title": "Content page",
+  "description": "Content page",
+  "type": "object",
+  "category": [
+  ],
+  "properties": {
+    "_type": {
+      "const": "pageContent"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "/schema/definitions/v1.0.0#/definitions/contentPage"
+    }
+  ]
+}

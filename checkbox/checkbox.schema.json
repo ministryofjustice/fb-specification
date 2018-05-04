@@ -7,14 +7,13 @@
     "_type": {
       "const": "checkbox"
     },
-    "model": {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/model"
-    },
     "name": {
       "$ref": "/schema/definitions/v1.0.0#/definitions/name"
     }
   },
-  "allOf": [
+  "allOf": [{
+    "$ref": "/schema/definitions/v1.0.0#/definitions/modelProperties"
+  },
     {
       "$ref": "/schema/definitions/v1.0.0#/definitions/option"
     }

@@ -15,6 +15,46 @@
       "title": "Model to store field in",
       "type": "string"
     },
+    "modelProperties": {
+      "properties": {
+        "model": {
+          "$ref": "#/definitions/model",
+          "type": "string"
+        },
+        "modelProtect": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "dependencies": {
+        "model": {
+          "required": [
+            "modelProtect"
+          ]
+        }
+      }
+    },
+    "multipleProperties": {
+      "properties": {
+        "multiple": {
+          "type": "boolean"
+        },
+        "multipleMinimum": {
+          "type": "number",
+          "minimum": 0,
+          "default": 1
+        },
+        "multipleMaximum": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/modelProperties"
+        }
+      ]
+    },
     "label": {
       "title": "Label",
       "type": "string"
@@ -144,11 +184,8 @@
         "_type"
       ]
     },
-    "block": {
+    "showComponent": {
       "type": "object",
-      "category": [
-        "block"
-      ],
       "properties": {
         "show": {
           "title": "Whether to show block or not",
@@ -163,6 +200,104 @@
         }
       ]
     },
+    "page": {
+      "type": "object",
+      "category": [
+        "page"
+      ],
+      "properties": {
+        "url": {
+          "title": "URL",
+          "type": "string"
+        },
+        "heading": {
+          "title": "Heading",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "lede": {
+          "title": "Lede",
+          "type": "string"
+        },
+        "content": {
+          "title": "Content",
+          "type": "string",
+          "multiline": true
+        },
+        "items": {
+          "title": "Items",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "blockReference": true
+          }
+        }
+      },
+      "allOf": [{
+          "$ref": "#/definitions/showComponent"
+        }
+      ],
+      "required": [
+        "url",
+        "heading"
+      ]
+    },
+    "contentPage": {
+      "type": "object",
+      "category": [
+        "contentPage"
+      ],
+      "allOf": [{
+          "$ref": "#/definitions/page"
+        }
+      ]
+    },
+    "formPage": {
+      "type": "object",
+      "category": [
+        "formPage"
+      ],
+      "properties": {
+        "extraItems": {
+          "title": "Additional items following continue button",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "blockReference": true
+          }
+        },
+        "steps": {
+          "title": "Steps",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "blockReference": true
+          }
+        },
+        "nextPage": {
+          "$ref": "#/definitions/nextPage"
+        }
+      },
+      "allOf": [{
+          "$ref": "#/definitions/page"
+        },{
+          "$ref": "#/definitions/multipleProperties"
+        }
+      ]
+    },
+    "block": {
+      "type": "object",
+      "category": [
+        "block"
+      ],
+      "allOf": [{
+          "$ref": "#/definitions/showComponent"
+        }
+      ]
+    },
     "option": {
       "type": "object",
       "properties": {
@@ -172,7 +307,7 @@
         }
       },
       "allOf": [{
-          "$ref": "#/definitions/block"
+          "$ref": "#/definitions/showComponent"
         },{
           "$ref": "#/definitions/labelHint"
         }
@@ -187,15 +322,14 @@
         "grouping"
       ],
       "properties": {
-        "model": {
-          "$ref": "#/definitions/model"
-        },
         "items": {
           "$ref": "#/definitions/items"
         }
       },
       "allOf": [{
           "$ref": "#/definitions/block"
+        },{
+          "$ref": "#/definitions/modelProperties"
         },{
           "$ref": "#/definitions/propsAttributes"
         }
@@ -224,13 +358,13 @@
           "$ref": "#/definitions/propsAttributes"
         },
         {
+          "$ref": "#/definitions/modelProperties"
+        },
+        {
           "$ref": "http://gov.uk/schema/validations/v1.0.0#/definitions/requiredBundle"
         }
       ],
       "properties": {
-        "model": {
-          "$ref": "#/definitions/model"
-        },
         "disabled": {
           "title": "Disabled",
           "oneOf": [{

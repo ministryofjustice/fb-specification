@@ -1,0 +1,18 @@
+{
+  "$id": "http://gov.uk/schema/pageStart/v1.0.0",
+  "title": "Start page",
+  "description": "Start page",
+  "type": "object",
+  "category": [
+  ],
+  "properties": {
+    "_type": {
+      "const": "pageStart"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "/schema/definitions/v1.0.0#/definitions/formPage"
+    }
+  ]
+}

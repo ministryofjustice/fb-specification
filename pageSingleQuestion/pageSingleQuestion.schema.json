@@ -1,0 +1,21 @@
+{
+  "$id": "http://gov.uk/schema/pageSingleQuestion/v1.0.0",
+  "title": "Single question page",
+  "description": "Single question page",
+  "type": "object",
+  "category": [
+  ],
+  "properties": {
+    "_type": {
+      "const": "pageSingleQuestion"
+    },
+    "items": {
+      "maxItems": 1
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "/schema/definitions/v1.0.0#/definitions/formPage"
+    }
+  ]
+}

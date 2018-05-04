@@ -22,7 +22,9 @@
       "type": "string"
     }
   },
-  "allOf": [
+  "allOf": [{
+    "$ref": "/schema/definitions/v1.0.0#/definitions/multipleProperties"
+  },
     {
       "$ref": "/schema/definitions/v1.0.0#/definitions/grouping"
     }
