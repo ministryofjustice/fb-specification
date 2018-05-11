@@ -1,0 +1,24 @@
+{
+  "_id": "pageSingleQuestionYesNo",
+  "_type": "pageSingleQuestion",
+  "url": "/first-form",
+  "items": [{
+    "_id": "pageSingleQuestionYesNo--yesNo",
+    "_type": "radios",
+    "legend": "Is this your first form?",
+    "items": [
+      {
+        "_id": "pageSingleQuestionYesNo--yes",
+        "_type": "radio",
+        "value": "yes",
+        "label": "Yes"
+      },
+      {
+        "_id": "pageSingleQuestionYesNo--no",
+        "_type": "radio",
+        "value": "no",
+        "label": "No"
+      }
+    ]
+  }]
+}

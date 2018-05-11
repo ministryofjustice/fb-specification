@@ -12,5 +12,8 @@
     {
       "$ref": "/schema/definitions/v1.0.0#/definitions/option"
     }
+  ],
+  "required": [
+    "label"
   ]
 }

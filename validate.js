@@ -70,14 +70,19 @@ const invalidGlob = dataPaths.invalid ? Promise.resolve(dataPaths.invalid) : pro
 const schemaPath = schema.endsWith('.json') ? schema : path.resolve('components', schema, `${schema}.schema.json`)
 const dataSchema = require(schemaPath)
 
+
 const conditionSchema = require(path.resolve('components/condition/condition.schema.json'))
 const definitionsSchema = require(path.resolve('components/definitions/definitions.schema.json'))
 const validationsSchema = require(path.resolve('components/validations/validations.schema.json'))
 const errorsSchema = require(path.resolve('components/errors/errors.schema.json'))
+const radioSchema = require(path.resolve('components/radio/radio.schema.json'))
+const checkboxSchema = require(path.resolve('components/checkbox/checkbox.schema.json'))
 ajv.addSchema(conditionSchema)
 ajv.addSchema(definitionsSchema)
 ajv.addSchema(validationsSchema)
 ajv.addSchema(errorsSchema)
+ajv.addSchema(radioSchema)
+ajv.addSchema(checkboxSchema)
 
 const validateData = (dataPath) => {
   const data = require(path.resolve(dataPath))

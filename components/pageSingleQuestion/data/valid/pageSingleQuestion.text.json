@@ -1,0 +1,11 @@
+{
+  "_id": "pageColour",
+  "_type": "pageSingleQuestion",
+  "url": "/colour",
+  "items": [{
+    "_id": "pageColour-colour",
+    "_type": "text",
+    "name": "colour",
+    "label": "What is your favourite colour?"
+  }]
+}

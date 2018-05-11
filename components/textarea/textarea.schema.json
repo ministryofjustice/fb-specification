@@ -1,5 +1,5 @@
 {
-  "$id": "http://gov.uk/schema/text/v1.0.0",
+  "$id": "http://gov.uk/schema/textarea/v1.0.0",
   "title": "Textarea",
   "description": "Component that provides a textarea field",
   "type": "object",

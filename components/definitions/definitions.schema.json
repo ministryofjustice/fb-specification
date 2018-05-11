@@ -1,5 +1,6 @@
 {
   "$id": "http://gov.uk/schema/definitions/v1.0.0",
+  "_name": "definitions",
   "title": "Definitions",
   "type": "object",
   "definitions": {
@@ -229,8 +230,7 @@
           "title": "Items",
           "type": "array",
           "items": {
-            "type": "string",
-            "blockReference": true
+            "$ref": "#/definitions/items/items"
           }
         }
       },
@@ -240,8 +240,7 @@
         }
       ],
       "required": [
-        "url",
-        "heading"
+        "url"
       ]
     },
     "contentPage": {
@@ -253,6 +252,9 @@
         {
           "$ref": "#/definitions/page"
         }
+      ],
+      "required": [
+        "heading"
       ]
     },
     "formPage": {
@@ -265,16 +267,14 @@
           "title": "Additional items following continue button",
           "type": "array",
           "items": {
-            "type": "string",
-            "blockReference": true
+            "$ref": "#/definitions/items/items"
           }
         },
         "steps": {
           "title": "Steps",
           "type": "array",
           "items": {
-            "type": "string",
-            "blockReference": true
+            "type": "string"
           }
         },
         "nextPage": {
@@ -293,6 +293,7 @@
     "block": {
       "type": "object",
       "category": [
+        "component",
         "block"
       ],
       "allOf": [
@@ -432,5 +433,8 @@
         "legend"
       ]
     }
-  }
+  },
+  "category": [
+    "definition"
+  ]
 }

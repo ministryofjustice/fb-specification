@@ -16,7 +16,7 @@
         "_type": {
           "title": "Type",
           "type": "string",
-          "const": "Condition"
+          "const": "condition"
         },
         "description": {
           "title": "Description",
@@ -252,5 +252,8 @@
         "oneOfConditions"
       ]
     }
-  }
+  },
+  "category": [
+    "definition"
+  ]
 }

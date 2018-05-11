@@ -27,6 +27,9 @@
       "$ref": "/schema/definitions/v1.0.0#/definitions/data"
     }
   ],
+  "category": [
+    "configuration"
+  ],
   "required": [
     "name",
     "phase",

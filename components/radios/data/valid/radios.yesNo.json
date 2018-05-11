@@ -1,0 +1,19 @@
+{
+  "_id": "radiosYesNo",
+  "_type": "radios",
+  "legend": "Is this your first form?",
+  "items": [
+    {
+      "_id": "radiosYesNo--yes",
+      "_type": "radio",
+      "value": "yes",
+      "label": "Yes"
+    },
+    {
+      "_id": "radiosYesNo--no",
+      "_type": "radio",
+      "value": "no",
+      "label": "No"
+    }
+  ]
+}
