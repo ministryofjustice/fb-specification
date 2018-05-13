@@ -1,7 +1,8 @@
-const {expandSchema, getSchemaName, getRawSchema} = require('./lib/schemaUtils')
+const {expandSchema, getSchemaName, getSchemaDir, getRawSchema} = require('./lib/schemaUtils')
 const glob = require('glob-promise')
 const fs = require('fs')
 const path = require('path')
+var shell = require('shelljs')
 const mkdirp = require('mkdirp')
 
 const localDocPath = process.argv[2] || path.resolve('../fb-documentation')
@@ -43,7 +44,8 @@ glob('components/**/*.schema.json')
     const categoryOrder = [
       'configuration',
       'page',
-      'component'
+      'component',
+      'definition'
       // 'contentPage',
       // 'formPage',
       // 'grouping',
@@ -54,54 +56,102 @@ glob('components/**/*.schema.json')
       // 'definition'
     ]
     const docPath =  path.join(localDocPath, 'src')
-    const createCategoryDirectory = (category) => {
-      const categoryDocPath = path.join(docPath, category)
-      const result = mkdirp.sync(categoryDocPath)
-    }
+    const specDocPath = path.resolve('documentation')
+    const getStartedDocPath = path.join(docPath, 'get-started')
+    shell.cp(`${specDocPath}/get-started.md`, `${getStartedDocPath}/index.md.njk`)
+    // const createCategoryDirectory = (category) => {
+    //   const categoryDocPath = path.join(docPath, category)
+    //   const result = mkdirp.sync(categoryDocPath)
+    //   shell.rm('-rf', `${categoryDocPath}/*`);
+    // }
     const categories = splitByCategory(schemas, categoryOrder)
     Object.keys(categories).forEach(category => {
       console.log(category)
       console.log('------------------------')
       console.log(categories[category].map(schema => schema.$id))
       const categoryDocPath = path.join(docPath, category)
-      createCategoryDirectory(category)
+      const result = mkdirp.sync(categoryDocPath)
+      shell.rm('-rf', `${categoryDocPath}/*`)
+      shell.cp(`${specDocPath}/${category}.md`, `${categoryDocPath}/index.md.njk`)
       categories[category].forEach(schema => {
         const schemaName = getSchemaName(schema)
         if (!schemaName) {
           throw new Error(`${schema.$id} has no schema name`)
         }
+        const schemaDir = getSchemaDir(schemaName)
+        const schemaDocDirPath = path.join(categoryDocPath, schemaName)
+        mkdirp.sync(schemaDocDirPath)
+        let template
+        try {
+          template = fs.readFileSync(`${schemaDir}/${schemaName}.njk`).toString()
+        } catch(e) {}
+        let examplesOutput = ''
+        const addExample = (example, exampleMd) => {
+          return `
+${exampleMd}
+{{ specExample({group: '${category}', item: '${schemaName}', example: '${example}', html: true, json: true, open: true}) }}`
+        }
+        if (template) {
+          // console.log(template)
+          const dataDir = `${schemaDir}/data/valid`
+          const examples = glob.sync(`${dataDir}/*.md`)
+          examples.forEach(exampleMdPath => {
+            const example = exampleMdPath.replace(/.*\/(.+?)\.md$/, '$1')
+            const exampleDocName = `example.${example}`.replace(/\.(.)/g, (m, m1) => m1.toUpperCase())
+            const exampleMd = fs.readFileSync(exampleMdPath).toString()
+            const exampleJSON = fs.readFileSync(`${dataDir}/${example}.json`).toString()
+            // console.log({example})
+            // console.log(exampleMd)
+            // console.log(exampleJSON)
+            // const exampleData = JSON.stringify(exampleJSON, null, 2)
+            examplesOutput += addExample(exampleDocName, exampleMd)
+            let exampleNJK = `---
+layout: layout-specification.njk
+---
+${template}
+{% set data = ${exampleJSON} %}
+{{ ${schemaName}(data) }}
+`
+            console.log(exampleNJK)
+            fs.writeFileSync(`${schemaDocDirPath}/${exampleDocName}.njk`, exampleNJK)
+            shell.cp(`${dataDir}/${example}.json`, `${schemaDocDirPath}/${exampleDocName}.json`)
+          })
+          // shell.cp(`${schemaDir}/data/valid/*`, `${categoryDocPath}/`)
+        }
         const propRows = []
         const schemaProps = schema.properties
-        const schemaRequired = schema.required
-        const propKeys = Object.keys(schemaProps).sort((a, b) => {
-          const aIsRequired = schemaRequired.includes(a)
-          const bIsRequired = schemaRequired.includes(b)
-          if (aIsRequired !== bIsRequired) {
-            return aIsRequired ? -1 : 1
-          }
-          return a > b ? 1 : -1
-        })
-        propKeys.forEach(prop => {
-          const property = schemaProps[prop]
-          propRows.push([{
-            text: prop
-          },{
-            text: property.type
-          },{
-            text: schemaRequired.includes(prop) ? 'yes' : 'no'
-          },{
-            html: property.title
-          },{
-            html: property.default !== undefined ? property.default : '-'
-          }])
-        })
+        if (schemaProps) {
+          const schemaRequired = schema.required
+          const propKeys = Object.keys(schemaProps).sort((a, b) => {
+            if (schemaRequired) {
+              const aIsRequired = schemaRequired.includes(a)
+              const bIsRequired = schemaRequired.includes(b)
+              if (aIsRequired !== bIsRequired) {
+                return aIsRequired ? -1 : 1
+              }
+            }
+            return a > b ? 1 : -1
+          })
+          propKeys.forEach(prop => {
+            const property = schemaProps[prop]
+            propRows.push([{
+              text: prop
+            },{
+              text: property.type
+            },{
+              text: schemaRequired && schemaRequired.includes(prop) ? 'yes' : 'no'
+            },{
+              html: property.title
+            },{
+              html: property.default !== undefined ? property.default : '-'
+            }])
+          })
+        }
         const rows = JSON.stringify(propRows, null, 2)
         const expandedSchema = ('\n```\n' + JSON.stringify(schema, null, 2) + '\n```\n').replace(/"/g, '\\"')
         const rawSchema = ('\n```\n' + JSON.stringify(getRawSchema(schemaName), null, 2) + '\n```\n').replace(/"/g, '\\"')
-        const schemaDocDirPath = path.join(categoryDocPath, schemaName)
-        mkdirp.sync(schemaDocDirPath)
         const schemaDocPath = path.join(schemaDocDirPath, 'index.md.njk')
-        const categoryName = 
+        // const categoryName = 
         fs.writeFileSync(schemaDocPath, `---
 title: ${schema.title}
 description: ${schema.description}
@@ -111,8 +161,11 @@ backlog_issue_id:
 layout: layout-pane.njk
 ---
 
+{% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+
+${examplesOutput}
 
 {{ govukTable({
   "caption": "Schema properties",

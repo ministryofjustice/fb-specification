@@ -24,6 +24,7 @@
     "jsonlint": "^1.6.3",
     "mkdirp": "^0.5.1",
     "npm-run-all": "^4.1.2",
+    "shelljs": "^0.8.2",
     "yargs": "^11.0.0"
   }
 }
