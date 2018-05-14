@@ -1,5 +1,5 @@
 {
-  "$id": "http://gov.uk/schema/validations/v1.0.0",
+  "$id": "http://gov.uk/schema/v1.0.0/validations",
   "_name": "validations",
   "title": "Validations",
   "type": "object",
@@ -21,7 +21,7 @@
       "title": "Required",
       "oneOf": [
         {
-          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+          "$ref": "http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition"
         }
       ],
       "default": true

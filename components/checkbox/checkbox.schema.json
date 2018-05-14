@@ -1,5 +1,5 @@
 {
-  "$id": "http://gov.uk/schema/checkbox/v1.0.0",
+  "$id": "http://gov.uk/schema/v1.0.0/checkbox",
   "title": "Checkbox option",
   "description": "Component that provides a radio option",
   "type": "object",
@@ -8,15 +8,15 @@
       "const": "checkbox"
     },
     "name": {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/name"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/name"
     }
   },
   "allOf": [
     {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/modelProperties"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/modelProperties"
     },
     {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/option"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/option"
     }
   ]
 }

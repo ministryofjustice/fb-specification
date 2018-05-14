@@ -1,5 +1,5 @@
 {
-  "$id": "http://gov.uk/schema/date/v1.0.0",
+  "$id": "http://gov.uk/schema/v1.0.0/date",
   "title": "Date",
   "description": "Component that provides a composite date input field",
   "type": "object",
@@ -31,7 +31,7 @@
   },
   "allOf": [
     {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/field"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/field"
     }
   ],
   "definitions": {

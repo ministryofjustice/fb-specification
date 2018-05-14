@@ -1,5 +1,5 @@
 {
-  "$id": "http://gov.uk/schema/option/v1.0.0",
+  "$id": "http://gov.uk/schema/v1.0.0/option",
   "title": "Select option",
   "description": "Component that provides a select option",
   "type": "object",
@@ -16,7 +16,7 @@
   },
   "allOf": [
     {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/block"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/block"
     }
   ],
   "required": [

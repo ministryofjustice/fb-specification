@@ -1,5 +1,5 @@
 {
-  "$id": "http://gov.uk/schema/radio/v1.0.0",
+  "$id": "http://gov.uk/schema/v1.0.0/radio",
   "title": "Radio option",
   "description": "Component that provides a radio option",
   "type": "object",
@@ -10,7 +10,7 @@
   },
   "allOf": [
     {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/option"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/option"
     }
   ],
   "required": [

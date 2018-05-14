@@ -1,5 +1,5 @@
 {
-  "$id": "http://gov.uk/schema/details/v1.0.0",
+  "$id": "http://gov.uk/schema/v1.0.0/details",
   "title": "Details",
   "description": "Component for revealing content on user demand (progressive disclosure)",
   "type": "object",
@@ -27,7 +27,7 @@
   },
   "allOf": [
     {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/content"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/content"
     }
   ]
 }

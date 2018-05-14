@@ -1,5 +1,5 @@
 {
-  "$id": "http://gov.uk/schema/pageContent/v1.0.0",
+  "$id": "http://gov.uk/schema/v1.0.0/pageContent",
   "title": "Content page",
   "description": "Content page",
   "type": "object",
@@ -11,7 +11,7 @@
   },
   "allOf": [
     {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/contentPage"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/contentPage"
     }
   ]
 }

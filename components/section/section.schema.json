@@ -1,5 +1,5 @@
 {
-  "$id": "http://gov.uk/schema/section/v1.0.0",
+  "$id": "http://gov.uk/schema/v1.0.0/section",
   "title": "Section",
   "description": "Component for creating sections within a page",
   "type": "object",
@@ -21,12 +21,12 @@
       "multiline": true
     },
     "items": {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/items"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/items"
     }
   },
   "allOf": [
     {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/content"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/content"
     }
   ]
 }

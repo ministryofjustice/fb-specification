@@ -1,5 +1,5 @@
 {
-  "$id": "http://gov.uk/schema/pageStart/v1.0.0",
+  "$id": "http://gov.uk/schema/v1.0.0/pageStart",
   "title": "Start page",
   "description": "Start page",
   "type": "object",
@@ -11,7 +11,7 @@
   },
   "allOf": [
     {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/formPage"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/formPage"
     }
   ],
   "required": [

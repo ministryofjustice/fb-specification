@@ -1,5 +1,5 @@
 {
-  "$id": "http://gov.uk/schema/radios/v1.0.0",
+  "$id": "http://gov.uk/schema/v1.0.0/radios",
   "title": "Radios",
   "description": "Component that provides a radio fieldset",
   "type": "object",
@@ -8,20 +8,20 @@
       "const": "radios"
     },
     "name": {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/name"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/name"
     },
     "items": {
       "type": "array",
       "items": [
         {
-          "$ref": "/schema/radio/v1.0.0#"
+          "$ref": "/schema/v1.0.0/radio#"
         }
       ]
     }
   },
   "allOf": [
     {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/fieldset"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/fieldset"
     }
   ]
 }

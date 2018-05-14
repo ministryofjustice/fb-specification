@@ -1,5 +1,5 @@
 {
-  "$id": "http://gov.uk/schema/fieldset/v1.0.0",
+  "$id": "http://gov.uk/schema/v1.0.0/fieldset",
   "title": "Fieldset",
   "description": "Component for fieldset",
   "type": "object",
@@ -24,10 +24,10 @@
   },
   "allOf": [
     {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/multipleProperties"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/multipleProperties"
     },
     {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/grouping"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/grouping"
     }
   ],
   "required": [

@@ -1,5 +1,5 @@
 {
-  "$id": "http://gov.uk/schema/definitions/v1.0.0",
+  "$id": "http://gov.uk/schema/v1.0.0/definitions",
   "_name": "definitions",
   "title": "Definitions",
   "type": "object",
@@ -91,7 +91,7 @@
                     "type": "string"
                   },
                   "condition": {
-                    "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+                    "$ref": "http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition"
                   }
                 },
                 "required": [
@@ -187,7 +187,7 @@
           "title": "Whether to show block or not",
           "oneOf": [
             {
-              "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+              "$ref": "http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition"
             }
           ],
           "default": true
@@ -378,7 +378,7 @@
           "$ref": "#/definitions/modelProperties"
         },
         {
-          "$ref": "http://gov.uk/schema/validations/v1.0.0#/definitions/requiredBundle"
+          "$ref": "http://gov.uk/schema/v1.0.0/validations#/definitions/requiredBundle"
         }
       ],
       "properties": {
@@ -386,7 +386,7 @@
           "title": "Disabled",
           "oneOf": [
             {
-              "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+              "$ref": "http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition"
             }
           ],
           "default": false

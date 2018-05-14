@@ -1,5 +1,5 @@
 {
-  "$id": "http://gov.uk/schema/text/v1.0.0",
+  "$id": "http://gov.uk/schema/v1.0.0/text",
   "title": "Text",
   "description": "Component that provides a text input field",
   "type": "object",
@@ -8,15 +8,15 @@
       "const": "text"
     },
     "widthClassInput": {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/widthClassInput"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/widthClassInput"
     }
   },
   "allOf": [
     {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/field"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/field"
     },
     {
-      "$ref": "/schema/validations/v1.0.0#/definitions/stringBundle"
+      "$ref": "/schema/v1.0.0/validations#/definitions/stringBundle"
     }
   ]
 }

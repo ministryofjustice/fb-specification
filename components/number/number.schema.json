@@ -1,5 +1,5 @@
 {
-  "$id": "http://gov.uk/schema/number/v1.0.0",
+  "$id": "http://gov.uk/schema/v1.0.0/number",
   "title": "Number",
   "description": "Component that provides a number input field",
   "type": "object",
@@ -10,7 +10,7 @@
     "widthClassInput": {
       "allOf": [
         {
-          "$ref": "/schema/definitions/v1.0.0#/definitions/widthClassInput"
+          "$ref": "/schema/v1.0.0/definitions#/definitions/widthClassInput"
         }
       ],
       "default": "10"
@@ -18,10 +18,10 @@
   },
   "allOf": [
     {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/field"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/field"
     },
     {
-      "$ref": "/schema/validations/v1.0.0#/definitions/numberBundle"
+      "$ref": "/schema/v1.0.0/validations#/definitions/numberBundle"
     }
   ]
 }

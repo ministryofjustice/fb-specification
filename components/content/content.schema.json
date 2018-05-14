@@ -1,5 +1,5 @@
 {
-  "$id": "http://gov.uk/schema/content/v1.0.0",
+  "$id": "http://gov.uk/schema/v1.0.0/content",
   "title": "Content",
   "description": "Component for creating content",
   "type": "object",
@@ -17,7 +17,7 @@
   },
   "allOf": [
     {
-      "$ref": "/schema/definitions/v1.0.0#/definitions/content"
+      "$ref": "/schema/v1.0.0/definitions#/definitions/content"
     }
   ],
   "required": [
