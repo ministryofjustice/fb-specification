@@ -22,5 +22,8 @@
   "required": [
     "option",
     "value"
+  ],
+  "category": [
+    "option"
   ]
 }

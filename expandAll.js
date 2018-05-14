@@ -3,6 +3,7 @@ const glob = require('glob-promise')
 const fs = require('fs')
 const path = require('path')
 var shell = require('shelljs')
+shell.config.silent = true
 const mkdirp = require('mkdirp')
 
 const localDocPath = process.argv[2] || path.resolve('../fb-documentation')
@@ -59,11 +60,18 @@ glob('components/**/*.schema.json')
     const specDocPath = path.resolve('documentation')
     const getStartedDocPath = path.join(docPath, 'get-started')
     shell.cp(`${specDocPath}/get-started.md`, `${getStartedDocPath}/index.md.njk`)
-    // const createCategoryDirectory = (category) => {
-    //   const categoryDocPath = path.join(docPath, category)
-    //   const result = mkdirp.sync(categoryDocPath)
-    //   shell.rm('-rf', `${categoryDocPath}/*`);
-    // }
+    shell.mkdir('-p', `${docPath}/overview`)
+    shell.cp(`${specDocPath}/overview.md`, `${docPath}/overview/index.md.njk`)
+    const copyOverviewSection = section => {
+      shell.mkdir('-p', `${docPath}/overview/${section}`)
+      shell.cp(`${specDocPath}/overview/${section}/${section}.md`, `${docPath}/overview/${section}/index.md.njk`)
+      try {
+        const svgCopyResult = shell.cp(`${specDocPath}/overview/${section}/*.svg`, `${docPath}/overview/${section}/.`)
+      } catch (e) {}
+    }
+    const overviewSections = ['editor', 'publisher', 'runner', 'submitter', 'flow']
+    overviewSections.forEach(copyOverviewSection)
+
     const categories = splitByCategory(schemas, categoryOrder)
     Object.keys(categories).forEach(category => {
       console.log(category)
@@ -112,12 +120,20 @@ ${template}
 {% set data = ${exampleJSON} %}
 {{ ${schemaName}(data) }}
 `
-            console.log(exampleNJK)
+            // console.log(exampleNJK)
             fs.writeFileSync(`${schemaDocDirPath}/${exampleDocName}.njk`, exampleNJK)
             shell.cp(`${dataDir}/${example}.json`, `${schemaDocDirPath}/${exampleDocName}.json`)
           })
           // shell.cp(`${schemaDir}/data/valid/*`, `${categoryDocPath}/`)
         }
+        try {
+          const svgCopyResult = shell.cp(`${schemaDir}/*.svg`, `${schemaDocDirPath}/.`)
+        } catch (e) {}
+        const schemaMdPath = `${schemaDir}/${schemaName}.schema.md`
+        let schemaMd = ''
+        try {
+          schemaMd = fs.readFileSync(schemaMdPath).toString()
+        } catch (e) {}
         const propRows = []
         const schemaProps = schema.properties
         if (schemaProps) {
@@ -148,14 +164,29 @@ ${template}
           })
         }
         const rows = JSON.stringify(propRows, null, 2)
+        let theme = ''
+        if (schema.category) {
+          const cats = schema.category
+          if (cats.includes('grouping')) {
+            theme = 'grouping'
+          } else if (cats.includes('option')) {
+            theme = 'option'
+          } else if (cats.includes('content')) {
+            theme = 'content'
+          } else if (cats.includes('control')) {
+            theme = 'control'
+          }
+        }
+        console.log(schema.category)
         const expandedSchema = ('\n```\n' + JSON.stringify(schema, null, 2) + '\n```\n').replace(/"/g, '\\"')
         const rawSchema = ('\n```\n' + JSON.stringify(getRawSchema(schemaName), null, 2) + '\n```\n').replace(/"/g, '\\"')
         const schemaDocPath = path.join(schemaDocDirPath, 'index.md.njk')
-        // const categoryName = 
+
         fs.writeFileSync(schemaDocPath, `---
 title: ${schema.title}
 description: ${schema.description}
 section: ${sections[category]}
+theme: ${theme}
 aliases:
 backlog_issue_id:
 layout: layout-pane.njk
@@ -164,6 +195,8 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+
+${schemaMd}
 
 ${examplesOutput}
 

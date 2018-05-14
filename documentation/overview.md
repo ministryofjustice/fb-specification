@@ -1,9 +1,7 @@
 ---
-layout: layout-single-page-prose.njk
+layout: layout-pane.njk
 title: Overview
 ---
-
-# Overview
 
 ## What is the technical approach?
 

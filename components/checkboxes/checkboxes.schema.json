@@ -1,6 +1,6 @@
 {
   "$id": "http://gov.uk/schema/checkboxes/v1.0.0",
-  "title": "Radios",
+  "title": "Checkboxes",
   "description": "Component that provides a checkbox fieldset",
   "type": "object",
   "properties": {

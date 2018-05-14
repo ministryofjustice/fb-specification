@@ -304,6 +304,10 @@
     },
     "option": {
       "type": "object",
+      "category": [
+        "component",
+        "option"
+      ],
       "properties": {
         "value": {
           "title": "Option value",
