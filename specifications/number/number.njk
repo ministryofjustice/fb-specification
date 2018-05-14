@@ -1,0 +1,7 @@
+{%- macro number(data) %}
+{% from "input/macro.njk" import govukInput %}
+{% set params = setError(data) %}
+{% set params = setLabel(params) %}
+{% set params = setInputWidthClass(params, '10') %}
+{{ govukInput(params) }}
+{% endmacro -%}

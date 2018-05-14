@@ -8,7 +8,7 @@ const mkdirp = require('mkdirp')
 
 const localDocPath = process.argv[2] || path.resolve('../fb-documentation')
 
-glob('components/**/*.schema.json')
+glob('specifications/**/*.schema.json')
   .then(schemaList => {
     return Promise.all(schemaList.map(expandSchema))
   })
