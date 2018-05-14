@@ -49,8 +49,8 @@ if (argv._.length) {
     console.log('Please specify a path')
     process.exit(1)
   }
-  validSrc = `components/${schema}/data/valid/**.json`
-  invalidSrc = `components/${schema}/data/invalid/**.json`
+  validSrc = `specifications/${schema}/data/valid/**.json`
+  invalidSrc = `specifications/${schema}/data/invalid/**.json`
 }
 
 const promisedGlob = (pattern) => {
@@ -67,16 +67,16 @@ const promisedGlob = (pattern) => {
 const validGlob = dataPaths.valid ? Promise.resolve(dataPaths.valid) : promisedGlob(validSrc)
 const invalidGlob = dataPaths.invalid ? Promise.resolve(dataPaths.invalid) : promisedGlob(invalidSrc)
 
-const schemaPath = schema.endsWith('.json') ? schema : path.resolve('components', schema, `${schema}.schema.json`)
+const schemaPath = schema.endsWith('.json') ? schema : path.resolve('specifications', schema, `${schema}.schema.json`)
 const dataSchema = require(schemaPath)
 
 
-const conditionSchema = require(path.resolve('components/condition/condition.schema.json'))
-const definitionsSchema = require(path.resolve('components/definitions/definitions.schema.json'))
-const validationsSchema = require(path.resolve('components/validations/validations.schema.json'))
-const errorsSchema = require(path.resolve('components/errors/errors.schema.json'))
-const radioSchema = require(path.resolve('components/radio/radio.schema.json'))
-const checkboxSchema = require(path.resolve('components/checkbox/checkbox.schema.json'))
+const conditionSchema = require(path.resolve('specifications/condition/condition.schema.json'))
+const definitionsSchema = require(path.resolve('specifications/definitions/definitions.schema.json'))
+const validationsSchema = require(path.resolve('specifications/validations/validations.schema.json'))
+const errorsSchema = require(path.resolve('specifications/errors/errors.schema.json'))
+const radioSchema = require(path.resolve('specifications/radio/radio.schema.json'))
+const checkboxSchema = require(path.resolve('specifications/checkbox/checkbox.schema.json'))
 ajv.addSchema(conditionSchema)
 ajv.addSchema(definitionsSchema)
 ajv.addSchema(validationsSchema)
