@@ -23,5 +23,8 @@
     {
       "$ref": "/schema/v1.0.0/definitions#/definitions/fieldset"
     }
+  ],
+  "required": [
+    "name"
   ]
 }

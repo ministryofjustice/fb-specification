@@ -2,6 +2,7 @@
   "_id": "radiosYesNo",
   "_type": "radios",
   "legend": "Is this your first form?",
+  "name": "radiosYesNo",
   "items": [
     {
       "_id": "radiosYesNo--yes",

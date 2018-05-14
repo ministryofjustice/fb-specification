@@ -1,0 +1,8 @@
+{%- macro select(data) %}
+{% from "select/macro.njk" import govukSelect %}
+{% set params = setError(data) %}
+{% set params = setLabel(params) %}
+{% set params = setItemsLabel(params) %}
+{% set params = setInputWidthClass(params) %}
+{{ govukSelect(params) }}
+{% endmacro -%}

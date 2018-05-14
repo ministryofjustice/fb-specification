@@ -1,0 +1,22 @@
+{
+  "_id": "componentId",
+  "_type": "checkboxes",
+  "legend": "Select all the countries have you lived in",
+  "name": "countries",
+  "items": [
+    {
+      "_id": "countries--eng",
+      "_type": "checkbox",
+      "name": "eng",
+      "value": "yes",
+      "label": "England"
+    },
+    {
+      "_id": "countries--sco",
+      "_type": "checkbox",
+      "name": "sco",
+      "value": "yes",
+      "label": "Scotland"
+    }
+  ]
+}

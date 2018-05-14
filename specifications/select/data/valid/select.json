@@ -1,0 +1,20 @@
+{
+  "_id": "selectAB",
+  "_type": "select",
+  "label": "Which type do you want?",
+  "name": "select-ab",
+  "items": [
+    {
+      "_id": "select-ab--a",
+      "_type": "option",
+      "value": "a",
+      "label": "A"
+    },
+    {
+      "_id": "select-ab--b",
+      "_type": "option",
+      "value": "b",
+      "label": "B"
+    }
+  ]
+}
