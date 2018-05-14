@@ -1,0 +1,1 @@
+This component can only be used as a [radios](../radios) option item and has no template of its own.

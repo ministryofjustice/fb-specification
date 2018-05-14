@@ -1,0 +1,8 @@
+{%- macro details(data) %}
+{% from "details/macro.njk" import govukDetails %}
+{% set params = setError(data) %}
+{% set params = setObject(params, {
+  summaryHtml: params.summary
+}) %}
+{{ govukDetails(params) }}
+{% endmacro -%}

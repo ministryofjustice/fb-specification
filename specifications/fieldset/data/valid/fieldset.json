@@ -1,0 +1,19 @@
+{
+  "_id": "componentId",
+  "_type": "fieldset",
+  "legend": "About you",
+  "items": [
+    {
+      "_id": "componentId--name",
+      "_type": "text",
+      "name": "name",
+      "label": "What is your name?"
+    },
+    {
+      "_id": "componentId--colour",
+      "_type": "text",
+      "name": "colour",
+      "label": "What is your favourite colour?"
+    }
+  ]
+}

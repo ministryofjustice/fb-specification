@@ -1,0 +1,1 @@
+Options for checkboxes must be valid [checkbox options](../checkbox)

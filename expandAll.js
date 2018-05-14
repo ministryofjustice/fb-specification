@@ -8,6 +8,19 @@ const mkdirp = require('mkdirp')
 
 const localDocPath = process.argv[2] || path.resolve('../fb-documentation')
 
+const njks = glob.sync('specifications/*/*.njk')
+let njkSource = ''
+let njkBlocks = []
+njks.forEach(njkPath => {
+  const njkContents = fs.readFileSync(path.resolve(njkPath)).toString()
+  njkSource += njkContents
+  const njkName = njkPath.replace(/.*\//, '').replace(/\.njk/, '')
+  njkBlocks.push(`${njkName}: ${njkName}`)
+})
+njkSource += `{% set blocks = {
+${njkBlocks.join(',\n')}
+} %}`
+console.log({njks})
 glob('specifications/**/*.schema.json')
   .then(schemaList => {
     return Promise.all(schemaList.map(expandSchema))
@@ -116,6 +129,7 @@ ${exampleMd}
             let exampleNJK = `---
 layout: layout-specification.njk
 ---
+${njkSource}
 ${template}
 {% set data = ${exampleJSON} %}
 {{ ${schemaName}(data) }}

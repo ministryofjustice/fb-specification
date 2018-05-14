@@ -1,0 +1,1 @@
+Options for select must be valid [options](../option)
