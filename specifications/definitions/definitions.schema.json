@@ -159,7 +159,6 @@
       ]
     },
     "data": {
-      "type": "object",
       "properties": {
         "_id": {
           "title": "Data ID",

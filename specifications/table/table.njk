@@ -1,0 +1,4 @@
+{%- macro table(data) %}
+{% from "table/macro.njk" import govukTable %}
+{{ govukTable(data) }}
+{% endmacro -%}

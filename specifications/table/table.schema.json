@@ -1,0 +1,74 @@
+{
+  "$id": "http://gov.uk/schema/v1.0.0/table",
+  "title": "Table",
+  "description": "Component that provides a table",
+  "type": "object",
+  "category": [
+    "content"
+  ],
+  "properties": {
+    "_type": {
+      "const": "table"
+    },
+    "caption": {
+      "type": "string"
+    },
+    "captionClasses": {
+      "type": "string"
+    },
+    "firstCellIsHeader": {
+      "type": "boolean"
+    },
+    "head": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/cell"
+      }
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/cell"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definitions#/definitions/block"
+    },
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definitions#/definitions/propsAttributes"
+    }
+  ],
+  "required": [
+    "rows"
+  ],
+  "definitions": {
+    "cell": {
+      "properties": {
+        "_type": {
+          "const": "cell"
+        },
+        "html": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        },
+        "colspan": {
+          "type": "number",
+          "minimum": 1
+        },
+        "rowspan": {
+          "type": "number",
+          "minimum": 1
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "http://gov.uk/schema/v1.0.0/definitions#/definitions/data"
+        }
+      ]
+    }
+  }
+}

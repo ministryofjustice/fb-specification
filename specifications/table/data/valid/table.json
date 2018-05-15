@@ -1,0 +1,56 @@
+{
+  "_id": "amounts",
+  "_type": "table",
+  "caption": "Dates and amounts",
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "_id": "amountsDate",
+      "_type": "cell",
+      "html": "Date"
+    },
+    {
+      "_id": "amountsAmount",
+      "_type": "cell",
+      "html": "Amount"
+    }
+  ],
+  "rows": [
+    [
+      {
+        "_id": "amountsDate1",
+        "_type": "cell",
+        "html": "First 6 weeks"
+      },
+      {
+        "_id": "amountsAmount",
+        "_type": "cell",
+        "html": "£109.80 per week"
+      }
+    ],
+    [
+      {
+        "_id": "amountsDate2",
+        "_type": "cell",
+        "html": "Next 33 weeks"
+      },
+      {
+        "_id": "amountsAmount2",
+        "_type": "cell",
+        "html": "£109.80 per week"
+      }
+    ],
+    [
+      {
+        "_id": "amountsDate3",
+        "_type": "cell",
+        "html": "Total estimated pay"
+      },
+      {
+        "_id": "amountsAmount3",
+        "_type": "cell",
+        "html": "£4,282.20"
+      }
+    ]
+  ]
+}
