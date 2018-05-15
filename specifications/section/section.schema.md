@@ -1,3 +1,7 @@
-A section is a group of elements that represent a standalone section. This enables the automatic creation of headings with the right level and other markup for accessibility purposes.
+Use the Section component to group blocks together with semantic intent, ie. to represent a standalone section of a page.
 
-A section may contain other sections.
+This enables the automatic creation of headings with the right level and other markup for accessibility purposes.
+
+A section may contain any other type of blocks including other sections.
+
+Typically the section component should be used on content pages.

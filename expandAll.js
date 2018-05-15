@@ -148,6 +148,7 @@ ${template}
         try {
           schemaMd = fs.readFileSync(schemaMdPath).toString()
         } catch (e) {}
+        let schemaProperties = ''
         const propRows = []
         const schemaProps = schema.properties
         if (schemaProps) {
@@ -176,8 +177,34 @@ ${template}
               html: property.default !== undefined ? property.default : '-'
             }])
           })
+
+          const rows = JSON.stringify(propRows, null, 2)
+
+          schemaProperties = `
+{{ govukTable({
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": ${rows}
+}) }}
+`
         }
-        const rows = JSON.stringify(propRows, null, 2)
+
         let theme = ''
         if (schema.category) {
           const cats = schema.category
@@ -209,33 +236,19 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
 
 ${schemaMd}
 
+${schemaProperties ? '### Properties' : ''}
+
+${schemaProperties}
+
+${examplesOutput ? '### Examples' : ''}
+
 ${examplesOutput}
 
-{{ govukTable({
-  "caption": "Schema properties",
-  "firstCellIsHeader": true,
-  "head": [
-    {
-      "text": "Property"
-    },
-    {
-      "text": "Type"
-    },
-    {
-      "text": "Required"
-    },
-    {
-      "text": "Description"
-    },
-    {
-      "text": "Default"
-    }
-  ],
-  "rows": ${rows}
-}) }}
+### Schema
 
 {{ govukDetails({
   "summaryText": "Raw schema",

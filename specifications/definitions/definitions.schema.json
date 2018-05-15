@@ -22,6 +22,7 @@
           "$ref": "#/definitions/model"
         },
         "modelProtect": {
+          "title": "Whether to prevent the block’s model being overridden or appended ",
           "type": "boolean",
           "default": false
         }
@@ -69,6 +70,7 @@
       }
     },
     "items": {
+      "title": "Items",
       "type": "array",
       "items": {
         "$ref": "#/definitions/block"
@@ -111,6 +113,7 @@
       "type": "object",
       "properties": {
         "id": {
+          "title": "Additional HTML id",
           "type": "string"
         },
         "classes": {
@@ -169,7 +172,8 @@
           "type": "string"
         },
         "_isa": {
-          "title": "Based on",
+          "title": "Reference to data based on",
+          "description": "Id of referenced data current data inherits property values from",
           "type": "string",
           "blockReference": true
         }
