@@ -24,7 +24,7 @@
   },
   "allOf": [
     {
-      "$ref": "/schema/v1.0.0/definitions#/definitions/multipleProperties"
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple#"
     },
     {
       "$ref": "/schema/v1.0.0/definitions#/definitions/grouping"

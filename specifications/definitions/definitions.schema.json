@@ -12,43 +12,6 @@
       "title": "Input name",
       "type": "string"
     },
-    "model": {
-      "title": "Model to store field in",
-      "type": "string"
-    },
-    "modelProperties": {
-      "properties": {
-        "model": {
-          "$ref": "#/definitions/model"
-        },
-        "modelProtect": {
-          "title": "Whether to prevent the block’s model being overridden or appended ",
-          "type": "boolean",
-          "default": false
-        }
-      }
-    },
-    "multipleProperties": {
-      "properties": {
-        "multiple": {
-          "type": "boolean"
-        },
-        "multipleMinimum": {
-          "type": "number",
-          "minimum": 0,
-          "default": 1
-        },
-        "multipleMaximum": {
-          "type": "number",
-          "minimum": 0
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/modelProperties"
-        }
-      ]
-    },
     "label": {
       "title": "Label",
       "type": "string"
@@ -289,7 +252,7 @@
           "$ref": "#/definitions/page"
         },
         {
-          "$ref": "#/definitions/multipleProperties"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple#"
         }
       ]
     },
@@ -344,7 +307,7 @@
           "$ref": "#/definitions/block"
         },
         {
-          "$ref": "#/definitions/modelProperties"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/model#"
         },
         {
           "$ref": "#/definitions/propsAttributes"
@@ -378,7 +341,7 @@
           "$ref": "#/definitions/propsAttributes"
         },
         {
-          "$ref": "#/definitions/modelProperties"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/model#"
         },
         {
           "$ref": "http://gov.uk/schema/v1.0.0/validations#/definitions/requiredBundle"

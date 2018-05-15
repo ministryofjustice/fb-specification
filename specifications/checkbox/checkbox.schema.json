@@ -8,15 +8,15 @@
       "const": "checkbox"
     },
     "name": {
-      "$ref": "/schema/v1.0.0/definitions#/definitions/name"
+      "$ref": "http://gov.uk/schema/v1.0.0/definitions#/definitions/name"
     }
   },
   "allOf": [
     {
-      "$ref": "/schema/v1.0.0/definitions#/definitions/modelProperties"
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/model#"
     },
     {
-      "$ref": "/schema/v1.0.0/definitions#/definitions/option"
+      "$ref": "http://gov.uk/schema/v1.0.0/definitions#/definitions/option"
     }
   ],
   "required": [

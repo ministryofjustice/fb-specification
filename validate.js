@@ -71,12 +71,16 @@ const schemaPath = schema.endsWith('.json') ? schema : path.resolve('specificati
 const dataSchema = require(schemaPath)
 
 
+const modelSchema = require(path.resolve('specifications/definition/model/model.definition.schema.json'))
+const multipleSchema = require(path.resolve('specifications/definition/multiple/multiple.definition.schema.json'))
 const conditionSchema = require(path.resolve('specifications/condition/condition.schema.json'))
 const definitionsSchema = require(path.resolve('specifications/definitions/definitions.schema.json'))
 const validationsSchema = require(path.resolve('specifications/validations/validations.schema.json'))
 const errorsSchema = require(path.resolve('specifications/errors/errors.schema.json'))
 const radioSchema = require(path.resolve('specifications/radio/radio.schema.json'))
 const checkboxSchema = require(path.resolve('specifications/checkbox/checkbox.schema.json'))
+ajv.addSchema(modelSchema)
+ajv.addSchema(multipleSchema)
 ajv.addSchema(conditionSchema)
 ajv.addSchema(definitionsSchema)
 ajv.addSchema(validationsSchema)

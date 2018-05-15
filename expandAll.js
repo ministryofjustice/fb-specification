@@ -53,7 +53,8 @@ glob('specifications/**/*.schema.json')
     const sections = {
       configuration: 'Configuration',
       page: 'Pages',
-      component: 'Components'
+      component: 'Components',
+      definition: 'Definitions'
     }
     const categoryOrder = [
       'configuration',
@@ -100,7 +101,7 @@ glob('specifications/**/*.schema.json')
           throw new Error(`${schema.$id} has no schema name`)
         }
         const schemaDir = getSchemaDir(schemaName)
-        const schemaDocDirPath = path.join(categoryDocPath, schemaName)
+        const schemaDocDirPath = path.join(categoryDocPath, schemaName).replace(/\.definition$/, '')
         mkdirp.sync(schemaDocDirPath)
         let template
         try {
