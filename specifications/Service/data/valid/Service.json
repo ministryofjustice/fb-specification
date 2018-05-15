@@ -1,5 +1,5 @@
 {
-  "_id": "serviceId",
+  "_id": "Service",
   "_type": "Service",
   "name": "Apply to court about your child arrangements",
   "phase": "beta",

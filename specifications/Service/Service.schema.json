@@ -4,6 +4,9 @@
   "description": "Service configuration",
   "type": "object",
   "properties": {
+    "_id": {
+      "const": "Service"
+    },
     "_type": {
       "const": "Service"
     },
