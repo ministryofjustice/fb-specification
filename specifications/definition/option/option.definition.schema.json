@@ -1,0 +1,26 @@
+{
+  "$id": "http://gov.uk/schema/v1.0.0/definition/option",
+  "_name": "option.definition",
+  "title": "Option definition",
+  "properties": {
+    "value": {
+      "title": "Option value",
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/show"
+    },
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple"
+    }
+  ],
+  "required": [
+    "value"
+  ],
+  "category": [
+    "component",
+    "option"
+  ]
+}

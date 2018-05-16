@@ -1,0 +1,22 @@
+{
+  "$id": "http://gov.uk/schema/v1.0.0/definition/grouping",
+  "_name": "grouping.definition",
+  "title": "Grouping definition",
+  "allOf": [
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/component"
+    },
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/components"
+    },
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/model"
+    },
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes"
+    }
+  ],
+  "category": [
+    "grouping"
+  ]
+}

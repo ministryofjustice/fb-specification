@@ -222,6 +222,9 @@ ${template}
             theme = 'control'
           }
         }
+        if (category === 'definition') {
+          theme = ''
+        }
         console.log(schema.category)
         const expandedSchema = ('\n```\n' + JSON.stringify(schema, null, 2) + '\n```\n').replace(/"/g, '\\"')
         const rawSchema = ('\n```\n' + JSON.stringify(getRawSchema(schemaName), null, 2) + '\n```\n').replace(/"/g, '\\"')

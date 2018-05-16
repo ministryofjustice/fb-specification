@@ -4,20 +4,13 @@
   "title": "Definitions",
   "type": "object",
   "definitions": {
-    "id": {
+    "XXXid": {
       "title": "Id",
       "type": "string"
     },
-    "name": {
+    "XXXname": {
       "title": "Input name",
       "type": "string"
-    },
-    "items": {
-      "title": "Items",
-      "type": "array",
-      "items": {
-        "$ref": "http://gov.uk/schema/v1.0.0/definition/component"
-      }
     },
     "widthClassMap": {
       "10": "govuk-c-input--width-10",
@@ -54,188 +47,6 @@
         "one-quarter"
       ]
     },
-    "page": {
-      "type": "object",
-      "category": [
-        "page"
-      ],
-      "properties": {
-        "url": {
-          "title": "URL",
-          "type": "string"
-        },
-        "heading": {
-          "title": "Heading",
-          "type": "string"
-        },
-        "title": {
-          "title": "Title",
-          "type": "string"
-        },
-        "lede": {
-          "title": "Lede",
-          "type": "string"
-        },
-        "content": {
-          "title": "Content",
-          "type": "string",
-          "multiline": true
-        },
-        "items": {
-          "title": "Items",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/items/items"
-          }
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/show"
-        }
-      ],
-      "required": [
-        "url"
-      ]
-    },
-    "contentPage": {
-      "type": "object",
-      "category": [
-        "contentPage"
-      ],
-      "allOf": [
-        {
-          "$ref": "#/definitions/page"
-        }
-      ],
-      "required": [
-        "heading"
-      ]
-    },
-    "formPage": {
-      "type": "object",
-      "category": [
-        "formPage"
-      ],
-      "properties": {
-        "extraItems": {
-          "title": "Additional items following continue button",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/items/items"
-          }
-        },
-        "steps": {
-          "title": "Steps",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "nextPage": {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/nextPage"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/page"
-        },
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple"
-        }
-      ]
-    },
-    "option": {
-      "type": "object",
-      "category": [
-        "component",
-        "option"
-      ],
-      "properties": {
-        "value": {
-          "title": "Option value",
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/show"
-        },
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple"
-        }
-      ],
-      "required": [
-        "value"
-      ]
-    },
-    "grouping": {
-      "type": "object",
-      "category": [
-        "grouping"
-      ],
-      "properties": {
-        "items": {
-          "$ref": "#/definitions/items"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/component"
-        },
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/model"
-        },
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes"
-        }
-      ]
-    },
-    "content": {
-      "type": "object",
-      "category": [
-        "content"
-      ],
-      "allOf": [
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/component"
-        },
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes"
-        }
-      ]
-    },
-    "control": {
-      "type": "object",
-      "category": [
-        "control"
-      ],
-      "allOf": [
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/component"
-        },
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes"
-        },
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/model"
-        },
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/validations#/definitions/requiredBundle"
-        }
-      ],
-      "properties": {
-        "disabled": {
-          "title": "Disabled",
-          "oneOf": [
-            {
-              "$ref": "http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition"
-            }
-          ],
-          "default": false
-        }
-      }
-    },
     "field": {
       "type": "object",
       "category": [
@@ -243,41 +54,18 @@
       ],
       "allOf": [
         {
-          "$ref": "#/definitions/control"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/control"
         },
         {
           "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple"
+        },
+        {
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/name"
         }
       ],
-      "properties": {
-        "name": {
-          "$ref": "#/definitions/name"
-        }
-      },
       "required": [
         "name",
         "label"
-      ]
-    },
-    "fieldset": {
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/control"
-        }
-      ],
-      "properties": {
-        "legend": {
-          "title": "Legend",
-          "type": "string"
-        },
-        "hint": {
-          "title": "Hint text",
-          "type": "string"
-        }
-      },
-      "required": [
-        "legend"
       ]
     }
   },

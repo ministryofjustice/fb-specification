@@ -8,9 +8,6 @@
     "_type": {
       "const": "checkboxes"
     },
-    "name": {
-      "$ref": "/schema/v1.0.0/definitions#/definitions/name"
-    },
     "items": {
       "type": "array",
       "items": [
@@ -22,7 +19,10 @@
   },
   "allOf": [
     {
-      "$ref": "/schema/v1.0.0/definitions#/definitions/fieldset"
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/fieldset"
+    },
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/name"
     }
   ]
 }

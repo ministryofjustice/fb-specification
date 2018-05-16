@@ -1,7 +1,7 @@
 {
   "_id": "componentId",
   "_type": "group",
-  "items": [
+  "components": [
     {
       "_id": "componentId--name",
       "_type": "text",

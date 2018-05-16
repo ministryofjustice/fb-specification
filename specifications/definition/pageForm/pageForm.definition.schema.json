@@ -1,0 +1,35 @@
+{
+  "$id": "http://gov.uk/schema/v1.0.0/definition/pageForm",
+  "_name": "pageForm.definition",
+  "title": "Form page definition",
+  "properties": {
+    "extraComponents": {
+      "title": "Additional components following continue button",
+      "type": "array",
+      "items": {
+        "$ref": "http://gov.uk/schema/v1.0.0/definition/component"
+      }
+    },
+    "steps": {
+      "title": "Steps",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "nextPage": {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/nextPage"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/page"
+    },
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple"
+    }
+  ],
+  "category": [
+    "formPage"
+  ]
+}

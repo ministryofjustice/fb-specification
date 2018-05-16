@@ -20,14 +20,14 @@
     "content": {
       "type": "string",
       "multiline": true
-    },
-    "items": {
-      "$ref": "/schema/v1.0.0/definitions#/definitions/items"
     }
   },
   "allOf": [
     {
-      "$ref": "/schema/v1.0.0/definitions#/definitions/content"
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/component"
+    },
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/components"
     }
   ]
 }

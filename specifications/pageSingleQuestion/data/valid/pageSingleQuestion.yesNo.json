@@ -2,7 +2,7 @@
   "_id": "pageSingleQuestionYesNo",
   "_type": "pageSingleQuestion",
   "url": "/first-form",
-  "items": [{
+  "components": [{
     "_id": "pageSingleQuestionYesNo--yesNo",
     "_type": "radios",
     "legend": "Is this your first form?",

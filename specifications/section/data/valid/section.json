@@ -2,7 +2,7 @@
   "_id": "componentId",
   "_type": "section",
   "heading": "Section heading",
-  "items": [
+  "components": [
     {
       "_id": "componentId--name",
       "_type": "text",
