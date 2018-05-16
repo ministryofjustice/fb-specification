@@ -3,6 +3,6 @@ layout: layout-pane.njk
 title: Definitions
 ---
 
-Definitions are building blocks that other schemas are made from.
+Definitions are base schemas that other schemas can be made from.
 
 
