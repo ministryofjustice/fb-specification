@@ -48,7 +48,7 @@ The following 3 files define a simple service that presents
   "_id": "pagePlanet",
   "_type": "pageSingleQuestion",
   "url": "/planet",
-  "items": [{
+  "components": [{
     "_id": "pagePlanet-planet",
     "_type": "text",
     "name": "planet",

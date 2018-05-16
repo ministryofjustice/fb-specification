@@ -8,7 +8,7 @@
     "_type": {
       "const": "pageSingleQuestion"
     },
-    "items": {
+    "components": {
       "maxItems": 1
     }
   },
