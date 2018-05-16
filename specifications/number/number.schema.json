@@ -9,11 +9,6 @@
       "const": "number"
     },
     "widthClassInput": {
-      "allOf": [
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/widthClassInput"
-        }
-      ],
       "default": "10"
     }
   },
@@ -23,6 +18,9 @@
     },
     {
       "$ref": "/schema/v1.0.0/validations#/definitions/numberBundle"
+    },
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/widthClassInput"
     }
   ]
 }

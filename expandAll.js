@@ -20,7 +20,7 @@ njks.forEach(njkPath => {
 njkSource += `{% set blocks = {
 ${njkBlocks.join(',\n')}
 } %}`
-console.log({njks})
+// console.log({njks})
 glob('specifications/**/*.schema.json')
   .then(schemaList => {
     return Promise.all(schemaList.map(expandSchema))
@@ -225,9 +225,46 @@ ${template}
         if (category === 'definition') {
           theme = ''
         }
-        console.log(schema.category)
+        const originalSchema = getRawSchema(schemaName)
+        const categoryList = (schema.category || []).filter(cat => category === 'definition' ? true : cat !== 'definition')
+        const schemaCategories = categoryList.join(', ')
+
+        const getDocsUrl = (url, title, _name) => {
+          if (!_name.endsWith('.definition')) {
+            if (url.startsWith('validations')) {
+              url = 'definition/' + url
+            } else if (_name.startsWith('page')) {
+              url = 'page/' + url
+            } else {
+              url = 'component/' + url
+            }
+          }
+          url = '/' + url
+          return `- [${title}](${url})`
+        }
+        const allOf = (originalSchema.allOf || [])
+                        .filter(obj => obj.$ref)
+                        .map(obj => obj.$ref)
+                        .map($id => {
+                          let url = $id.replace(/.*\/v\d+\.\d+\.\d+\//, '').replace(/#.*/, '')
+                          const name = url.replace(/definition\/(.*)/, '$1.definition')
+                          const {title, _name} = getRawSchema(name)
+                          return getDocsUrl(url, title, _name)
+                        })
+        const schemaUses = allOf.join('\n')
+        const usedBy = shell.grep('-l', `"${schema.$id}"`, 'specifications/**/*.schema.json').stdout
+                        .replace(/\n$/, '')
+                        .split('\n')
+                        .filter(src => getRawSchema(src)._name !== schema._name)
+                        .map(src => {
+                          let url = src.replace('specifications/', '').replace(/\/[^\/]+\.json$/, '')
+                          const {title, _name} = getRawSchema(src)
+                          return getDocsUrl(url, title, _name)
+                        })
+
+        schemaUsedBy = usedBy.join('\n')
         const expandedSchema = ('\n```\n' + JSON.stringify(schema, null, 2) + '\n```\n').replace(/"/g, '\\"')
-        const rawSchema = ('\n```\n' + JSON.stringify(getRawSchema(schemaName), null, 2) + '\n```\n').replace(/"/g, '\\"')
+        const rawSchema = ('\n```\n' + JSON.stringify(originalSchema, null, 2) + '\n```\n').replace(/"/g, '\\"')
         const schemaDocPath = path.join(schemaDocDirPath, 'index.md.njk')
 
         fs.writeFileSync(schemaDocPath, `---
@@ -266,6 +303,18 @@ ${examplesOutput}
   "summaryText": "Expanded schema",
   "html": "${expandedSchema}"
 }) }}
+
+${schemaUsedBy ? '### Schema used by' : ''}
+
+${schemaUsedBy}
+
+${schemaUses ? '### Schema uses' : ''}
+
+${schemaUses}
+
+${schemaCategories ? '### Categories' : ''}
+
+${schemaCategories}
 
         `)
       })

@@ -7,9 +7,6 @@
   "properties": {
     "_type": {
       "const": "text"
-    },
-    "widthClassInput": {
-      "$ref": "http://gov.uk/schema/v1.0.0/definition/widthClassInput"
     }
   },
   "allOf": [
@@ -18,6 +15,9 @@
     },
     {
       "$ref": "/schema/v1.0.0/validations#/definitions/stringBundle"
+    },
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/widthClassInput"
     }
   ]
 }

@@ -8,9 +8,6 @@
     "_type": {
       "const": "select"
     },
-    "widthClassInput": {
-      "$ref": "http://gov.uk/schema/v1.0.0/definition/widthClassInput"
-    },
     "items": {
       "type": "array",
       "items": [
@@ -23,6 +20,9 @@
   "allOf": [
     {
       "$ref": "http://gov.uk/schema/v1.0.0/definition/field"
+    },
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/widthClassInput"
     }
   ]
 }
