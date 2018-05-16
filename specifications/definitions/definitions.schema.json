@@ -12,81 +12,11 @@
       "title": "Input name",
       "type": "string"
     },
-    "label": {
-      "title": "Label",
-      "type": "string"
-    },
-    "hint": {
-      "title": "Hint text",
-      "type": "string"
-    },
-    "labelHint": {
-      "title": "Label and hint text",
-      "type": "object",
-      "properties": {
-        "label": {
-          "$ref": "#/definitions/label"
-        },
-        "hint": {
-          "$ref": "#/definitions/hint"
-        }
-      }
-    },
     "items": {
       "title": "Items",
       "type": "array",
       "items": {
         "$ref": "#/definitions/block"
-      }
-    },
-    "nextPage": {
-      "title": "What page (if any), and under what condtions, to go to next",
-      "oneOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "type": "object",
-                "properties": {
-                  "page": {
-                    "type": "string"
-                  },
-                  "condition": {
-                    "$ref": "http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition"
-                  }
-                },
-                "required": [
-                  "page",
-                  "condition"
-                ]
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    "propsAttributes": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "title": "Additional HTML id",
-          "type": "string"
-        },
-        "classes": {
-          "title": "Additional HTML classes",
-          "type": "string"
-        },
-        "attributes": {
-          "title": "Additional HTML attributes",
-          "type": "object"
-        }
       }
     },
     "widthClassMap": {
@@ -244,7 +174,7 @@
           }
         },
         "nextPage": {
-          "$ref": "#/definitions/nextPage"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/nextPage"
         }
       },
       "allOf": [
@@ -285,7 +215,7 @@
           "$ref": "#/definitions/showComponent"
         },
         {
-          "$ref": "#/definitions/labelHint"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple#"
         }
       ],
       "required": [
@@ -310,7 +240,7 @@
           "$ref": "http://gov.uk/schema/v1.0.0/definition/model#"
         },
         {
-          "$ref": "#/definitions/propsAttributes"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes#"
         }
       ]
     },
@@ -324,7 +254,7 @@
           "$ref": "#/definitions/block"
         },
         {
-          "$ref": "#/definitions/propsAttributes"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes#"
         }
       ]
     },
@@ -338,7 +268,7 @@
           "$ref": "#/definitions/block"
         },
         {
-          "$ref": "#/definitions/propsAttributes"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes#"
         },
         {
           "$ref": "http://gov.uk/schema/v1.0.0/definition/model#"
@@ -369,7 +299,7 @@
           "$ref": "#/definitions/control"
         },
         {
-          "$ref": "#/definitions/labelHint"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple#"
         }
       ],
       "properties": {

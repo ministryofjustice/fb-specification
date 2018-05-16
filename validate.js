@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 const glob = require('glob')
 const path = require('path')
+const jsonpath = require('jsonpath')
 const Ajv = require('ajv');
 const ajv = new Ajv();
+const { getRawSchema } = require('./lib/schemaUtils')
 
 const logger = (msg, msgJSON) => {
   if (verbose) {
@@ -70,23 +72,26 @@ const invalidGlob = dataPaths.invalid ? Promise.resolve(dataPaths.invalid) : pro
 const schemaPath = schema.endsWith('.json') ? schema : path.resolve('specifications', schema, `${schema}.schema.json`)
 const dataSchema = require(schemaPath)
 
+const loadedSchemas = {
 
-const modelSchema = require(path.resolve('specifications/definition/model/model.definition.schema.json'))
-const multipleSchema = require(path.resolve('specifications/definition/multiple/multiple.definition.schema.json'))
-const conditionSchema = require(path.resolve('specifications/condition/condition.schema.json'))
-const definitionsSchema = require(path.resolve('specifications/definitions/definitions.schema.json'))
-const validationsSchema = require(path.resolve('specifications/validations/validations.schema.json'))
-const errorsSchema = require(path.resolve('specifications/errors/errors.schema.json'))
-const radioSchema = require(path.resolve('specifications/radio/radio.schema.json'))
-const checkboxSchema = require(path.resolve('specifications/checkbox/checkbox.schema.json'))
-ajv.addSchema(modelSchema)
-ajv.addSchema(multipleSchema)
-ajv.addSchema(conditionSchema)
-ajv.addSchema(definitionsSchema)
-ajv.addSchema(validationsSchema)
-ajv.addSchema(errorsSchema)
-ajv.addSchema(radioSchema)
-ajv.addSchema(checkboxSchema)
+}
+const fetchRefs = (schema) => {
+  const dollarSchema = JSON.parse(JSON.stringify(schema).replace(/"\$ref"/g, '"DOLLARref"'))
+  const refs = jsonpath.query(dollarSchema, '$..DOLLARref')
+                .filter(ref => !ref.startsWith('#'))
+                .map(ref => ref.replace(/#.*/, ''))
+                .filter((item, pos, arr) => arr.indexOf(item) === pos)
+                .map(ref => ref.replace(/.*schema\/v\d+\.\d+\.\d+\//, ''))
+  refs.forEach(ref => {
+    if (!loadedSchemas[ref]) {
+      loadedSchemas[ref] = getRawSchema(ref)
+      ajv.addSchema(loadedSchemas[ref])
+      fetchRefs(loadedSchemas[ref])
+    }
+  })
+}
+fetchRefs(dataSchema)
+
 
 const validateData = (dataPath) => {
   const data = require(path.resolve(dataPath))

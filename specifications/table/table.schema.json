@@ -37,7 +37,7 @@
       "$ref": "http://gov.uk/schema/v1.0.0/definitions#/definitions/block"
     },
     {
-      "$ref": "http://gov.uk/schema/v1.0.0/definitions#/definitions/propsAttributes"
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes"
     }
   ],
   "required": [

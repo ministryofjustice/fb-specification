@@ -1,0 +1,24 @@
+{
+  "$id": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes",
+  "_name": "htmlAttributes.definition",
+  "title": "HTML attributes definition",
+  "description": "Additional HTML attributes",
+  "type": "object",
+  "properties": {
+    "id": {
+      "title": "Additional HTML id",
+      "type": "string"
+    },
+    "classes": {
+      "title": "Additional HTML classes",
+      "type": "string"
+    },
+    "attributes": {
+      "title": "Additional HTML attributes",
+      "type": "object"
+    }
+  },
+  "category": [
+    "definition"
+  ]
+}
