@@ -1,9 +1,9 @@
 {
   "$id": "http://gov.uk/schema/v1.0.0/pageSingleQuestion",
+  "_name": "pageSingleQuestion",
   "title": "Single question page",
   "description": "Single question page",
   "type": "object",
-  "category": [],
   "properties": {
     "_type": {
       "const": "pageSingleQuestion"

@@ -1,9 +1,9 @@
 {
   "$id": "http://gov.uk/schema/v1.0.0/pageSummary",
+  "_name": "pageSummary",
   "title": "Summary page",
   "description": "Check your answers page",
   "type": "object",
-  "category": [],
   "properties": {
     "_type": {
       "const": "pageSummary"

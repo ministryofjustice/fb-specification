@@ -1,5 +1,6 @@
 {
   "$id": "http://gov.uk/schema/v1.0.0/fieldset",
+  "_name": "fieldset",
   "title": "Fieldset",
   "description": "Component for fieldset",
   "type": "object",

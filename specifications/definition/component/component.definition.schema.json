@@ -1,0 +1,13 @@
+{
+  "$id": "http://gov.uk/schema/v1.0.0/definition/component",
+  "_name": "component.definition",
+  "title": "Component definition",
+  "allOf": [
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/show"
+    }
+  ],
+  "category": [
+    "component"
+  ]
+}

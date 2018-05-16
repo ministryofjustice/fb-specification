@@ -1,5 +1,6 @@
 {
   "$id": "http://gov.uk/schema/v1.0.0/text",
+  "_name": "text",
   "title": "Text",
   "description": "Component that provides a text input field",
   "type": "object",

@@ -1,5 +1,6 @@
 {
   "$id": "http://gov.uk/schema/v1.0.0/table",
+  "_name": "table",
   "title": "Table",
   "description": "Component that provides a table",
   "type": "object",
@@ -34,7 +35,7 @@
   },
   "allOf": [
     {
-      "$ref": "http://gov.uk/schema/v1.0.0/definitions#/definitions/block"
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/component"
     },
     {
       "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes"

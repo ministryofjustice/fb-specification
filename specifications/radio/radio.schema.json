@@ -1,5 +1,6 @@
 {
   "$id": "http://gov.uk/schema/v1.0.0/radio",
+  "_name": "radio",
   "title": "Radio option",
   "description": "Component that provides a radio option",
   "type": "object",

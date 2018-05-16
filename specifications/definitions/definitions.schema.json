@@ -16,7 +16,7 @@
       "title": "Items",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/block"
+        "$ref": "http://gov.uk/schema/v1.0.0/definition/component"
       }
     },
     "widthClassMap": {
@@ -52,25 +52,6 @@
         "one-half",
         "one-third",
         "one-quarter"
-      ]
-    },
-    "showComponent": {
-      "type": "object",
-      "properties": {
-        "show": {
-          "title": "Whether to show block or not",
-          "oneOf": [
-            {
-              "$ref": "http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition"
-            }
-          ],
-          "default": true
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/data"
-        }
       ]
     },
     "page": {
@@ -110,7 +91,7 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/showComponent"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/show"
         }
       ],
       "required": [
@@ -164,18 +145,6 @@
         }
       ]
     },
-    "block": {
-      "type": "object",
-      "category": [
-        "component",
-        "block"
-      ],
-      "allOf": [
-        {
-          "$ref": "#/definitions/showComponent"
-        }
-      ]
-    },
     "option": {
       "type": "object",
       "category": [
@@ -190,7 +159,7 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/showComponent"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/show"
         },
         {
           "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple"
@@ -212,7 +181,7 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/block"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/component"
         },
         {
           "$ref": "http://gov.uk/schema/v1.0.0/definition/model"
@@ -229,7 +198,7 @@
       ],
       "allOf": [
         {
-          "$ref": "#/definitions/block"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/component"
         },
         {
           "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes"
@@ -243,7 +212,7 @@
       ],
       "allOf": [
         {
-          "$ref": "#/definitions/block"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/component"
         },
         {
           "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes"

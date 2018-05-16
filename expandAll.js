@@ -36,6 +36,9 @@ glob('specifications/**/*.schema.json')
     }
     const getByCategory = (schemas, category) => {
       return partition(schemas, schema => {
+        if (schema._name && schema._name.endsWith('.definition')) {
+          return category === 'definition'
+        }
         return schema.category && schema.category.includes(category)
       })
     }

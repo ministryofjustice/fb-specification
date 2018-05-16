@@ -1,5 +1,6 @@
 {
   "$id": "http://gov.uk/schema/v1.0.0/checkboxes",
+  "_name": "checkboxes",
   "title": "Checkboxes",
   "description": "Component that provides a checkbox fieldset",
   "type": "object",

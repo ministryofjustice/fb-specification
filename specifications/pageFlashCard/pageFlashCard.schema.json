@@ -1,9 +1,9 @@
 {
   "$id": "http://gov.uk/schema/v1.0.0/pageFlashCard",
+  "_name": "pageFlashCard",
   "title": "Flash card page",
   "description": "Flash card page",
   "type": "object",
-  "category": [],
   "properties": {
     "_type": {
       "const": "pageFlashCard"

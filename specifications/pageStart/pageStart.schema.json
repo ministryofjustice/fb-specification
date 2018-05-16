@@ -1,9 +1,9 @@
 {
   "$id": "http://gov.uk/schema/v1.0.0/pageStart",
+  "_name": "pageStart",
   "title": "Start page",
   "description": "Start page",
   "type": "object",
-  "category": [],
   "properties": {
     "_type": {
       "const": "pageStart"

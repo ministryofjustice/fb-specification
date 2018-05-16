@@ -1,5 +1,6 @@
 {
   "$id": "http://gov.uk/schema/v1.0.0/section",
+  "_name": "section",
   "title": "Section",
   "description": "Component for creating sections within a page",
   "type": "object",

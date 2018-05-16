@@ -1,6 +1,7 @@
 {
   "$id": "http://gov.uk/schema/v1.0.0/Service",
   "title": "Service",
+  "_name": "Service",
   "description": "Service configuration",
   "type": "object",
   "properties": {

@@ -1,9 +1,9 @@
 {
   "$id": "http://gov.uk/schema/v1.0.0/pageConfirmation",
+  "_name": "pageConfirmation",
   "title": "Confirmation page",
   "description": "Confirmation page",
   "type": "object",
-  "category": [],
   "properties": {
     "_type": {
       "const": "pageConfirmation"
