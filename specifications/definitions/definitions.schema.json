@@ -13,31 +13,6 @@
       "one-half": "govuk-!-width-one-half",
       "one-third": "govuk-!-width-one-third",
       "one-quarter": "govuk-!-width-one-quarter"
-    },
-    "widthClass": {
-      "type": "string",
-      "enumMap": "widthClassMap",
-      "enum": [
-        "three-quarters",
-        "two-thirds",
-        "one-half",
-        "one-third",
-        "one-quarter"
-      ]
-    },
-    "widthClassInput": {
-      "type": "string",
-      "enumMap": "widthClassMap",
-      "enum": [
-        "10",
-        "20",
-        "30",
-        "three-quarters",
-        "two-thirds",
-        "one-half",
-        "one-third",
-        "one-quarter"
-      ]
     }
   },
   "category": [
