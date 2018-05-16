@@ -4,7 +4,7 @@
   "title": "Component definition",
   "allOf": [
     {
-      "$ref": "http://gov.uk/schema/v1.0.0/definition/show"
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/block"
     }
   ],
   "category": [

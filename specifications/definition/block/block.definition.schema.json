@@ -1,7 +1,7 @@
 {
-  "$id": "http://gov.uk/schema/v1.0.0/definition/show",
-  "_name": "show.definition",
-  "title": "Show definition",
+  "$id": "http://gov.uk/schema/v1.0.0/definition/block",
+  "_name": "block.definition",
+  "title": "Block definition",
   "properties": {
     "show": {
       "title": "Whether to show block or not",
