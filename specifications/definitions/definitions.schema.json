@@ -4,14 +4,6 @@
   "title": "Definitions",
   "type": "object",
   "definitions": {
-    "XXXid": {
-      "title": "Id",
-      "type": "string"
-    },
-    "XXXname": {
-      "title": "Input name",
-      "type": "string"
-    },
     "widthClassMap": {
       "10": "govuk-c-input--width-10",
       "20": "govuk-c-input--width-20",
@@ -45,27 +37,6 @@
         "one-half",
         "one-third",
         "one-quarter"
-      ]
-    },
-    "field": {
-      "type": "object",
-      "category": [
-        "field"
-      ],
-      "allOf": [
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/control"
-        },
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple"
-        },
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/name"
-        }
-      ],
-      "required": [
-        "name",
-        "label"
       ]
     }
   },

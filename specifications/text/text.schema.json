@@ -14,7 +14,7 @@
   },
   "allOf": [
     {
-      "$ref": "/schema/v1.0.0/definitions#/definitions/field"
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/field"
     },
     {
       "$ref": "/schema/v1.0.0/validations#/definitions/stringBundle"
