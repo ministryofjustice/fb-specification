@@ -11,26 +11,26 @@
     "_type": {
       "const": "fieldset"
     },
-    "legendHtml": {
+    "legend": {
       "title": "Legend",
-      "description": "Text to use in fieldset legend",
+      "description": "Text to use in fieldset legend (legendHtml)",
       "type": "string"
     },
-    "legendHintHtml": {
+    "hint": {
       "title": "Hint",
-      "description": "Hint text to use in fieldset legend",
+      "description": "Hint text to use in fieldset legend (legendHintHtml)",
       "type": "string"
     }
   },
   "allOf": [
     {
-      "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple#"
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple"
     },
     {
       "$ref": "/schema/v1.0.0/definitions#/definitions/grouping"
     }
   ],
   "required": [
-    "legendHtml"
+    "legend"
   ]
 }

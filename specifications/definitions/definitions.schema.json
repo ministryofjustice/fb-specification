@@ -54,28 +54,6 @@
         "one-quarter"
       ]
     },
-    "data": {
-      "properties": {
-        "_id": {
-          "title": "Data ID",
-          "type": "string"
-        },
-        "_type": {
-          "title": "Data type",
-          "type": "string"
-        },
-        "_isa": {
-          "title": "Reference to data based on",
-          "description": "Id of referenced data current data inherits property values from",
-          "type": "string",
-          "blockReference": true
-        }
-      },
-      "required": [
-        "_id",
-        "_type"
-      ]
-    },
     "showComponent": {
       "type": "object",
       "properties": {
@@ -91,7 +69,7 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/data"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/data"
         }
       ]
     },
@@ -182,7 +160,7 @@
           "$ref": "#/definitions/page"
         },
         {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple#"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple"
         }
       ]
     },
@@ -215,7 +193,7 @@
           "$ref": "#/definitions/showComponent"
         },
         {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple#"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple"
         }
       ],
       "required": [
@@ -237,10 +215,10 @@
           "$ref": "#/definitions/block"
         },
         {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/model#"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/model"
         },
         {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes#"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes"
         }
       ]
     },
@@ -254,7 +232,7 @@
           "$ref": "#/definitions/block"
         },
         {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes#"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes"
         }
       ]
     },
@@ -268,10 +246,10 @@
           "$ref": "#/definitions/block"
         },
         {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes#"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes"
         },
         {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/model#"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/model"
         },
         {
           "$ref": "http://gov.uk/schema/v1.0.0/validations#/definitions/requiredBundle"
@@ -299,7 +277,7 @@
           "$ref": "#/definitions/control"
         },
         {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple#"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/multiple"
         }
       ],
       "properties": {

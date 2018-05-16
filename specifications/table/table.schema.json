@@ -66,7 +66,7 @@
       },
       "allOf": [
         {
-          "$ref": "http://gov.uk/schema/v1.0.0/definitions#/definitions/data"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/data"
         }
       ]
     }
