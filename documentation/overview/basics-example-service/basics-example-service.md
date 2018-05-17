@@ -1,6 +1,6 @@
 ---
 layout: layout-pane.njk
-title: Basic example of a service
+title: Simple example service
 section: Overview
 ---
 

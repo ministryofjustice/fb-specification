@@ -23,7 +23,9 @@ Each page must be defined in its own json file.
 
 Pages are rendered using the template that corresponds to the page type used.
 
-[See available page types](/page)
+Pages can be standalone or form part of the [flow](/overview/flow) (the user’s journey through the service).
+
+[Read more about pages and see available page types](/page)
 
 
 ## Components
@@ -36,30 +38,33 @@ Components come in the following basic categories
 - form controls
 - grouping other components
 
-[See available component types](/component)
+[Read more about components and see available component types](/component)
 
 
 ## Patterns
 
-Patterns are best practice design solutions for specific user-focused tasks.
+Patterns are higher-order components (and usually composed from other components)
+that provide best practice design solutions for specific user-focused tasks.
 
-eg. A National Insurance field as opposed to a standard text field
+> eg. A National Insurance field as opposed to a standard text field
 
-Patterns are higer-levelmostly composed from other components.
+Patterns can be used anywhere components can be.
 
-Patterns can be used
-
-[See available pattern types](/pattern)
+[Read more about patterns and see available pattern types](/pattern)
 
 
 ## Blocks
 
-The block is the fundamental data type with which all others are made.
+Pages, components and patterns are all blocks.
 
---explanation of blocks--
+A block is a data object that can be rendered with a template corresponding to the block’s type.
+
+The block is the fundamental data type from which all others are made, providing baseline properties.
+
+[Read more about blocks](/overview/block)
 
 ## Definitions
 
 Definitions are base schemas that other schemas can be made from.
 
-[See available definitions](/definition)
+[Read more about definitions](/definition)

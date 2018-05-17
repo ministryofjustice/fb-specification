@@ -6,23 +6,6 @@ title: Dumping ground
 ### DUMPING GROUND
 
 
-Service flow
-As mentioned previously, a service is built out of pages.
-
-Find the service entry point
-That’s the first page
-
-Does the page have subpages
-Yes -> go to subpage
-No -> Should the page have multiple instances?
-Yes -> Is the current multiple instance higher than the max allowed?
-No -> Go to self/n + 1
-Yes
-
-
-The next page is its first subpage
-If the subpage has su
- 
 
 
 
@@ -31,8 +14,6 @@ Explanation of how we get from build-time to run-time
 Runtime representation
 Instance representation
 
-
-The flow through the service is determined by starting with the start page and moving through step-by-step
 
 
 

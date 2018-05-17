@@ -93,7 +93,7 @@ glob('specifications/**/*.schema.json')
       }
       sections.forEach(copyCategorySection)
     }
-    copyCategory('overview', ['basics', 'example-service', 'block', 'flow', 'logic', 'i18n'])
+    copyCategory('overview', ['basics', 'basics-example-service', 'block', 'flow', 'logic', 'schemas', 'i18n', 'multiple'])
     copyCategory('process', ['editor', 'publisher', 'runner', 'submitter'])
 
     const categories = splitByCategory(schemas, categoryOrder)
