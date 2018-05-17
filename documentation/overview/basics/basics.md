@@ -4,11 +4,11 @@ title: The basics
 section: Overview
 ---
 
-
-Pages, components and patterns are all blocks.
-
-
 ## Service
+
+*TODO: Insert Al's definition of a service here*
+
+Configuration of a service is performed through the [Service data instance](/configuration/Service)
 
 A service is built out of pages.
 
@@ -17,18 +17,24 @@ Every service must have a start page and the user’s journey through the servic
 
 ## Pages
 
-Pages are built out of [components](/components) and [patterns](/patterns).
+Pages are built out of [components](/components) and [patterns](/patterns) which can be added to the page‘s `components` property.
 
-Each page is defined in its own json file.
+Each page must be defined in its own json file.
 
-Pages are rendered using the template that
+Pages are rendered using the template that corresponds to the page type used.
 
 [See available page types](/page)
 
 
 ## Components
 
-Components are reusable parts of the user interface that have been made to support a variety of applications.
+Components are the fundamental reusable parts of the user interface that have been made to support a variety of applications.
+
+Components come in the following basic categories
+
+- content
+- form controls
+- grouping other components
 
 [See available component types](/component)
 
@@ -37,7 +43,11 @@ Components are reusable parts of the user interface that have been made to suppo
 
 Patterns are best practice design solutions for specific user-focused tasks.
 
-Patterns are made with components
+eg. A National Insurance field as opposed to a standard text field
+
+Patterns are higer-levelmostly composed from other components.
+
+Patterns can be used
 
 [See available pattern types](/pattern)
 
