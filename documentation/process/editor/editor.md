@@ -1,7 +1,7 @@
 ---
 layout: layout-pane.njk
 title: Editor
-section: Overview
+section: Process
 ---
 
 About the editor

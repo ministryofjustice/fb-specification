@@ -1,7 +1,7 @@
 {%- macro group(data) %}
 <div class="fb-group">
-{%- for item in data.items %}
-{{ blocks[item._type](item) }}
+{%- for component in data.components %}
+{{ blocks[component._type](component) }}
 {% endfor -%}
 </div>
 {% endmacro -%}

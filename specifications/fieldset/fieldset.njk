@@ -3,8 +3,8 @@
 {% set params = setError(data) %}
 {% set params = setItemsLabel(params) %}
 {%- call govukFieldset(params) %}
-{%- for item in data.items %}
-{{ blocks[item._type](item) }}
+{%- for component in data.components %}
+{{ blocks[component._type](component) }}
 {% endfor -%}
 {% endcall -%}
 {% endmacro -%}

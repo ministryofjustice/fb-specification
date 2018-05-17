@@ -1,7 +1,7 @@
 ---
 layout: layout-pane.njk
 title: Submitter
-section: Overview
+section: Process
 ---
 
 About the submitter

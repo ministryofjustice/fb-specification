@@ -1,0 +1,38 @@
+---
+layout: layout-pane.njk
+title: Runner
+section: Process
+---
+
+## Runtime representation
+
+From the buildtime representation we generate a runtime representation.
+
+![Runtime diagram](runtime.svg)
+
+
+- Determine data sources
+- Load data
+- Expand refs / inherited values
+- Determine definition sources
+- Load defintions
+- Modify
+- Propagate models
+- Bubble up dependencies
+- Add next/previous pages
+
+
+## Handling user requests
+
+Using this representation, a runner can map urls to the relevant page.
+
+![Runner handler diagram](runner-handler.svg)
+
+When a user visits a page, the runner
+
+- Checks that the page should be displayed
+- Performs any necessary validation
+- Performs any transaction / code
+- Update instance representation
+- Perform substitution of strings
+- Pass instance representation to template renderer

@@ -1,7 +1,7 @@
 ---
 layout: layout-pane.njk
 title: Publisher
-section: Overview
+section: Process
 ---
 
 About the publisher

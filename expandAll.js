@@ -77,17 +77,24 @@ glob('specifications/**/*.schema.json')
     const specDocPath = path.resolve('documentation')
     const getStartedDocPath = path.join(docPath, 'get-started')
     shell.cp(`${specDocPath}/get-started.md`, `${getStartedDocPath}/index.md.njk`)
-    shell.mkdir('-p', `${docPath}/overview`)
-    shell.cp(`${specDocPath}/overview.md`, `${docPath}/overview/index.md.njk`)
-    const copyOverviewSection = section => {
-      shell.mkdir('-p', `${docPath}/overview/${section}`)
-      shell.cp(`${specDocPath}/overview/${section}/${section}.md`, `${docPath}/overview/${section}/index.md.njk`)
-      try {
-        const svgCopyResult = shell.cp(`${specDocPath}/overview/${section}/*.svg`, `${docPath}/overview/${section}/.`)
-      } catch (e) {}
+
+    const copyCategory = (category, sections) => {
+      const categoryDir = `${docPath}/${category}`
+      shell.mkdir('-p', `${categoryDir}`)
+      shell.rm('-rf', `${categoryDir}/*`)
+      shell.cp(`${specDocPath}/${category}.md`, `${categoryDir}/index.md.njk`)
+      const copyCategorySection = section => {
+        shell.mkdir('-p', `${categoryDir}/${section}`)
+        shell.cp(`${specDocPath}/${category}/${section}/${section}.md`, `${categoryDir}/${section}/index.md.njk`)
+        try {
+          const svgCopyResult = shell.cp(`${specDocPath}/${category}/${section}/*.svg`, `${categoryDir}/${section}/.`)
+          const pngCopyResult = shell.cp(`${specDocPath}/${category}/${section}/*.png`, `${categoryDir}/${section}/.`)
+        } catch (e) {}
+      }
+      sections.forEach(copyCategorySection)
     }
-    const overviewSections = ['editor', 'publisher', 'runner', 'submitter', 'flow']
-    overviewSections.forEach(copyOverviewSection)
+    copyCategory('overview', ['basics', 'example-service', 'flow', 'logic', 'i18n'])
+    copyCategory('process', ['editor', 'publisher', 'runner', 'submitter'])
 
     const categories = splitByCategory(schemas, categoryOrder)
     Object.keys(categories).forEach(category => {
