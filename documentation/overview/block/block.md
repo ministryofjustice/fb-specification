@@ -81,6 +81,7 @@ When a block is nested within another block (for example, when a component is in
 ```
 
 `fullnameBase.json`
+
 ```
 {
   "_id": "fullnameBase",
@@ -104,6 +105,7 @@ The above definitions (inline and by reference) are functionally equivalent.
   "hint": "As it appears on your birth certificate"
 }
 ```
+
 When this definition is combined with the previous referenced block, the resulting block at runtime will be the following:
 
 ```

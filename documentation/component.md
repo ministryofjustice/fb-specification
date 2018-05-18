@@ -22,11 +22,6 @@ These components essentially map one-to-one to components described in the GOV.U
 - [Textarea](/component/textarea)
 
 NB. File upload is currently not supported.
-å
-
-- name
-- model
-- modelProtect
 
 
 ## Content
@@ -53,6 +48,14 @@ Read about [semantics](https://developer.mozilla.org/en-US/docs/Glossary/Semanti
 
 ## Options
 
-Option components provide the option items for components such as [/component/radios](radios), [/component/checkboxes](checkboxes) and [/component/select](select).
+Option components provide the option items for components such as [radios](/component/radios), [checkboxes](/component/checkboxes) and [select](/component/select).
 
 They cannot and must not be used in other contexts.
+
+## Properties to be explained
+
+- name
+- model
+- modelProtect
+
+*TODO: flesh this out and link to model stuff*
