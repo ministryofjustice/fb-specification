@@ -1,0 +1,1 @@
+Fundamental definition providing baseline properties for [all blocks](/overview/block)

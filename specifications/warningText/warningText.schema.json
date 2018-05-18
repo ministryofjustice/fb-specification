@@ -24,5 +24,8 @@
     {
       "$ref": "http://gov.uk/schema/v1.0.0/definition/component"
     }
+  ],
+  "category": [
+    "content"
   ]
 }

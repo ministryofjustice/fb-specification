@@ -4,9 +4,6 @@
   "title": "Table",
   "description": "Component that provides a table",
   "type": "object",
-  "category": [
-    "content"
-  ],
   "properties": {
     "_type": {
       "const": "table"
@@ -71,5 +68,8 @@
         }
       ]
     }
-  }
+  },
+  "category": [
+    "content"
+  ]
 }

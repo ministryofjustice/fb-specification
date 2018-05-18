@@ -5,65 +5,54 @@ title: Components
 
 Components are reusable parts of the user interface that have been made to support a variety of applications.
 
-What’s an element?
+They can be broken down into several categories.
 
-A chunk of data defined against a JSON Schema definition
+## Controls
 
-Can be defined inline or externally (see appendix)
+Form control components allow a user to provide information.
 
-All elements have these properties
+These components essentially map one-to-one to components described in the GOV.UK Design System.
 
-- `_id`
-- `_type`
+- [Checkboxes](/component/checkboxes)
+- [Date](/component/date)
+- [Number](/component/number)
+- [Radios](/component/radios)
+- [Select](/component/select)
+- [Text](/component/text)
+- [Textarea](/component/textarea)
 
-`_type` provides:
+NB. File upload is currently not supported.
+å
 
-- the name of the definition to val_idate an element against
-- the name of the template to use to render the element
+- name
+- model
+- modelProtect
 
-Additionally, all elements have these optional properties
 
-- `_isa`
+## Content
 
-  The _id of another element to inherit properties from
-- `show`
+These components output content and  essentially map one-to-one to components described in the GOV.UK Design System.
 
-  Whether or not to display the element
+- [Details](/component/details) - progressively disclose content
+- [Table](/component/table) - display tabular data
+- [Warning text](/component/warningText) - alert a user to consequences of an action
 
-… other properties
+Additionally, arbitrary content can be added to a page using
 
-Example: An element of type ‘Text’ would have - link to appendix
+- [Content](/component/content) - arbitrary content
 
-```
-{
-  "_id": "foo",
-  "_type": "Text",
-  "label": "Full name",
-  "hint": "As it appears on your birth certificate"
-}
-```
+## Grouping
 
-or
+Grouping components provide a way of grouping other components together.
 
-```
-{
-  "_id": "foo",
-  "_type": "Text",
-  "_isa": "fullname"
-}
+- [Fieldset](/component/fieldset) - group controls (and optionally content) semantically
+- [Section](/component/section) - group content semantically
+- [Group](/component/group) - grouped any components without any semantic intent
 
-{
-  "_id": "fullname-base",
-  "_type": "BaseText",
-  "name": "fullname",
-  "label": "Full name",
-  "hint": "As it appears on your birth certificate"
-}
+Read about [semantics](https://developer.mozilla.org/en-US/docs/Glossary/Semantics)
 
-{
-  "_id": "bar",
-  "_type": "Text",
-  "_isa": "fullname",
-  "name": "othername"
-}
-```
+## Options
+
+Option components provide the option items for components such as [/component/radios](radios), [/component/checkboxes](checkboxes) and [/component/select](select).
+
+They cannot and must not be used in other contexts.

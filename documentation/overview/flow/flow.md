@@ -4,7 +4,7 @@ title: Page flow
 section: Overview
 ---
 
-A service is built out of pages, or more specifically, is the sequential flow between the pages defined as the steps of a service entry point.
+A service is built out of [pages](/page), or more specifically, is the sequential flow between the pages defined as the steps of a service entry point.
 
 ## Entry points
 
@@ -148,3 +148,19 @@ This example will redirect to pageA if the user-submitted value for foo is bar t
 [Read more about conditions](/overview/logic)
 
 [View the nextPage definition](/definition/nextPage)
+
+## Skipping pages
+
+A page will be skipped under any of the following situations
+
+- the page has a `show` property that evaluates to false
+- all top-level components on the page have `show` properties and they all evaluate to false
+- the page’s parent page has a `show` property that evaluates to false
+- the page’s parent page has a `stepShow` property that evaluates to false
+
+If a page is skipped, the user is redirected to the next page in the flow.
+
+(NB. not the skipped page’s `nextPage`, even if it has one)
+
+*I feel a diagram coming on*
+

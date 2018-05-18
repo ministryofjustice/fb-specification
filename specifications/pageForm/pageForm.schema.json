@@ -8,7 +8,7 @@
     "_type": {
       "const": "pageForm"
     },
-    "continue": {
+    "actionType": {
       "type": "string",
       "enum": [
         "continue",

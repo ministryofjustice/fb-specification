@@ -89,11 +89,13 @@ glob('specifications/**/*.schema.json')
         try {
           const svgCopyResult = shell.cp(`${specDocPath}/${category}/${section}/*.svg`, `${categoryDir}/${section}/.`)
           const pngCopyResult = shell.cp(`${specDocPath}/${category}/${section}/*.png`, `${categoryDir}/${section}/.`)
+          shell.mkdir('-p', `${categoryDir}/${section}/images`)
+          const imagesCopyResult = shell.cp(`${specDocPath}/${category}/${section}/images/*`, `${categoryDir}/${section}/images/.`)
         } catch (e) {}
       }
       sections.forEach(copyCategorySection)
     }
-    copyCategory('overview', ['basics', 'basics-example-service', 'block', 'flow', 'logic', 'schemas', 'i18n', 'multiple'])
+    copyCategory('overview', ['basics', 'basics-example-service', 'block', 'flow', 'logic', 'schemas', 'i18n', 'multiple', 'model'])
     copyCategory('process', ['editor', 'publisher', 'runner', 'submitter'])
 
     const categories = splitByCategory(schemas, categoryOrder)

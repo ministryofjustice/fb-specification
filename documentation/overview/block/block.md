@@ -8,13 +8,13 @@ section: Overview
 
 A block is any JSON data object 
 
-- defined against a JSON Schema definition that is derived from the block definition schema (or any other definition schema that is so derived).=
+- defined against a JSON Schema definition that is derived from the block definition schema (or any other definition schema that is so derived).
 - that can be rendered by a corresponding template
 - that can be hidden or shown through the mechanism of the `show` property
 
 All pages, components and patterns are blocks.
 
-The block definition 
+The [block definition](/definition/block)
 
 - provides baseline properties for other definitions
 - allows blocks to be defined inline or externally
@@ -41,7 +41,9 @@ All blocks (and by extension, pages, components, patterns and other definitions)
 
   Any properties defined in the block override those set in the referenced block.
 
-  *TODO: Does the referenced block have to be external?*
+  *TODO: Does the referenced block have to be an external block?*
+
+  *TODO: Is there any need to introduce the protection of properties? the forcing of overriding of specific properties?*
 - `show`
 
   Whether or not to display the block - by default it is true

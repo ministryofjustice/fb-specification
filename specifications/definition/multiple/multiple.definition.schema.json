@@ -15,6 +15,12 @@
     "multipleMaximum": {
       "type": "number",
       "minimum": 0
+    },
+    "multipleAdd": {
+      "type": "string"
+    },
+    "multipleDelete": {
+      "type": "string"
     }
   },
   "allOf": [
