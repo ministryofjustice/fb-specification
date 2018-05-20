@@ -84,13 +84,14 @@ glob('specifications/**/*.schema.json')
       shell.rm('-rf', `${categoryDir}/*`)
       shell.cp(`${specDocPath}/${category}.md`, `${categoryDir}/index.md.njk`)
       const copyCategorySection = section => {
-        shell.mkdir('-p', `${categoryDir}/${section}`)
-        shell.cp(`${specDocPath}/${category}/${section}/${section}.md`, `${categoryDir}/${section}/index.md.njk`)
+        const sectionDir = section.replace(/\.(.)/g, (m, m1) => m1.toUpperCase())
+        shell.mkdir('-p', `${categoryDir}/${sectionDir}`)
+        shell.cp(`${specDocPath}/${category}/${section}/${section}.md`, `${categoryDir}/${sectionDir}/index.md.njk`)
         try {
-          const svgCopyResult = shell.cp(`${specDocPath}/${category}/${section}/*.svg`, `${categoryDir}/${section}/.`)
-          const pngCopyResult = shell.cp(`${specDocPath}/${category}/${section}/*.png`, `${categoryDir}/${section}/.`)
-          shell.mkdir('-p', `${categoryDir}/${section}/images`)
-          const imagesCopyResult = shell.cp(`${specDocPath}/${category}/${section}/images/*`, `${categoryDir}/${section}/images/.`)
+          const svgCopyResult = shell.cp(`${specDocPath}/${category}/${section}/*.svg`, `${categoryDir}/${sectionDir}/.`)
+          const pngCopyResult = shell.cp(`${specDocPath}/${category}/${section}/*.png`, `${categoryDir}/${sectionDir}/.`)
+          shell.mkdir('-p', `${categoryDir}/${sectionDir}/images`)
+          const imagesCopyResult = shell.cp(`${specDocPath}/${category}/${section}/images/*`, `${categoryDir}/${sectionDir}/images/.`)
         } catch (e) {}
       }
       sections.forEach(copyCategorySection)
@@ -113,7 +114,9 @@ glob('specifications/**/*.schema.json')
           throw new Error(`${schema.$id} has no schema name`)
         }
         const schemaDir = getSchemaDir(schemaName)
-        const schemaDocDirPath = path.join(categoryDocPath, schemaName).replace(/\.definition$/, '')
+        const schemaDocDirPath = path.join(categoryDocPath, schemaName)
+          .replace(/\.definition$/, '')
+          .replace(/\.(.)/g, (m, m1) => m1.toUpperCase())
         mkdirp.sync(schemaDocDirPath)
         let template
         try {

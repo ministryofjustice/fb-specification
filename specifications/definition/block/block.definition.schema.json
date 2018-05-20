@@ -7,7 +7,7 @@
       "title": "Whether to show block or not",
       "oneOf": [
         {
-          "$ref": "http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/conditional.boolean"
         }
       ],
       "default": true

@@ -37,6 +37,7 @@ const argv = require('yargs')
 // console.log(argv)
 // process.exit(0)
 const { schema, invalid, verbose } = argv
+let schemaDir
 let validSrc = ''
 let invalidSrc = ''
 const dataPaths = {}
@@ -51,8 +52,9 @@ if (argv._.length) {
     console.log('Please specify a path')
     process.exit(1)
   }
-  validSrc = `specifications/${schema}/data/valid/**.json`
-  invalidSrc = `specifications/${schema}/data/invalid/**.json`
+  schemaDir = schema.replace(/(.*)\.definition$/, 'definition/$1')
+  validSrc = `specifications/${schemaDir}/data/valid/**.json`
+  invalidSrc = `specifications/${schemaDir}/data/invalid/**.json`
 }
 
 const promisedGlob = (pattern) => {
@@ -69,7 +71,7 @@ const promisedGlob = (pattern) => {
 const validGlob = dataPaths.valid ? Promise.resolve(dataPaths.valid) : promisedGlob(validSrc)
 const invalidGlob = dataPaths.invalid ? Promise.resolve(dataPaths.invalid) : promisedGlob(invalidSrc)
 
-const schemaPath = schema.endsWith('.json') ? schema : path.resolve('specifications', schema, `${schema}.schema.json`)
+const schemaPath = schema.endsWith('.json') ? schema : path.resolve('specifications', schemaDir, `${schema}.schema.json`)
 const dataSchema = require(schemaPath)
 
 const loadedSchemas = {

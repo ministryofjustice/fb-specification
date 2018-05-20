@@ -1,0 +1,33 @@
+{
+  "$id": "http://gov.uk/schema/v1.0.0/definition/condition.text",
+  "_name": "condition.text.definition",
+  "title": "Text condition properties",
+  "allOf": [
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/condition.base"
+    }
+  ],
+  "properties": {
+    "operator": {
+      "title": "Operator",
+      "type": "string",
+      "enum": [
+        "is",
+        "startsWith",
+        "endsWith",
+        "includes"
+      ]
+    },
+    "value": {
+      "title": "Value",
+      "type": "string"
+    }
+  },
+  "required": [
+    "operator",
+    "value"
+  ],
+  "category": [
+    "definition"
+  ]
+}
