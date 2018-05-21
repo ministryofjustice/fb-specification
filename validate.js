@@ -13,27 +13,36 @@ const logger = (msg, msgJSON) => {
 }
 
 const argv = require('yargs')
+  .version(false)
   .option('verbose', {
     alias: 'v',
+    description: 'Output verbose messages',
     default: false
   })
   .option('schema', {
     alias: 's',
+    description: 'Name of schema to validate against',
     type: 'string',
     required: true
   })
-  .option('valid', {
-    alias: 'val',
-    default: false
-  })
   .option('invalid', {
     alias: 'i',
+    description: 'Input is expected to be invalid',
+    type: 'boolean',
+    default: false
+  })
+  .option('allErrors', {
+    alias: 'e',
+    description: 'Show all errors instead of failing on first',
+    type: 'boolean',
     default: false
   }).argv
 
-const {schema, invalid, verbose} = argv
+const {schema, invalid, verbose, allErrors} = argv
 
-const dataPaths = {}
+const dataPaths = {
+  allErrors
+}
 if (argv._.length) {
   if (invalid) {
     dataPaths.invalid = argv._
