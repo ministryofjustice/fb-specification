@@ -1,8 +1,9 @@
+/* eslint-disable no-console */
 const {expandSchema, getSchemaName, getSchemaDir, getRawSchema} = require('./lib/schemaUtils')
 const glob = require('glob-promise')
 const fs = require('fs')
 const path = require('path')
-var shell = require('shelljs')
+const shell = require('shelljs')
 shell.config.silent = true
 const mkdirp = require('mkdirp')
 
@@ -31,8 +32,8 @@ glob('specifications/**/*.schema.json')
   .then(schemas => {
     const partition = (array, isValid) => {
       return array.reduce(([pass, fail], elem) => {
-        return isValid(elem) ? [[...pass, elem], fail] : [pass, [...fail, elem]];
-      }, [[], []]);
+        return isValid(elem) ? [[...pass, elem], fail] : [pass, [...fail, elem]]
+      }, [[], []])
     }
     const getByCategory = (schemas, category) => {
       return partition(schemas, schema => {
@@ -64,16 +65,8 @@ glob('specifications/**/*.schema.json')
       'page',
       'component',
       'definition'
-      // 'contentPage',
-      // 'formPage',
-      // 'grouping',
-      // 'control',
-      // 'field',
-      // 'content',
-      // 'block',
-      // 'definition'
     ]
-    const docPath =  path.join(localDocPath, 'src')
+    const docPath = path.join(localDocPath, 'src')
     const specDocPath = path.resolve('documentation')
     const getStartedDocPath = path.join(docPath, 'get-started')
     shell.cp(`${specDocPath}/get-started.md`, `${getStartedDocPath}/index.md.njk`)
@@ -88,15 +81,29 @@ glob('specifications/**/*.schema.json')
         shell.mkdir('-p', `${categoryDir}/${sectionDir}`)
         shell.cp(`${specDocPath}/${category}/${section}/${section}.md`, `${categoryDir}/${sectionDir}/index.md.njk`)
         try {
-          const svgCopyResult = shell.cp(`${specDocPath}/${category}/${section}/*.svg`, `${categoryDir}/${sectionDir}/.`)
-          const pngCopyResult = shell.cp(`${specDocPath}/${category}/${section}/*.png`, `${categoryDir}/${sectionDir}/.`)
+          shell.cp(`${specDocPath}/${category}/${section}/*.svg`, `${categoryDir}/${sectionDir}/.`)
+          shell.cp(`${specDocPath}/${category}/${section}/*.png`, `${categoryDir}/${sectionDir}/.`)
           shell.mkdir('-p', `${categoryDir}/${sectionDir}/images`)
-          const imagesCopyResult = shell.cp(`${specDocPath}/${category}/${section}/images/*`, `${categoryDir}/${sectionDir}/images/.`)
-        } catch (e) {}
+          shell.cp(`${specDocPath}/${category}/${section}/images/*`, `${categoryDir}/${sectionDir}/images/.`)
+        } catch (e) {
+          /* ignore shell command errors */
+        }
       }
       sections.forEach(copyCategorySection)
     }
-    copyCategory('overview', ['basics', 'basics-example-service', 'block', 'flow', 'logic', 'schemas', 'i18n', 'multiple', 'model'])
+    copyCategory('overview', [
+      'basics',
+      'basics-example-service',
+      'block',
+      'block-show',
+      'flow',
+      'logic',
+      'schemas',
+      'i18n',
+      'multiple',
+      'model',
+      'validation'
+    ])
     copyCategory('process', ['editor', 'publisher', 'runner', 'submitter'])
 
     const categories = splitByCategory(schemas, categoryOrder)
@@ -105,7 +112,7 @@ glob('specifications/**/*.schema.json')
       console.log('------------------------')
       console.log(categories[category].map(schema => schema.$id))
       const categoryDocPath = path.join(docPath, category)
-      const result = mkdirp.sync(categoryDocPath)
+      shell.mkdir('-p', categoryDocPath)
       shell.rm('-rf', `${categoryDocPath}/*`)
       shell.cp(`${specDocPath}/${category}.md`, `${categoryDocPath}/index.md.njk`)
       categories[category].forEach(schema => {
@@ -121,7 +128,9 @@ glob('specifications/**/*.schema.json')
         let template
         try {
           template = fs.readFileSync(`${schemaDir}/${schemaName}.njk`).toString()
-        } catch(e) {}
+        } catch (e) {
+          /* ignore failed attempt to load template file */
+        }
         let examplesOutput = ''
         const addExample = (example, exampleMd) => {
           return `
@@ -129,7 +138,6 @@ ${exampleMd}
 {{ specExample({group: '${category}', item: '${schemaName}', example: '${example}', html: true, json: true, open: true}) }}`
         }
         if (template) {
-          // console.log(template)
           const dataDir = `${schemaDir}/data/valid`
           const examples = glob.sync(`${dataDir}/*.md`)
           examples.forEach(exampleMdPath => {
@@ -137,10 +145,6 @@ ${exampleMd}
             const exampleDocName = `example.${example}`.replace(/\.(.)/g, (m, m1) => m1.toUpperCase())
             const exampleMd = fs.readFileSync(exampleMdPath).toString()
             const exampleJSON = fs.readFileSync(`${dataDir}/${example}.json`).toString()
-            // console.log({example})
-            // console.log(exampleMd)
-            // console.log(exampleJSON)
-            // const exampleData = JSON.stringify(exampleJSON, null, 2)
             examplesOutput += addExample(exampleDocName, exampleMd)
             let exampleNJK = `---
 layout: layout-specification.njk
@@ -150,20 +154,22 @@ ${template}
 {% set data = ${exampleJSON} %}
 {{ ${schemaName}(data) }}
 `
-            // console.log(exampleNJK)
             fs.writeFileSync(`${schemaDocDirPath}/${exampleDocName}.njk`, exampleNJK)
             shell.cp(`${dataDir}/${example}.json`, `${schemaDocDirPath}/${exampleDocName}.json`)
           })
-          // shell.cp(`${schemaDir}/data/valid/*`, `${categoryDocPath}/`)
         }
         try {
-          const svgCopyResult = shell.cp(`${schemaDir}/*.svg`, `${schemaDocDirPath}/.`)
-        } catch (e) {}
+          shell.cp(`${schemaDir}/*.svg`, `${schemaDocDirPath}/.`)
+        } catch (e) {
+          /* ignore shell command errors */
+        }
         const schemaMdPath = `${schemaDir}/${schemaName}.schema.md`
         let schemaMd = ''
         try {
           schemaMd = fs.readFileSync(schemaMdPath).toString()
-        } catch (e) {}
+        } catch (e) {
+          /* ignore failed attempt to load schema documentation file */
+        }
         let schemaProperties = ''
         const propRows = []
         const schemaProps = schema.properties
@@ -183,13 +189,13 @@ ${template}
             const property = schemaProps[prop]
             propRows.push([{
               text: prop
-            },{
+            }, {
               text: property.type
-            },{
+            }, {
               text: schemaRequired && schemaRequired.includes(prop) ? 'yes' : 'no'
-            },{
+            }, {
               html: property.title
-            },{
+            }, {
               html: property.default !== undefined ? property.default : '-'
             }])
           })
@@ -244,39 +250,39 @@ ${template}
         const getDocsUrl = (url, title, _name) => {
           if (!_name.endsWith('.definition')) {
             if (url.startsWith('validations')) {
-              url = 'definition/' + url
+              url = `definition/${url}`
             } else if (_name.startsWith('page')) {
-              url = 'page/' + url
+              url = `page/${url}`
             } else {
-              url = 'component/' + url
+              url = `component/${url}`
             }
           }
-          url = '/' + url
+          url = `/${url}`
           return `- [${title}](${url})`
         }
         const allOf = (originalSchema.allOf || [])
-                        .filter(obj => obj.$ref)
-                        .map(obj => obj.$ref)
-                        .map($id => {
-                          let url = $id.replace(/.*\/v\d+\.\d+\.\d+\//, '').replace(/#.*/, '')
-                          const name = url.replace(/definition\/(.*)/, '$1.definition')
-                          const {title, _name} = getRawSchema(name)
-                          return getDocsUrl(url, title, _name)
-                        })
+          .filter(obj => obj.$ref)
+          .map(obj => obj.$ref)
+          .map($id => {
+            let url = $id.replace(/.*\/v\d+\.\d+\.\d+\//, '').replace(/#.*/, '')
+            const name = url.replace(/definition\/(.*)/, '$1.definition')
+            const {title, _name} = getRawSchema(name)
+            return getDocsUrl(url, title, _name)
+          })
         const schemaUses = allOf.join('\n')
         const usedBy = shell.grep('-l', `"${schema.$id}"`, 'specifications/**/*.schema.json').stdout
-                        .replace(/\n$/, '')
-                        .split('\n')
-                        .filter(src => getRawSchema(src)._name !== schema._name)
-                        .map(src => {
-                          let url = src.replace('specifications/', '').replace(/\/[^\/]+\.json$/, '')
-                          const {title, _name} = getRawSchema(src)
-                          return getDocsUrl(url, title, _name)
-                        })
+          .replace(/\n$/, '')
+          .split('\n')
+          .filter(src => getRawSchema(src)._name !== schema._name)
+          .map(src => {
+            let url = src.replace('specifications/', '').replace(/\/[^/]+\.json$/, '')
+            const {title, _name} = getRawSchema(src)
+            return getDocsUrl(url, title, _name)
+          })
 
-        schemaUsedBy = usedBy.join('\n')
-        const expandedSchema = ('\n```\n' + JSON.stringify(schema, null, 2) + '\n```\n').replace(/"/g, '\\"')
-        const rawSchema = ('\n```\n' + JSON.stringify(originalSchema, null, 2) + '\n```\n').replace(/"/g, '\\"')
+        const schemaUsedBy = usedBy.join('\n')
+        const expandedSchema = `\n\`\`\`\n${JSON.stringify(schema, null, 2)}\n\`\`\`\n`.replace(/"/g, '\\"')
+        const rawSchema = `\n\`\`\`\n${JSON.stringify(originalSchema, null, 2)}\n\`\`\`\n`.replace(/"/g, '\\"')
         const schemaDocPath = path.join(schemaDocDirPath, 'index.md.njk')
 
         fs.writeFileSync(schemaDocPath, `---
@@ -331,7 +337,6 @@ ${schemaCategories}
         `)
       })
     })
-
   })
   .catch(e => {
     console.log('Unexpected error', e)

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
 const glob = require('glob-promise')
 const fs = require('fs')
