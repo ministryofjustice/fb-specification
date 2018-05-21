@@ -12,7 +12,7 @@ specifications/${name}/${name}.schema.json
 
 ### Definitions
 
-Location 
+Location
 
 ```
 specifications/definition/${name}/${name}.definition.schema.json
@@ -21,7 +21,7 @@ specifications/definition/${name}/${name}.definition.schema.json
 
 ## Specification examples
 
-Examples for the schemas are JSON files located in a 
+Examples for the schemas are JSON files located in a
 data directory at the same level as the schema file.
 
 Valid examples should be in
@@ -51,6 +51,14 @@ Validate a single schema
 ```
 node validate.js -s {name}
 ```
+
+Validate a single file against a particular schema
+
+From the *specification* root directory:
+```
+node validate.js -s {schema name} {file path}
+```
+
 
 ## Validating  data
 
