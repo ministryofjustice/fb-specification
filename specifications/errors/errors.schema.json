@@ -1,5 +1,6 @@
 {
   "$id": "http://gov.uk/schema/v1.0.0/errors",
+  "_name": "errors",
   "title": "Error strings",
   "type": "object",
   "definitions": {

@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm-run-all -s lint test:unit",
+    "test:unit": "npm-run-all -s test:schemas",
+    "test:schemas": "tape tests/**/*.unit.spec.js",
     "validate": "SCHEMA=$1; echo test -r definitions/definitions.schema.json -r condition/condition.schema.json -s \"$SCHEMA/$SCHEMA.schema.json\" -d \"$SCHEMA/data/valid/*.json\" --valid",
-    "lint": "node bin/lint-schemas.js",
-    "lint:schemas": "find specifications/**/*.schema.json | xargs -P 20 -L 1 jsonlint -q",
+    "lint": "npm-run-all -p lint:schemas lint:data",
+    "lint:schemas": "node bin/lint-schemas.js",
+    "lint:schemas:cli": "find specifications/**/*.schema.json | xargs -P 20 -L 1 jsonlint -q",
     "format:schemas": "find specifications/**/*.schema.json | xargs -P 20 -L 1 jsonlint -qi",
-    "lint:examples": "find specifications/**/data/**/*.json | xargs -P 20 -L 1 jsonlint -q",
+    "lint:data": "find specifications/**/data/**/*.json | xargs -P 20 -L 1 jsonlint -q",
     "format:data": "find specifications/**/data/**/*.json | xargs -P 20 -L 1 jsonlint -qi"
   },
   "author": "",
@@ -18,7 +21,6 @@
     "ajv": "^6.4.0",
     "ajv-cli": "^3.0.0",
     "glob": "^7.1.2",
-    "glob-promise": "^3.4.0",
     "json-schema-merge-allof": "^0.6.0",
     "json-schema-ref-parser": "^5.0.3",
     "jsonlint": "^1.6.3",
@@ -27,5 +29,11 @@
     "npm-run-all": "^4.1.2",
     "shelljs": "^0.8.2",
     "yargs": "^11.0.0"
+  },
+  "devDependencies": {
+    "eslint-config-fb": "git+https://github.com/ministryofjustice/eslint-config-fb.git#v1.0.0",
+    "glob-promise": "^3.4.0",
+    "tape": "^4.9.0",
+    "tape-promise": "^3.0.0"
   }
 }

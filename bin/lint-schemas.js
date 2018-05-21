@@ -21,6 +21,12 @@ const testJSON = (file, options = {}) => {
       }
       try {
         jsonlint.parse(jsonContent)
+        if (options._name) {
+          const json = JSON.parse(jsonContent)
+          if (json._name !== file.replace(/.*\/([^/]+)\.schema\.json$/, '$1')) {
+            reportError([`Non-matching _name - ${file}`, `_name (${json._name}) does not match source filename`].join('\n'))
+          }
+        }
         if (options._id) {
           const json = JSON.parse(jsonContent)
           if (json._id !== file.replace(/.*\/([^/]+)\.json$/, '$1')) {
@@ -38,14 +44,16 @@ const testJSON = (file, options = {}) => {
 const testJSONFiles = (files, options) => Promise.all(files.map(file => testJSON(file, options)))
 // , {_id: true}
 glob(`${appDir}/specifications/**/*.schema.json`)
-.then(files => testJSONFiles(files))
-.then(() => {
-  return glob(`${appDir}/specifications/**/data/**/*.json`)
-    .then(testJSONFiles)
-})
-.then(() => {
-  if (errors.length) {
-    console.log(errors.join('\n\n'))
-    process.exit(1)
-  }
-})
+  .then(files => testJSONFiles(files, {_name: true}))
+  .then(() => {
+    return glob(`${appDir}/specifications/**/data/**/*.json`)
+      .then(testJSONFiles)
+  })
+  .then(() => {
+    if (errors.length) {
+      console.log(errors.join('\n\n'))
+      process.exit(1)
+    } else {
+      console.log('OK')
+    }
+  })
