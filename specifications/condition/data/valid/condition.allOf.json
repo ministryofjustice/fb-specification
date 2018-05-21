@@ -1,5 +1,6 @@
 {
-  "_id": "gosh",
+  "_id": "condition.allOf",
+  "_type": "condition",
   "allOfConditions": [
     {
       "identifier": "foo",
