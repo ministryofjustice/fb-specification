@@ -55,8 +55,15 @@ node validate.js -s {name}
 Validate a single file against a particular schema
 
 From the *specification* root directory:
+
 ```
 node validate.js -s {schema name} {file path}
+```
+
+Show all errors encountered rather than failing on the first one
+
+```
+node validate.js -s {schema name} --allErrors
 ```
 
 
