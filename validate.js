@@ -1,22 +1,17 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 const glob = require('glob-promise')
 const validateSchema = require('./lib/validateSchema')
 
-const logger = (msg, msgJSON) => {
-  if (verbose) {
-    console.log(msg)
-    if (msgJSON) {
-      console.log(JSON.stringify(msgJSON, null, 2))
-    }
-  }
+const logStdout = (msg) => {
+  const formattedMsg = typeof msg === 'object' ? JSON.stringify(msg, null, 2) : msg
+  process.stdout.write(`${formattedMsg}\n`)
 }
 
 const argv = require('yargs')
   .version(false)
-  .option('verbose', {
-    alias: 'v',
-    description: 'Output verbose messages',
+  .option('quiet', {
+    alias: 'q',
+    description: 'Only show names of failing data files',
     default: false
   })
   .option('schema', {
@@ -31,8 +26,8 @@ const argv = require('yargs')
     default: false
   })
   .option('allErrors', {
-    alias: 'e',
-    description: 'Show all errors instead of failing on first',
+    alias: 'a',
+    description: 'Show all errors instead of failing fast on first',
     type: 'boolean',
     default: false
   })
@@ -44,7 +39,7 @@ const argv = require('yargs')
     return true
   }).argv
 
-const {schema, invalid, directory, verbose, allErrors} = argv
+const {schema, invalid, directory, quiet, allErrors} = argv
 
 const dataPaths = {
   allErrors
@@ -53,14 +48,14 @@ let files
 if (argv._.length) {
   const firstArg = argv._[0]
   if (firstArg.includes('*')) {
-    console.log(`No json files found matching ${argv._[0]}`)
+    logStdout(`No json files found matching ${argv._[0]}`)
     process.exit(1)
   }
   files = argv._
   if (argv._.length === 1 && !firstArg.endsWith('.json')) {
     files = glob.sync(`${firstArg}/*.json`)
     if (!files.length) {
-      console.log(`No json files found in ${directory}`)
+      logStdout(`No json files found in ${directory}`)
       process.exit(1)
     }
   }
@@ -76,16 +71,25 @@ if (files) {
 validateSchema(schema, dataPaths)
   .then(results => {
     if (!results) {
-      console.log('OK')
+      logStdout('OK')
     } else {
-      Object.keys(results).forEach(type => {
-        console.log(`Expecting ${type} input`)
-        console.log(JSON.stringify(results[type], null, 2))
-      })
+      if (quiet) {
+        Object.keys(results).forEach(type => {
+          logStdout(`Expected to be ${type} but not`)
+          results[type].forEach(result => {
+            logStdout(`- ${result.path}`)
+          })
+        })
+      } else {
+        Object.keys(results).forEach(type => {
+          logStdout(`Expecting ${type} input`)
+          logStdout(results[type])
+        })
+      }
       process.exit(1)
     }
   })
   .catch(e => {
-    console.log('Processing the data threw an unexpected error', e)
+    logStdout('Processing the data threw an unexpected error', e)
     process.exit(1)
   })

@@ -53,7 +53,7 @@ npm run test:schemas
 This command will use the data in the specified schema’s examples directory
 
 ```
-node validate.js -s {schemaName}
+node validate.js -s {schemaName} (or --schema)
 ```
 
 ### Validating other files
@@ -66,7 +66,7 @@ node validate.js {path}
 
 ### Testing for invalidity
 
-Pass the -i flag
+Pass the -i flag (or --invalid)
 
 ```
 node validate.js {path} -i
@@ -74,10 +74,10 @@ node validate.js {path} -i
 
 ### Displaying errors
 
-By default, only the first error encountered is displayed. To show all the errors, use the -e flag
+By default, only the first error encountered is displayed. To show all the errors, use the -a flag (or --allErrors)
 
 ```
-node validate.js {path} -e
+node validate.js {path} -a
 ```
 
 
