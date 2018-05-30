@@ -18,10 +18,37 @@ njks.forEach(njkPath => {
   const njkName = njkPath.replace(/.*\//, '').replace(/\.njk/, '')
   njkBlocks.push(`${njkName}: ${njkName}`)
 })
-njkSource += `{% set blocks = {
+
+njkSource.replace(/callMacro\('govuk([^']+)/g, (m, m1) => {
+  const component = `govuk${m1}`
+  const componentDir = m1.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+  njkSource += `{% from "${componentDir}/macro.njk" import ${component} %}`
+  njkBlocks.push(`${component}: ${component}`)
+})
+
+njkSource += `{% set $macros = {
 ${njkBlocks.join(',\n')}
-} %}`
-// console.log({njks})
+} %}
+{% macro callMacro(path, params) %}
+{% if caller -%}
+{% call $macros[path](data) -%}
+{{ caller() }}
+{%- endcall %}
+{%- else -%}
+{{ $macros[path](params)}}
+{%- endif %}
+{% endmacro %}
+{% macro callBlock(params) %}
+{{ callMacro(params._type, params)}}
+{% endmacro %}
+{% macro callBlocks(blocks) %}
+{% for cblock in blocks %}
+{{ callBlock(cblock)}}
+{% endfor %}
+{% endmacro %}
+`
+// console.log({njkSource})
+
 glob('specifications/**/*.schema.json')
   .then(schemaList => {
     return Promise.all(schemaList.map(expandSchema))
@@ -152,9 +179,8 @@ ${exampleMd}
 layout: layout-specification.njk
 ---
 ${njkSource}
-${template}
 {% set data = ${exampleJSON} %}
-{{ ${schemaName}(data) }}
+{{ callBlock(data) }}
 `
             fs.writeFileSync(`${schemaDocDirPath}/${exampleDocName}.njk`, exampleNJK)
             shell.cp(`${dataDir}/${example}.json`, `${schemaDocDirPath}/${exampleDocName}.json`)

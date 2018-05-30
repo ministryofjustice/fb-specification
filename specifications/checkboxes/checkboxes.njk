@@ -1,7 +1,6 @@
 {%- macro checkboxes(data) %}
-{% from "checkboxes/macro.njk" import govukCheckboxes %}
 {% set params = setError(data) %}
 {% set params = setItemsLabel(params) %}
 {% set params = setInputWidthClass(params) %}
-{{ govukCheckboxes(params) }}
+{{ callMacro('govukCheckboxes', params) }}
 {% endmacro -%}
