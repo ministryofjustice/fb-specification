@@ -28,16 +28,16 @@
     {
       "oneOf": [
         {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/condition.expression"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/condition/expression"
         },
         {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/conditions.all"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/conditions/all"
         },
         {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/conditions.any"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/conditions/any"
         },
         {
-          "$ref": "http://gov.uk/schema/v1.0.0/definition/conditions.one"
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/conditions/one"
         }
       ]
     }

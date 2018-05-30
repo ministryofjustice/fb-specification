@@ -1,0 +1,21 @@
+{
+  "$id": "http://gov.uk/schema/v1.0.0/definition/widthclass",
+  "_name": "definition.widthclass",
+  "title": "Width class definition",
+  "properties": {
+    "widthClass": {
+      "type": "string",
+      "enumMap": "widthClassMap",
+      "enum": [
+        "three-quarters",
+        "two-thirds",
+        "one-half",
+        "one-third",
+        "one-quarter"
+      ]
+    }
+  },
+  "category": [
+    "definition"
+  ]
+}

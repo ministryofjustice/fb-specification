@@ -1,9 +1,0 @@
-{
-  "_id": "singleQuestionId",
-  "_type": "pageSingleQuestion",
-  "url": "/foo",
-  "heading": "uh oh",
-  "lede": "Introductory copy for pageStart example page",
-  "body": "Body copy for pageStart\n\n- List item 1\n- List item 2\n\nEnd of body copy",
-  "components": []
-}

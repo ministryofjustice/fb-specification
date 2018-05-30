@@ -1,0 +1,24 @@
+{
+  "$id": "http://gov.uk/schema/v1.0.0/definition/block",
+  "_name": "definition.block",
+  "title": "Block definition",
+  "properties": {
+    "show": {
+      "title": "Whether to show block or not",
+      "oneOf": [
+        {
+          "$ref": "http://gov.uk/schema/v1.0.0/definition/conditional/boolean"
+        }
+      ],
+      "default": true
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/data"
+    }
+  ],
+  "category": [
+    "definition"
+  ]
+}

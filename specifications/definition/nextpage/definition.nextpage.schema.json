@@ -1,6 +1,6 @@
 {
   "$id": "http://gov.uk/schema/v1.0.0/definition/nextpage",
-  "_name": "definition.nextPage",
+  "_name": "definition.nextpage",
   "title": "Next page definition",
   "description": "What page (if any), and under what condtions, to go to next",
   "type": "object",

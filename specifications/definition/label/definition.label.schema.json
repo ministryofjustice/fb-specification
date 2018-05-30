@@ -1,0 +1,19 @@
+{
+  "$id": "http://gov.uk/schema/v1.0.0/definition/label",
+  "_name": "definition.label",
+  "title": "Label definition",
+  "type": "object",
+  "properties": {
+    "label": {
+      "title": "Label",
+      "type": "string"
+    },
+    "hint": {
+      "title": "Hint text",
+      "type": "string"
+    }
+  },
+  "category": [
+    "definition"
+  ]
+}

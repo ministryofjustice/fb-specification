@@ -37,7 +37,7 @@ glob('specifications/**/*.schema.json')
     }
     const getByCategory = (schemas, category) => {
       return partition(schemas, schema => {
-        if (schema._name && schema._name.endsWith('.definition')) {
+        if (schema._name && schema._name.startsWith('definition.')) {
           return category === 'definition'
         }
         return schema.category && schema.category.includes(category)
@@ -250,8 +250,8 @@ ${template}
         const schemaCategories = categoryList.join(', ')
 
         const getDocsUrl = (url, title, _name) => {
-          if (!_name.endsWith('.definition')) {
-            if (url.startsWith('validations')) {
+          if (!_name.startsWith('definition.')) {
+            if (url.includes('validations')) {
               url = `definition/${url}`
             } else if (_name.startsWith('page')) {
               url = `page/${url}`
@@ -266,8 +266,8 @@ ${template}
           .filter(obj => obj.$ref)
           .map(obj => obj.$ref)
           .map($id => {
-            let url = $id.replace(/.*\/v\d+\.\d+\.\d+\//, '').replace(/#.*/, '')
-            const name = url.replace(/definition\/(.*)/, '$1.definition')
+            let url = $id.replace(/.*\/v\d+\.\d+\.\d+\//, '').replace(/#.*/, '') // TODO: subsume into schemaUtils
+            const name = url.replace(/\//g, '.') // TODO: subsume into schemaUtils
             const {title, _name} = getRawSchema(name)
             return getDocsUrl(url, title, _name)
           })
