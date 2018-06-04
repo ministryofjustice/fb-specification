@@ -38,36 +38,68 @@ specifications/${name}/data/invalid/
 
 ## Validating schemas
 
-These tests check that test data in a specification’s folder are validates against that schema.
+NB. All of the following commands should be run from the *fb-specification* root directory:
 
-Validate all the schemas
+### Validate all the schemas
+
+Check that test data in each specification’s directory validates against the corresponding schema.
 
 ```
 npm run test:schemas
 ```
 
-Validate a single schema
+### Validating a single schema
+
+This command will use the data in the specified schema’s examples directory
 
 ```
-node validate.js -s {name}
+node validate.js -s {schemaName} (or --schema)
 ```
 
-Validate a single file against a particular schema
+### Validating other files
 
-From the *specification* root directory:
-
-```
-node validate.js -s {schema name} {file path}
-```
-
-Show all errors encountered rather than failing on the first one
+Validate a single file or directory
 
 ```
-node validate.js -s {schema name} --allErrors
+node validate.js {path}
+```
+
+### Testing for invalidity
+
+Pass the -i flag (or --invalid)
+
+```
+node validate.js {path} -i
+```
+
+### Displaying errors
+
+By default, only the first error encountered is displayed. To show all the errors, use the -a flag (or --allErrors)
+
+```
+node validate.js {path} -a
 ```
 
 
-## Validating  data
+## Validating/linting data
+
+```
+npm run lint
+```
+
+this runs
+
+- `lint:schemas`
+- `lint:data`
+
+which checks that the files are valid JSON
+
+To format the JSON files
+
+- `format:schemas`
+- `format:data`
+
+
 
 ## Generating documentation
 

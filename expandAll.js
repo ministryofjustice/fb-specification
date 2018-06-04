@@ -64,6 +64,7 @@ glob('specifications/**/*.schema.json')
       'configuration',
       'page',
       'component',
+      'pattern',
       'definition'
     ]
     const docPath = path.join(localDocPath, 'src')
@@ -91,6 +92,7 @@ glob('specifications/**/*.schema.json')
       }
       sections.forEach(copyCategorySection)
     }
+    copyCategory('get-started', [])
     copyCategory('overview', [
       'basics',
       'basics-example-service',

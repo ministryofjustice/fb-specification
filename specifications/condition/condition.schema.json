@@ -1,6 +1,6 @@
 {
-  "$id": "http://gov.uk/schema/v1.0.0/definition/condition",
-  "_name": "condition.definition",
+  "$id": "http://gov.uk/schema/v1.0.0/condition",
+  "_name": "condition",
   "title": "Condition",
   "type": "object",
   "allOf": [

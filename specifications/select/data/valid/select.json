@@ -8,13 +8,13 @@
       "_id": "select-ab--a",
       "_type": "option",
       "value": "a",
-      "option": "A"
+      "text": "A"
     },
     {
       "_id": "select-ab--b",
       "_type": "option",
       "value": "b",
-      "option": "B"
+      "text": "B"
     }
   ]
 }

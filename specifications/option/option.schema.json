@@ -8,7 +8,7 @@
     "_type": {
       "const": "option"
     },
-    "option": {
+    "text": {
       "type": "string"
     },
     "value": {

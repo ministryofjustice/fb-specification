@@ -1,0 +1,6 @@
+{
+  "_id": "condition.boolean",
+  "_type": "condition",
+  "identifier": "foo",
+  "operator": "isTrue"
+}

@@ -1,4 +1,6 @@
 {
+  "_id": "condition.text_is",
+  "_type": "condition",
   "identifier": "foo",
   "operator": "is",
   "value": "bar"
