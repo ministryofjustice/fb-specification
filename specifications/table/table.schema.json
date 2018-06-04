@@ -35,7 +35,7 @@
       "$ref": "http://gov.uk/schema/v1.0.0/definition/component"
     },
     {
-      "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlAttributes"
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/htmlattributes"
     }
   ],
   "required": [

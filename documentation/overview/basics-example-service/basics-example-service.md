@@ -22,7 +22,7 @@ The following files define a simple service that presents
 ```
 {
   "_id": "pageStartExample",
-  "_type": "pageStart",
+  "_type": "page.start",
   "url": "/",
   "heading": "Create a hello world message",
   "body": "You can create a greeting for your favourite planet.\n\nIf you’re in a hurry or don’t have a favourite planet, you can ask for a basic hello world message.",
@@ -46,7 +46,7 @@ Note that the body text (and all other content strings) are [formatted using Mar
 ```
 {
   "_id": "pageGreeting",
-  "_type": "pageSingleQuestion",
+  "_type": "page.singlequestion",
   "url": "/greeting",
   "components": [{
     "_id": "pageGreeting--greeting",
@@ -86,7 +86,7 @@ A [single question page](/page/pageSingleQuestion) with a [radios component](/co
 ```
 {
   "_id": "pagePlanet",
-  "_type": "pageSingleQuestion",
+  "_type": "page.singlequestion",
   "url": "/planet",
   "components": [{
     "_id": "pagePlanet--planet",
@@ -116,7 +116,7 @@ Read more about [logic and conditions](/overview/conditions) and [page flow](/ov
 ```
 {
   "_id": "pageConfirmation",
-  "_type": "pageConfirmation",
+  "_type": "page.confirmation",
   "url": "/confirmation",
   "heading": "Thank you",
   "body": "Your message is:\n\n**{greeting} {planet}**"

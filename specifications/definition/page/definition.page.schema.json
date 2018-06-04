@@ -1,0 +1,43 @@
+{
+  "$id": "http://gov.uk/schema/v1.0.0/definition/page",
+  "_name": "definition.page",
+  "title": "Page definition",
+  "properties": {
+    "url": {
+      "title": "URL",
+      "type": "string"
+    },
+    "heading": {
+      "title": "Heading",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    },
+    "lede": {
+      "title": "Lede",
+      "type": "string"
+    },
+    "content": {
+      "title": "Content",
+      "type": "string",
+      "multiline": true
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/block"
+    },
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/components"
+    }
+  ],
+  "required": [
+    "url"
+  ],
+  "category": [
+    "definition",
+    "page"
+  ]
+}

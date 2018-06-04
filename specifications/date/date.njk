@@ -1,5 +1,4 @@
 {%- macro date(data) %}
-{% from "date-input/macro.njk" import govukDateInput %}
 {% set params = setError(data) %}
 {% set params = setLabel(params) %}
 {% set params = setItemsLabel(params) %}
@@ -17,5 +16,5 @@
     }
   ]
 }) %}
-{{ govukDateInput(params) }}
+{{ callMacro('govukDateInput', params) }}
 {% endmacro -%}

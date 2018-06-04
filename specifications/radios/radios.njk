@@ -1,7 +1,6 @@
 {%- macro radios(data) %}
-{% from "radios/macro.njk" import govukRadios %}
 {% set params = setError(data) %}
 {% set params = setItemsLabel(params) %}
 {% set params = setInputWidthClass(params) %}
-{{ govukRadios(params) }}
+{{ callMacro('govukRadios', params) }}
 {% endmacro -%}

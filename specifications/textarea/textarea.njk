@@ -1,7 +1,6 @@
 {%- macro textarea(data) %}
-{% from "textarea/macro.njk" import govukTextarea %}
 {% set params = setError(data) %}
 {% set params = setLabel(params) %}
 {% set params = setInputWidthClass(params) %}
-{{ govukTextarea(params) }}
+{{ callMacro('govukTextarea', params) }}
 {% endmacro -%}

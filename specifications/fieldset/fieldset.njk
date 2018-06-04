@@ -1,10 +1,7 @@
-{%- macro fieldset(data) %}
-{% from "fieldset/macro.njk" import govukFieldset %}
+{% macro fieldset(data) -%}
 {% set params = setError(data) %}
 {% set params = setItemsLabel(params) %}
-{%- call govukFieldset(params) %}
-{%- for component in data.components %}
-{{ blocks[component._type](component) }}
-{% endfor -%}
-{% endcall -%}
-{% endmacro -%}
+{% call callMacro('govukFieldset', params) -%}
+{{ callBlocks(data.components) }}
+{%- endcall %}
+{%- endmacro %}

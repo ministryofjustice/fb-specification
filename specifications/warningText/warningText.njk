@@ -1,5 +1,4 @@
 {%- macro warningText(data) %}
-{% from "warning-text/macro.njk" import govukWarningText %}
 {% set params = setError(data) %}
-{{ govukWarningText(params) }}
+{{ callMacro('govukWarningText', params) }}
 {% endmacro -%}

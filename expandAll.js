@@ -18,10 +18,37 @@ njks.forEach(njkPath => {
   const njkName = njkPath.replace(/.*\//, '').replace(/\.njk/, '')
   njkBlocks.push(`${njkName}: ${njkName}`)
 })
-njkSource += `{% set blocks = {
+
+njkSource.replace(/callMacro\('govuk([^']+)/g, (m, m1) => {
+  const component = `govuk${m1}`
+  const componentDir = m1.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+  njkSource += `{% from "${componentDir}/macro.njk" import ${component} %}`
+  njkBlocks.push(`${component}: ${component}`)
+})
+
+njkSource += `{% set $macros = {
 ${njkBlocks.join(',\n')}
-} %}`
-// console.log({njks})
+} %}
+{% macro callMacro(path, params) %}
+{% if caller -%}
+{% call $macros[path](data) -%}
+{{ caller() }}
+{%- endcall %}
+{%- else -%}
+{{ $macros[path](params)}}
+{%- endif %}
+{% endmacro %}
+{% macro callBlock(params) %}
+{{ callMacro(params._type, params)}}
+{% endmacro %}
+{% macro callBlocks(blocks) %}
+{% for cblock in blocks %}
+{{ callBlock(cblock)}}
+{% endfor %}
+{% endmacro %}
+`
+// console.log({njkSource})
+
 glob('specifications/**/*.schema.json')
   .then(schemaList => {
     return Promise.all(schemaList.map(expandSchema))
@@ -37,7 +64,7 @@ glob('specifications/**/*.schema.json')
     }
     const getByCategory = (schemas, category) => {
       return partition(schemas, schema => {
-        if (schema._name && schema._name.endsWith('.definition')) {
+        if (schema._name && schema._name.startsWith('definition.')) {
           return category === 'definition'
         }
         return schema.category && schema.category.includes(category)
@@ -152,9 +179,8 @@ ${exampleMd}
 layout: layout-specification.njk
 ---
 ${njkSource}
-${template}
 {% set data = ${exampleJSON} %}
-{{ ${schemaName}(data) }}
+{{ callBlock(data) }}
 `
             fs.writeFileSync(`${schemaDocDirPath}/${exampleDocName}.njk`, exampleNJK)
             shell.cp(`${dataDir}/${example}.json`, `${schemaDocDirPath}/${exampleDocName}.json`)
@@ -250,8 +276,8 @@ ${template}
         const schemaCategories = categoryList.join(', ')
 
         const getDocsUrl = (url, title, _name) => {
-          if (!_name.endsWith('.definition')) {
-            if (url.startsWith('validations')) {
+          if (!_name.startsWith('definition.')) {
+            if (url.includes('validations')) {
               url = `definition/${url}`
             } else if (_name.startsWith('page')) {
               url = `page/${url}`
@@ -266,8 +292,8 @@ ${template}
           .filter(obj => obj.$ref)
           .map(obj => obj.$ref)
           .map($id => {
-            let url = $id.replace(/.*\/v\d+\.\d+\.\d+\//, '').replace(/#.*/, '')
-            const name = url.replace(/definition\/(.*)/, '$1.definition')
+            let url = $id.replace(/.*\/v\d+\.\d+\.\d+\//, '').replace(/#.*/, '') // TODO: subsume into schemaUtils
+            const name = url.replace(/\//g, '.') // TODO: subsume into schemaUtils
             const {title, _name} = getRawSchema(name)
             return getDocsUrl(url, title, _name)
           })

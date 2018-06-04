@@ -1,0 +1,14 @@
+{
+  "$id": "http://gov.uk/schema/v1.0.0/definition/components",
+  "_name": "definition.components",
+  "title": "Components definition",
+  "properties": {
+    "components": {
+      "title": "Components",
+      "type": "array",
+      "items": {
+        "$ref": "http://gov.uk/schema/v1.0.0/definition/component"
+      }
+    }
+  }
+}
