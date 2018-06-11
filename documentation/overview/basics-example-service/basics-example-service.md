@@ -48,7 +48,7 @@ Note that the body text (and all other content strings) are [formatted using Mar
   "_id": "pageGreeting",
   "_type": "page.singlequestion",
   "url": "/greeting",
-  "components": [{
+  "blocks": [{
     "_id": "pageGreeting--greeting",
     "_type": "radios",
     "name": "greeting",
@@ -88,7 +88,7 @@ A [single question page](/page/pageSingleQuestion) with a [radios component](/co
   "_id": "pagePlanet",
   "_type": "page.singlequestion",
   "url": "/planet",
-  "components": [{
+  "blocks": [{
     "_id": "pagePlanet--planet",
     "_type": "text",
     "name": "planet",

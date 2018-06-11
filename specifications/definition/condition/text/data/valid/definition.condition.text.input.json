@@ -1,0 +1,8 @@
+{
+  "_id": "definition-condition-text-input",
+  "_type": "definition.condition.text",
+  "identifier": "foo",
+  "operator": "is",
+  "valueType": "input",
+  "value": "bar"
+}

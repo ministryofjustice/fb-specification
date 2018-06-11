@@ -1,15 +1,15 @@
 {
-  "$id": "http://gov.uk/schema/v1.0.0/Service",
+  "$id": "http://gov.uk/schema/v1.0.0/service",
   "title": "Service",
-  "_name": "Service",
+  "_name": "service",
   "description": "Service configuration",
   "type": "object",
   "properties": {
     "_id": {
-      "const": "Service"
+      "const": "service"
     },
     "_type": {
-      "const": "Service"
+      "const": "service"
     },
     "name": {
       "type": "string"

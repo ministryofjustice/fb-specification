@@ -1,9 +1,11 @@
 {
-  "_id": "singleQuestionId",
+  "_id": "pageColour",
   "_type": "page.singlequestion",
-  "url": "/foo",
-  "heading": "uh oh",
-  "lede": "Introductory copy for pageStart example page",
-  "body": "Body copy for pageStart\n\n- List item 1\n- List item 2\n\nEnd of body copy",
-  "components": []
+  "url": "/colour",
+  "blocks": [{
+    "_id": "pageColour-colour",
+    "_type": "text",
+    "name": "colour",
+    "label": "What is your favourite colour?"
+  }]
 }

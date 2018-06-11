@@ -1,0 +1,7 @@
+{
+  "_id": "definition-condition-number",
+  "_type": "definition.condition.number",
+  "identifier": "foo",
+  "operator": "equals",
+  "value": 20
+}

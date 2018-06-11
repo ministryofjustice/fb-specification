@@ -1,6 +1,6 @@
 {
   "_id": "pageStartExample",
-  "_type": "pageStart",
+  "_type": "page.start",
   "url": "/",
   "heading": "Heading for pageStart example page",
   "lede": "Introductory copy for pageStart example page",

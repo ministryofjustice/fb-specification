@@ -30,7 +30,7 @@
       "$ref": "http://gov.uk/schema/v1.0.0/definition/block"
     },
     {
-      "$ref": "http://gov.uk/schema/v1.0.0/definition/components"
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/blocks"
     }
   ],
   "required": [

@@ -120,7 +120,9 @@ glob('specifications/**/*.schema.json')
       sections.forEach(copyCategorySection)
     }
     copyCategory('get-started', [])
+    copyCategory('glossary', [])
     copyCategory('overview', [
+      'about-data',
       'basics',
       'basics-example-service',
       'block',
@@ -131,9 +133,10 @@ glob('specifications/**/*.schema.json')
       'i18n',
       'multiple',
       'model',
+      'storage',
       'validation'
     ])
-    copyCategory('process', ['editor', 'publisher', 'runner', 'submitter'])
+    copyCategory('process', ['editor', 'publisher', 'runner', 'submitter', 'environment'])
 
     const categories = splitByCategory(schemas, categoryOrder)
     Object.keys(categories).forEach(category => {

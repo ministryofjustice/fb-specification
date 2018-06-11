@@ -8,9 +8,9 @@ A service is built out of [pages](/page), or more specifically, is the sequentia
 
 ## Entry points
 
-Any page that has steps and is not contained in another page’s steps is considered an entry point to the service entry point.
+Any page that has steps and is not contained in another page’s steps is considered an entry point to the service.
 
-Typically there should be one service entry point and it should use the `pageStart` page type.
+Typically there should be one service entry point and it should be a [`Start page`](/page/pageStart).
 
 ## Determining the flow (in principle)
 

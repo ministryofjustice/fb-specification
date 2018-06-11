@@ -1,0 +1,7 @@
+{
+  "_id": "definition-condition-text",
+  "_type": "definition.condition.text",
+  "identifier": "foo",
+  "operator": "is",
+  "value": "bar"
+}

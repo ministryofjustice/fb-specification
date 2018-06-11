@@ -1,8 +1,10 @@
 ---
 layout: layout-pane.njk
-title: Multiple instances
+title: Repeatable pages and components
 section: Overview
 ---
+
+<!-- Repeating parts? -->
 
 ## Multiple instances
 

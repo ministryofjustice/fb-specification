@@ -10,4 +10,6 @@ title: Get started
 
 ## Developing with Form Builder
 
-Info on how to actually use Form Builder to come...
+Info on how to actually create a service repositiory and what to do with it (ie. how to practically use Form Builder) to come...
+
+For now, please start with the [overview](/overview)
