@@ -18,5 +18,10 @@
   ],
   "category": [
     "grouping"
-  ]
+  ],
+  "transforms": {
+    "model": {
+      "propagation": "components[?(@.$control || @.$grouping)]"
+    }
+  }
 }

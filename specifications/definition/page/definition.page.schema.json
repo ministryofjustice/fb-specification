@@ -39,5 +39,10 @@
   "category": [
     "definition",
     "page"
-  ]
+  ],
+  "transforms": {
+    "model": {
+      "propagation": "components[?(@.$control || @.$grouping)]"
+    }
+  }
 }
