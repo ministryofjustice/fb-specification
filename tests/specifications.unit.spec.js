@@ -11,7 +11,7 @@ schemas.forEach(schema => {
   test(schemaName, t => {
     return validateSchema(schema)
       .then(results => {
-        t.is(results, undefined, `should have no errors`)
+        t.is(results, undefined, 'should have no errors')
         t.end()
       })
   })

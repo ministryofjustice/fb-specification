@@ -57,7 +57,7 @@ Formatting and internationalisation
 
 ### [Blocks](/overview/block)
 
-Blocks are Form Builder’s fundamental data unit
+Blocks are Form Builder’s fundamental output unit
 
 
 ### [Conditions](/overview/logic)

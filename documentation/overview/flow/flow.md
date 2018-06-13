@@ -28,7 +28,7 @@ The flow through the service is determined by:
 
 After the successful submission of a page (ie. without any validation errors), the system determines what page (if any) the user should be redirected to according to the following rules.
 
-![Page flow diagram](page-flow.svg)
+[![Page flow diagram](page-flow.svg)](page-flow.svg)
 
 ```
 1. Does the initial page have an explicit nextPage?
