@@ -74,10 +74,10 @@ node validate.js {path} -i
 
 ### Displaying errors
 
-By default, only the first error encountered is displayed. To show all the errors, use the -a flag (or --allErrors)
+By default, all errors encountered are displayed. To show only the first error encountered, use the --n-a flag (or --no-allErrors)
 
 ```
-node validate.js {path} -a
+node validate.js {path} --no-a
 ```
 
 

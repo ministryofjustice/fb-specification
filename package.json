@@ -18,6 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@ministryofjustice/fb-utils-node": "^0.1.0",
     "ajv": "^6.4.0",
     "ajv-cli": "^3.0.0",
     "glob": "^7.1.2",
@@ -31,7 +32,7 @@
     "yargs": "^11.0.0"
   },
   "devDependencies": {
-    "eslint-config-fb": "git+https://github.com/ministryofjustice/eslint-config-fb.git#v1.0.0",
+    "@ministryofjustice/eslint-config-fb": "^1.0.1",
     "glob-promise": "^3.4.0",
     "tape": "^4.9.0",
     "tape-promise": "^3.0.0"

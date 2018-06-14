@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-const {expandSchema, getSchemaName, getSchemaDir, getRawSchema} = require('./lib/schemaUtils')
+const {expandSchema, getSchemaName, getSchemaDir, getRawSchema} = require('./lib/schemaUtils')()
 const glob = require('glob-promise')
 const fs = require('fs')
 const path = require('path')

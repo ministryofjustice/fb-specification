@@ -27,9 +27,9 @@ const argv = require('yargs')
   })
   .option('allErrors', {
     alias: 'a',
-    description: 'Show all errors instead of failing fast on first',
+    description: 'Show all errors instead of failing fast on first - use --no-a to fail fast',
     type: 'boolean',
-    default: false
+    default: true
   })
   .check((argv, options) => {
     const {directory, schema} = argv
