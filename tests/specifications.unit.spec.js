@@ -1,7 +1,7 @@
 const test = require('tape')
 const glob = require('glob-promise')
 const path = require('path')
-const validateSchema = require('../lib/validateSchema')
+const validateSchema = require('../lib/validate-schema')
 
 const schemas = glob.sync('specifications/**/*.schema.json')
   .map(schema => path.resolve(schema))

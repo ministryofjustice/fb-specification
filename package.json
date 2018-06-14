@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm-run-all -s lint test:unit",
     "test:unit": "npm-run-all -s test:schemas",
-    "test:schemas": "tape tests/**/*.unit.spec.js",
+    "test:schemas": "tape tests/**/*.unit.spec.js lib/**/*.unit.spec.js",
     "validate": "SCHEMA=$1; echo test -r definitions/definitions.schema.json -r condition/condition.schema.json -s \"$SCHEMA/$SCHEMA.schema.json\" -d \"$SCHEMA/data/valid/*.json\" --valid",
     "lint": "npm-run-all -p lint:schemas lint:data",
     "lint:schemas": "node bin/lint-schemas.js",
