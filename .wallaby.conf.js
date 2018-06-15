@@ -4,7 +4,8 @@ module.exports = () => ({
     { pattern: 'index.js', load: false }
   ],
   tests: [
-    'spec/**/*.unit.spec.js'
+    'spec/**/*.unit.spec.js',
+    'lib/**/*.unit.spec.js'
   ],
   env: {
     type: 'node'

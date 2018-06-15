@@ -31,11 +31,11 @@
     "$id": "http://gov.uk/schema/v1.0.0/dummy",
     "_name": "dummy",
     "title": "Dummy",
-    "description": "Test schema",
+    "description": "Dummy schema",
     "type": "object",
     "properties": {
       "_type": {
-        "const": "text",
+        "const": "dummy",
         "title": "Data type",
         "type": "string"
       },
