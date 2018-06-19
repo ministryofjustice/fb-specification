@@ -1,10 +1,12 @@
 ---
 layout: layout-pane.njk
-title: Data primer
+title: Types of data
 section: Overview
 ---
 
-Form Builder uses data to create more data that enables citizens to submit data to Government. 
+Form Builder uses data to create more data that enables citizens to submit data to Government.
+
+This page attempts to make it clear what types of data are used and created by Form Builder.
 
 
 ### User data

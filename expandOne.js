@@ -1,5 +1,6 @@
+const specs = require('./index').schemas
 
-const {expandSchema} = require('./lib/schema-utils')()
+const {expandSchema} = require('./lib/schema-utils')(specs)
 
 const {FBLogger} = require('@ministryofjustice/fb-utils-node')
 FBLogger.verbose(true)
