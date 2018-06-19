@@ -35,6 +35,7 @@
     "@ministryofjustice/eslint-config-fb": "^1.0.1",
     "glob-promise": "^3.4.0",
     "tape": "^4.9.0",
-    "tape-promise": "^3.0.0"
+    "tape-promise": "^3.0.0",
+    "test-console": "^1.1.0"
   }
 }

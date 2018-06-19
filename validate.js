@@ -2,11 +2,17 @@
 const glob = require('glob-promise')
 const validateSchema = require('./lib/validate-schema')
 
-const {FBLogger} = require('@ministryofjustice/fb-utils-node')
+const specifications = require('./index')
+
+const {FBError, FBLogger} = require('@ministryofjustice/fb-utils-node')
+class FBValidateError extends FBError { }
+
 FBLogger.verbose(true)
 
 const argv = require('yargs')
   .version(false)
+  .help()
+  .alias('help', 'h')
   .option('quiet', {
     alias: 'q',
     description: 'Only show names of failing data files',
@@ -23,11 +29,27 @@ const argv = require('yargs')
     type: 'boolean',
     default: false
   })
+  .option('path', {
+    alias: 'p',
+    description: 'Path to specifications directory containing the schemas',
+    type: 'array'
+  })
+  .option('idRoot', {
+    alias: 'id',
+    description: '$idRoot prefix to resolve $refs in schemas',
+    type: 'array'
+  })
   .option('allErrors', {
     alias: 'a',
     description: 'Show all errors instead of failing fast on first - use --no-a to fail fast',
     type: 'boolean',
     default: true
+  })
+  .option('debug', {
+    alias: 'd',
+    description: 'Show debug info',
+    type: 'boolean',
+    default: false
   })
   .check((argv, options) => {
     const {directory, schema} = argv
@@ -37,10 +59,41 @@ const argv = require('yargs')
     return true
   }).argv
 
-const {schema, invalid, directory, quiet, allErrors} = argv
+const {schema, invalid, directory, quiet, allErrors, debug, path: schemaPaths, idRoot: idRoots} = argv
+
+let specs = specifications.schemas
+
+try {
+  if (schemaPaths && !idRoots) {
+    throw new FBValidateError('No value passed for --idRoot when --path passed')
+  }
+  if (!schemaPaths && idRoots) {
+    throw new FBValidateError('No value passed for --path when --idRoot passed')
+  }
+
+  if (schemaPaths) {
+    if (schemaPaths.length !== idRoots.length) {
+      throw new FBValidateError('Different number of values for --path and --idRoot passed', {
+        data: argv
+      })
+    }
+    specs = []
+    schemaPaths.forEach((item, index) => {
+      specs.push({
+        path: item,
+        $idRoot: idRoots[index]
+      })
+    })
+  }
+} catch (e) {
+  FBLogger(e.message, e.data)
+  process.exit(1)
+}
 
 const dataPaths = {
-  allErrors
+  specs,
+  allErrors,
+  debug
 }
 let files
 if (argv._.length) {
@@ -65,7 +118,7 @@ if (files) {
     dataPaths.valid = files
   }
 }
-
+console.log({schema, dataPaths})
 validateSchema(schema, dataPaths)
   .then(results => {
     if (!results) {

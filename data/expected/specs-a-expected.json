@@ -58,11 +58,9 @@
       "_type",
       "dummy"
     ],
-    "cagtegories": [
-      "dummy-schema"
-    ],
     "category": [
-      "definition"
+      "definition",
+      "dummy-schema"
     ]
   }
 }

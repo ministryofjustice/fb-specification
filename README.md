@@ -53,7 +53,7 @@ npm run test:schemas
 This command will use the data in the specified schema’s examples directory
 
 ```
-node validate.js -s {schemaName} (or --schema)
+node validate.js -s {schemaName}
 ```
 
 ### Validating other files
@@ -72,12 +72,12 @@ Pass the -i flag (or --invalid)
 node validate.js {path} -i
 ```
 
-### Displaying errors
+### Other options for the command line validator
 
 By default, all errors encountered are displayed. To show only the first error encountered, use the --n-a flag (or --no-allErrors)
 
 ```
-node validate.js {path} --no-a
+node validate.js {path} --help
 ```
 
 

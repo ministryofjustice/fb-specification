@@ -1,10 +1,15 @@
 module.exports = () => ({
   files: [
-    { pattern: 'spec/helpers/*', load: false },
+    { pattern: 'data/**/*.json', load: false },
+    { pattern: 'lib/**/*.js', load: false },
+    "!lib/**/*.unit.spec.js",
+    { pattern: 'tests/**/*.js', load: false },
+    "!tests/**/*.unit.spec.js",
+    { pattern: 'specifications/**/*.json', load: false },
     { pattern: 'index.js', load: false }
   ],
   tests: [
-    'spec/**/*.unit.spec.js',
+    'tests/**/*.unit.spec.js',
     'lib/**/*.unit.spec.js'
   ],
   env: {

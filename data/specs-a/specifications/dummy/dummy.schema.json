@@ -20,7 +20,7 @@
   "required": [
     "dummy"
   ],
-  "cagtegories": [
+  "category": [
     "dummy-schema"
   ]
 }

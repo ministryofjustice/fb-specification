@@ -20,7 +20,7 @@
   "required": [
     "bar"
   ],
-  "cagtegories": [
+  "category": [
     "bar-schema"
   ]
 }

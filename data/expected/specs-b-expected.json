@@ -30,10 +30,8 @@
       "_type",
       "bar"
     ],
-    "cagtegories": [
-      "bar-schema"
-    ],
     "category": [
+      "bar-schema",
       "definition"
     ]
   }
