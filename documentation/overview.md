@@ -55,9 +55,9 @@ Defining the user journey
 Formatting and internationalisation
 
 
-### [Blocks](/overview/block)
+### [Output blocks](/overview/block)
 
-Blocks are Form Builder’s fundamental output unit
+Output blocks are Form Builder’s fundamental display unit
 
 
 ### [Conditions](/overview/logic)
