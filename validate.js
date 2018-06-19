@@ -118,7 +118,7 @@ if (files) {
     dataPaths.valid = files
   }
 }
-console.log({schema, dataPaths})
+
 validateSchema(schema, dataPaths)
   .then(results => {
     if (!results) {
