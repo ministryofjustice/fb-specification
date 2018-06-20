@@ -131,14 +131,14 @@ The greeting message is shown to the user.
 
 ## Configuration of the service
 
-The name of the service and the text that appears in the phase banner are defined in the service's [Service block](/configuration/Service).
+The name of the service and the text that appears in the phase banner are defined in the service's [Service block](/configuration/service).
 
-`Service.json`
+`service.json`
 
 ```
 {
-  "_id": "Service",
-  "_type": "Service",
+  "_id": "service",
+  "_type": "service",
   "name": "Create a hello world message",
   "phase": "beta",
   "phaseText": "This is an example service"
