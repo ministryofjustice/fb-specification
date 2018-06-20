@@ -19,7 +19,7 @@ Fields which are set to not be required will have site-wide string (by default â
 Form Builderâ€™s validation is built upon [JSON Schema validation keywords](http://json-schema.org/latest/json-schema-validation.html#rfc.section.6)
 
 
-## To come
+## *TODO*
 
 A proper explanation of validation to go here.
 
