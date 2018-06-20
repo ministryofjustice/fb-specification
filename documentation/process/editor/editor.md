@@ -4,6 +4,8 @@ title: Editor
 section: Process
 ---
 
-About the editor
+The editor is an app that provides a UI to create a service’s data against a formal specification.
 
-Remove duplicated props from blocks that use _isa.
+*TODO: More info*
+
+<!-- Remove duplicated props from blocks that use _isa. -->

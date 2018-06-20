@@ -4,7 +4,9 @@ title: Publisher
 section: Process
 ---
 
-About the publisher
+The publisher is an app that deploys services using configuration details specified in the service’s data, adding any necessary environment variables.
 
+It also provides the ability to manage team access.
 
+*TODO: More info*
 

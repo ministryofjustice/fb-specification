@@ -4,9 +4,9 @@ title: Types of data
 section: Overview
 ---
 
-Form Builder uses data to create more data that enables citizens to submit data to Government.
+Form Builder uses [specification data](#specification-data) to create [service data](#service-data) that is used to generate a service that collects [user data](#user-data).
 
-This page attempts to make it clear what types of data are used and created by Form Builder.
+<!-- Form Builder uses [specification data](#specification-data) to create [service data](#service-data) that enables citizens to submit [user data](#user-data) to Government. -->
 
 
 ### User data

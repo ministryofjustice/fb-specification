@@ -4,6 +4,8 @@ title: Runner
 section: Process
 ---
 
+The runner generates the service and captures the input required from users by processing the service’s data using generic code.
+
 ## Runtime representation
 
 From the buildtime representation we generate a runtime representation.
