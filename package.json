@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-specification",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ministryofjustice/fb-utils-node": "^0.1.0",
+    "@ministryofjustice/fb-utils-node": "^0.1.1",
     "ajv": "^6.4.0",
     "ajv-cli": "^3.0.0",
     "glob": "^7.1.2",
