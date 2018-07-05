@@ -3,5 +3,6 @@
   "_type": "date",
   "label": "When were you born?",
   "name": "dob",
-  "dateType": "day-month-year"
+  "dateType": "day-month-year",
+  "$comment": "Document this data"
 }

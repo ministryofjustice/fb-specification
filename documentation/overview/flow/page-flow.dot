@@ -4,8 +4,8 @@ digraph {
   #splines=polyline;
   graph [pad="0.5", ranksep="1", nodesep="1"]
   node [fontname = "helvetica", width=3, fillcolor = white, fontcolor=black, xfixedsize=true]
-   node [shape=note]
-   yah [label="\lthis is way, way, \lway out of \lmy comfort \lleague \lzone \lway out of \lmy comfort \lleague \lzone \lway out of \lmy comfort \lleague \l zone \l "]
+  # node [shape=note]
+  # yah [label="\lthis is way, way, \lway out of \lmy comfort \lleague \lzone \lway out of \lmy comfort \lleague \lzone \lway out of \lmy comfort \lleague \l zone \l "]
 
   node [width=4, height=1.5]
   node [shape = box];
@@ -43,7 +43,7 @@ digraph {
   lastStep -> setPageToParent [label = "yes"]
   setPageToParent -> isMultipleInstance
 
-lastStep -> yah
+// lastStep -> yah
   subgraph cluster_a {
     style=invis;
     page;

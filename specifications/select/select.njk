@@ -3,5 +3,6 @@
 {% set params = setLabel(params) %}
 {% set params = setItemsLabel(params) %}
 {% set params = setInputWidthClass(params) %}
+{% set params = setObject(params, {label:params.legend}) %}
 {{ callMacro('govukSelect', params) }}
 {% endmacro -%}

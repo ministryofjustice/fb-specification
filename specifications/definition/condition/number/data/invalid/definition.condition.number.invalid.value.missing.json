@@ -1,0 +1,6 @@
+{
+  "_id": "definition-condition-number-invalid-value-missing",
+  "_type": "definition.condition.number",
+  "identifier": "foo",
+  "operator": "equals"
+}

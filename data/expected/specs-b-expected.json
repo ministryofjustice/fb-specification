@@ -1,0 +1,38 @@
+{
+  "namespace.bar": {
+    "$id": "http://gov.uk/schema/v1.0.0/namespace/bar",
+    "_name": "namespace.bar",
+    "title": "Bar",
+    "description": "Test bar schema",
+    "type": "object",
+    "properties": {
+      "_type": {
+        "const": "bar",
+        "title": "Data type",
+        "type": "string"
+      },
+      "bar": {
+        "type": "number"
+      },
+      "_id": {
+        "title": "Data ID",
+        "type": "string"
+      },
+      "_isa": {
+        "title": "Based on",
+        "description": "Id of referenced data current data inherits property values from",
+        "type": "string",
+        "blockReference": true
+      }
+    },
+    "required": [
+      "_id",
+      "_type",
+      "bar"
+    ],
+    "category": [
+      "bar-schema",
+      "definition"
+    ]
+  }
+}

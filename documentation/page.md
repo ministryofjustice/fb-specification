@@ -5,13 +5,13 @@ title: Pages
 
 ## Page instance requirements
 
-Each page must be defined in its own json file.
+Each page [instance](/glossary#instance) must be defined in its own json file, stored in the service's [`metadata` directory](/overview/storage#service-data).
 
 Each page must have a unique `_id`.
 
-The name of the json file must be the page’s `_id` value suffixed with `.json`.
+The name of the json file must be the page’s `_id` value suffixed with `.json`
 
-*TODO: Create a generic page about data storage*
+Each page must have a `_type` representing what type of page it is an instance of.
 
 ## Form page or standalone content page?
 

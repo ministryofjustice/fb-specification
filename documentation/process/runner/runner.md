@@ -4,11 +4,13 @@ title: Runner
 section: Process
 ---
 
+The runner generates the service and captures the input required from users by processing the service’s data using generic code.
+
 ## Runtime representation
 
 From the buildtime representation we generate a runtime representation.
 
-![Runtime diagram](runtime.svg)
+[![Runtime diagram](runtime.svg)](runtime.svg)
 
 
 - Determine data sources
@@ -26,7 +28,7 @@ From the buildtime representation we generate a runtime representation.
 
 Using this representation, a runner can map urls to the relevant page.
 
-![Runner handler diagram](runner-handler.svg)
+[![Runner handler diagram](runner-handler.svg)](runner-handler.svg)
 
 When a user visits a page, the runner
 

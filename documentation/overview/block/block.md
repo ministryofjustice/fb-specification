@@ -1,37 +1,39 @@
 ---
 layout: layout-pane.njk
-title: Blocks
+title: Output blocks
 section: Overview
 ---
 
-## What is a block?
+## What is an output block?
 
-A block is any JSON data object 
+All pages, components and patterns are output blocks.
 
-- defined against a JSON Schema definition that is derived from the block definition schema (or any other definition schema that is so derived).
+An output block is any JSON data object 
+
+- defined against a Form Builder [schema](/glossary#schema).
 - that can be rendered by a corresponding template
 - that can be hidden or shown through the mechanism of the `show` property
 
-All pages, components and patterns are blocks.
 
-The [block definition](/definition/block)
+The [Output block definition](/definition/block)
 
 - provides baseline properties for other definitions
 - allows blocks to be defined inline or externally
 
-## Block properties
+## Output block properties
 
 ### Required properties
 
-All blocks (and by extension, pages, components, patterns and other definitions) must have these properties
+All output blocks (and by extension, pages, components, patterns and other definitions) must have these properties
 
 - `_id`
 
   A unique identifier for the block
+
 - `_type`
 
   - Provides the definition name to validate the block against
-  - Provides the template name to use when rendering the block
+  - Tells the [runner](/process/runner) how to render the block
 
 ### Optional properties
 
@@ -58,6 +60,7 @@ All blocks (and by extension, pages, components, patterns and other definitions)
 When a block is nested within another block (for example, when a component is included in a page), it can either be defined inline or by reference using the `_isa` property.
 
 *TODO: Does the referencing block need to include its _type?*
+* Nope - if the block is expanded before validation (and rendering), the implicit _type will have become explicit *
 
 #### Inline block defintion
 

@@ -1,20 +1,24 @@
+const specs = require('./index').schemas
 
-const {expandSchema} = require('./lib/schemaUtils')
+const {expandSchema} = require('./lib/schema-utils')(specs)
+
+const {FBLogger} = require('@ministryofjustice/fb-utils-node')
+FBLogger.verbose(true)
 
 const schemaName = process.argv[2]
 if (!schemaName) {
-  console.log('Please pass a schema name')
+  FBLogger('Please pass a schema name')
   process.exit(1)
 }
 
 expandSchema(schemaName)
-  .then(function(schema) {
-    console.log(JSON.stringify(schema, null, 2))
-    console.log('properties', JSON.stringify(Object.keys(schema.properties), null, 2))
-    console.log('--------')
+  .then(function (schema) {
+    FBLogger(JSON.stringify(schema, null, 2))
+    FBLogger('properties', JSON.stringify(Object.keys(schema.properties), null, 2))
+    FBLogger('--------')
     process.exit(0)
   })
-  .catch(function(err) {
-    console.error('Unexpected error', err)
+  .catch(function (err) {
+    FBLogger('Unexpected error', err)
     process.exit(1)
   })

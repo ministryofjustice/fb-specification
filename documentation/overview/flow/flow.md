@@ -8,9 +8,9 @@ A service is built out of [pages](/page), or more specifically, is the sequentia
 
 ## Entry points
 
-Any page that has steps and is not contained in another page’s steps is considered an entry point to the service entry point.
+Any page that has steps and is not contained in another page’s steps is considered an entry point to the service.
 
-Typically there should be one service entry point and it should use the `pageStart` page type.
+Typically there should be one service entry point and it should be a [`Start page`](/page/pageStart).
 
 ## Determining the flow (in principle)
 
@@ -28,7 +28,7 @@ The flow through the service is determined by:
 
 After the successful submission of a page (ie. without any validation errors), the system determines what page (if any) the user should be redirected to according to the following rules.
 
-![Page flow diagram](page-flow.svg)
+[![Page flow diagram](page-flow.svg)](page-flow.svg)
 
 ```
 1. Does the initial page have an explicit nextPage?

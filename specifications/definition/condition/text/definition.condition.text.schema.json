@@ -19,8 +19,20 @@
       ]
     },
     "value": {
-      "title": "Value",
-      "type": "string"
+      "title": "Value"
+    }
+  },
+  "if": {
+    "required": ["valueType"]
+  },
+  "then": {
+    "$ref": "http://gov.uk/schema/v1.0.0/definition/condition/valuetype"
+  },
+  "else": {
+    "properties": {
+      "value": {
+        "type": "string"
+      }
     }
   },
   "required": [

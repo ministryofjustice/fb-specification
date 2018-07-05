@@ -15,8 +15,7 @@ This approach is known as metadata-driven design.
 
 There are 4 distinct parts of the Form Builder process.
 
-- The [editor](../editor) creates the service’s data
-- The [publisher](../publisher) deploys and manages the service
-- The [runner](../runner) hosts the citizen-facing part of the service
-- The [submitter](../submitter) sends the information entered by the user where specified
-
+- The [editor](/process/editor) creates the service’s data
+- The [publisher](/process/publisher) deploys and manages the service
+- The [runner](/process/runner) hosts the citizen-facing part of the service
+- The [submitter](/process/submitter) sends the information entered by the user where specified

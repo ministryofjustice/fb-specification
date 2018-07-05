@@ -1,7 +1,9 @@
-const test = require('tape-promise/tape')
+const test = require('tape')
 const glob = require('glob-promise')
 const path = require('path')
-const validateSchema = require('../lib/validateSchema')
+const validateSchema = require('../lib/validate-schema')
+
+const specifications = require('../index')
 
 const schemas = glob.sync('specifications/**/*.schema.json')
   .map(schema => path.resolve(schema))
@@ -9,10 +11,16 @@ const schemas = glob.sync('specifications/**/*.schema.json')
 schemas.forEach(schema => {
   const schemaName = schema.replace(/.*\//, '').replace(/\.schema\.json/, '')
   test(schemaName, t => {
-    return validateSchema(schema)
+    t.plan(1)
+
+    const options = {}
+    options.specs = specifications.schemas
+    options.path = schema.replace(/\/[^/]+$/, '')
+    options.warn = true
+
+    return validateSchema(schema, options)
       .then(results => {
-        t.is(results, undefined, `should have no errors`)
-        t.end()
+        t.is(results, undefined, 'should have no errors')
       })
   })
 })

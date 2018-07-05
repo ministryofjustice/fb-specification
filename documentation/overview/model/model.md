@@ -1,6 +1,6 @@
 ---
 layout: layout-pane.njk
-title: Models
+title: Control names and models
 section: Overview
 ---
 
