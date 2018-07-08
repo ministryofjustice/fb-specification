@@ -2,7 +2,7 @@
   "_id": "pageColour",
   "_type": "page.singlequestion",
   "url": "/colour",
-  "blocks": [{
+  "components": [{
     "_id": "pageColour-colour",
     "_type": "text",
     "name": "colour",

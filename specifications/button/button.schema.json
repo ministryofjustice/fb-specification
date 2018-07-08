@@ -1,6 +1,6 @@
 {
   "$id": "http://gov.uk/schema/v1.0.0/button",
-  "_name": "form",
+  "_name": "button",
   "title": "Button",
   "description": "Component for a button",
   "type": "object",
