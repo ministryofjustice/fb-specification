@@ -1,0 +1,27 @@
+{
+  "$id": "http://gov.uk/schema/v1.0.0/insetText",
+  "_name": "insetText",
+  "title": "Inset text",
+  "description": "Component that provides inset text",
+  "usage": "Use the inset text component to differentiate a block of text from the content that surrounds it",
+  "type": "object",
+  "properties": {
+    "_type": {
+      "const": "insetText"
+    },
+    "html": {
+      "title": "Text",
+      "description": "Inset text content",
+      "type": "string",
+      "multiline": true
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/component"
+    }
+  ],
+  "category": [
+    "content"
+  ]
+}
