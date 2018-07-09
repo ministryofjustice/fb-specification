@@ -13,7 +13,7 @@ All output blocks (whether pages or components) can be hidden, or rather, suppre
   "_id": "pagePlanet",
   "_type": "page.singlequestion",
   "url": "/planet",
-  "blocks": [{
+  "components": [{
     "_id": "pagePlanet--planet",
     "_type": "text",
     "name": "planet",

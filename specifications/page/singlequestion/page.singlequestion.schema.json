@@ -8,7 +8,7 @@
     "_type": {
       "const": "page.singlequestion"
     },
-    "blocks": {
+    "components": {
       "maxItems": 1
     }
   },
@@ -18,6 +18,6 @@
     }
   ],
   "required": [
-    "blocks"
+    "components"
   ]
 }

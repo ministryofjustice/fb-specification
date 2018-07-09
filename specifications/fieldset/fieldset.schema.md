@@ -1,6 +1,6 @@
 Use the Fieldset component to group related form inputs.
 
-A fieldset may contain any other type of blocks including other fieldsets.
+A fieldset may contain any other type of component including other fieldsets.
 
 The fieldset component should only be used on form pages.
 
