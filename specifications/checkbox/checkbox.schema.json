@@ -15,6 +15,9 @@
     },
     {
       "$ref": "http://gov.uk/schema/v1.0.0/definition/option"
+    },
+    {
+      "$ref": "http://gov.uk/schema/v1.0.0/definition/name"
     }
   ],
   "required": [
