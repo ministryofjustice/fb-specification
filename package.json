@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-specification",
-  "version": "0.0.2",
+  "version": "0.0.4-alpha",
   "description": "",
   "main": "index.js",
   "scripts": {

@@ -1,6 +1,5 @@
 {%- macro content(data) %}
 <div class="govuk-prose-scope fb-content">
-{% set params = setContent(data) %}
-{{ params.html | safe }}
+{{ data.html | safe }}
 </div>
 {% endmacro -%}
