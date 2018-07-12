@@ -13,14 +13,19 @@
     },
     "title": {
       "title": "Title",
-      "type": "string"
+      "type": "string",
+      "category": [
+        "additional"
+      ]
     },
     "lede": {
       "title": "Lede",
+      "description": "Paragraph that follows the heading",
       "type": "string"
     },
     "content": {
       "title": "Content",
+      "description": "Free-form content after the heading and lede",
       "type": "string",
       "multiline": true
     }

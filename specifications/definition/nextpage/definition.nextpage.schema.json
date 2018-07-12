@@ -1,7 +1,7 @@
 {
   "$id": "http://gov.uk/schema/v1.0.0/definition/nextpage",
   "_name": "definition.nextpage",
-  "title": "Next page definition",
+  "title": "Next page",
   "description": "What page (if any), and under what condtions, to go to next",
   "type": "object",
   "oneOf": [
@@ -35,6 +35,7 @@
     }
   ],
   "category": [
+    "logic",
     "definition"
   ]
 }

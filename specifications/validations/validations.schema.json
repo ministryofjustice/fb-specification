@@ -140,6 +140,8 @@
     "requiredBundle": {
       "properties": {
         "validation": {
+          "title": "Validation",
+          "description": "Values for default validation",
           "role": "validation",
           "properties": {
             "required": {
@@ -148,6 +150,8 @@
           }
         },
         "errors": {
+          "title": "Errors",
+          "description": "Strings to override for default error messages",
           "role": "errorStrings",
           "properties": {
             "required": {

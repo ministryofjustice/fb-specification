@@ -9,6 +9,8 @@
       "const": "page.form"
     },
     "actionType": {
+      "title": "Primary action",
+      "description": "Text for primary action button",
       "type": "string",
       "enum": [
         "continue",

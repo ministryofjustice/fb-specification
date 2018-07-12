@@ -9,7 +9,10 @@
       "const": "page.confirmation"
     },
     "continue": {
-      "const": "makes no sense"
+      "const": "makes no sense",
+      "category": [
+        "additional"
+      ]
     }
   },
   "allOf": [

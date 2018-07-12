@@ -5,13 +5,21 @@
   "type": "object",
   "properties": {
     "model": {
-      "title": "Model to store field in",
-      "type": "string"
+      "title": "Model name",
+      "description": "Key to store user input for the control against",
+      "type": "string",
+      "category": [
+        "logic"
+      ]
     },
     "modelProtect": {
-      "title": "Whether to prevent the block’s model being overridden or appended ",
+      "title": "Model protection",
+      "description": "Whether to prevent the block’s model being overridden or appended ",
       "type": "boolean",
-      "default": false
+      "default": false,
+      "category": [
+        "logic"
+      ]
     }
   },
   "category": [

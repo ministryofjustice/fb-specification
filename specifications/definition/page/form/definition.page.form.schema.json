@@ -4,14 +4,19 @@
   "title": "Form page definition",
   "properties": {
     "extraComponents": {
-      "title": "Additional components following continue button",
+      "title": "Additional components",
+      "description": "Components following continue button",
       "type": "array",
       "items": {
         "$ref": "http://gov.uk/schema/v1.0.0/definition/component"
-      }
+      },
+      "category": [
+        "additional"
+      ]
     },
     "steps": {
       "title": "Steps",
+      "description": "List of pages making up the sub-journey from the current page",
       "type": "array",
       "items": {
         "type": "string"
