@@ -23,7 +23,7 @@
       "description": "Paragraph that follows the heading",
       "type": "string"
     },
-    "content": {
+    "body": {
       "title": "Content",
       "description": "Free-form content after the heading and lede",
       "type": "string",
