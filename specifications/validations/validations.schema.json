@@ -100,8 +100,7 @@
     },
     "exclusiveMaximum": {
       "title": "Exclusive maximum",
-      "type": "number",
-      "minimum": 0
+      "type": "boolean"
     },
     "errorsExclusiveMaximum": {
       "title": "Error strings for exclusiveMaximum",
@@ -126,8 +125,7 @@
     },
     "exclusiveMinimum": {
       "title": "Exclusive minimum",
-      "type": "number",
-      "minimum": 0
+      "type": "boolean"
     },
     "errorsExclusiveMinimum": {
       "title": "Error strings for exclusiveMinimum",

@@ -10,11 +10,9 @@
     },
     "items": {
       "type": "array",
-      "items": [
-        {
-          "$ref": "http://gov.uk/schema/v1.0.0/checkbox"
-        }
-      ]
+      "items": {
+        "$ref": "http://gov.uk/schema/v1.0.0/checkbox"
+      }
     }
   },
   "allOf": [
