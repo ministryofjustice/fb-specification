@@ -7,6 +7,9 @@
   "properties": {
     "_type": {
       "const": "checkbox"
+    },
+    "value": {
+      "default": "yes"
     }
   },
   "allOf": [
@@ -21,6 +24,7 @@
     }
   ],
   "required": [
-    "name"
+    "name",
+    "label"
   ]
 }
