@@ -1,13 +1,13 @@
 {
-  "$id": "http://gov.uk/schema/v1.0.0/warningText",
-  "_name": "warningText",
+  "$id": "http://gov.uk/schema/v1.0.0/warning",
+  "_name": "warning",
   "title": "Warning text",
   "description": "Component that provides warning text",
   "usage": "Use when there are consequences - for example, a fine or prison sentence",
   "type": "object",
   "properties": {
     "_type": {
-      "const": "warningText"
+      "const": "warning"
     },
     "iconFallbackText": {
       "title": "Fallback text for the icon",

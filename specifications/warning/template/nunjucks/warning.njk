@@ -1,4 +1,4 @@
-{%- macro warningText(data) %}
+{%- macro warning(data) %}
 {% set params = setError(data) %}
 {{ callMacro('govukWarningText', params) }}
 {% endmacro -%}
