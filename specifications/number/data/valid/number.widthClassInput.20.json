@@ -1,7 +1,0 @@
-{
-  "_id": "componentId",
-  "_type": "number",
-  "name": "age",
-  "label": "How old are you?",
-  "widthClassInput": "20"
-}

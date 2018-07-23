@@ -1,1 +1,0 @@
-A generic content page to provide users with guidance during the service flow or as standalone pages.

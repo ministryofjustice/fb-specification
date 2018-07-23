@@ -1,6 +1,0 @@
-{%- macro radios(data) %}
-{% set params = setError(data) %}
-{% set params = setItemsLabel(params) %}
-{% set params = setInputWidthClass(params) %}
-{{ callMacro('govukRadios', params) }}
-{% endmacro -%}

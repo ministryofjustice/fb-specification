@@ -1,8 +1,0 @@
-{
-  "_id": "definition-condition-number-valueType-invalid-value-number",
-  "_type": "definition.condition.number",
-  "identifier": "foo",
-  "operator": "equals",
-  "valueType": true,
-  "value": "bar"
-}

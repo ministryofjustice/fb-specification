@@ -1,6 +1,0 @@
-{%- macro checkboxes(data) %}
-{% set params = setError(data) %}
-{% set params = setItemsLabel(params) %}
-{% set params = setInputWidthClass(params) %}
-{{ callMacro('govukCheckboxes', params) }}
-{% endmacro -%}

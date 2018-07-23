@@ -2,6 +2,20 @@
 
 JSON Schemas defining Form Builder core components
 
+## Usage
+
+In your components module
+
+```
+npm install @ministryofjustice/fb-specifications --save-dev
+```
+
+To lint schemas and schema test data and validate the schemas
+
+```
+test-specifications
+```
+
 ## Specifications
 
 Location

@@ -1,8 +1,0 @@
-{
-  "_id": "definition-condition-number-valueType",
-  "_type": "definition.condition.number",
-  "identifier": "foo",
-  "operator": "equals",
-  "valueType": "input",
-  "value": "bar"
-}

@@ -1,10 +1,12 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 
 const glob = require('glob-promise')
 const fs = require('fs')
 
 const jsonlint = require('jsonlint')
+
+const {FBLogger} = require('@ministryofjustice/fb-utils-node')
+FBLogger.verbose(true)
 
 const appDir = process.cwd()
 
@@ -52,9 +54,9 @@ glob(`${appDir}/specifications/**/*.schema.json`)
   })
   .then(() => {
     if (errors.length) {
-      console.log(errors.join('\n\n'))
+      FBLogger(errors.join('\n\n'))
       process.exit(1)
     } else {
-      console.log('OK')
+      FBLogger('OK')
     }
   })

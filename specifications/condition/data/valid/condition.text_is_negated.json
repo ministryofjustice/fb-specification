@@ -1,8 +1,0 @@
-{
-  "_id": "condition.text_is_negated",
-  "_type": "condition",
-  "identifier": "foo",
-  "operator": "is",
-  "value": "bar",
-  "negated": true
-}

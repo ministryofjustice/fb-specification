@@ -1,7 +1,0 @@
-{
-  "_id": "condition.text_startsWith",
-  "_type": "condition",
-  "identifier": "foo",
-  "operator": "startsWith",
-  "value": "bar"
-}

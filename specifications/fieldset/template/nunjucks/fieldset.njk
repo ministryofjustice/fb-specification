@@ -1,7 +1,0 @@
-{% macro fieldset(data) -%}
-{% set params = setError(data) %}
-{% set params = setItemsLabel(params) %}
-{% call callMacro('govukFieldset', params) -%}
-{{ callBlocks(data.components) }}
-{%- endcall %}
-{%- endmacro %}

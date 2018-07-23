@@ -1,1 +1,0 @@
-Number example set to half width

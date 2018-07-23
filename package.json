@@ -1,27 +1,32 @@
 {
   "name": "@ministryofjustice/fb-specification",
-  "version": "0.0.16-alpha",
-  "description": "",
+  "version": "0.0.17-alpha",
+  "description": "Form Builder specification library",
   "main": "index.js",
+  "bin": {
+    "expand-schema": "bin/expand-schema.js",
+    "format-data": "bin/format-data.js",
+    "format-schemas": "bin/format-schemas.js",
+    "lint-all": "bin/lint-all.js",
+    "lint-data": "bin/lint-data.js",
+    "lint-schemas": "bin/lint-schemas.js",
+    "test-specifications": "bin/test-specifications.js",
+    "validate": "bin/validate.js",
+    "validate-specifications": "bin/validate-specifications.js"
+  },
   "scripts": {
     "test": "npm-run-all -s lint test:unit",
-    "test:unit": "npm-run-all -s test:schemas",
-    "test:schemas": "tape tests/**/*.unit.spec.js lib/**/*.unit.spec.js",
-    "validate": "SCHEMA=$1; echo test -r definitions/definitions.schema.json -r condition/condition.schema.json -s \"$SCHEMA/$SCHEMA.schema.json\" -d \"$SCHEMA/data/valid/*.json\" --valid",
-    "lint": "npm-run-all -p lint:schemas lint:data",
-    "lint:schemas": "node bin/lint-schemas.js",
-    "lint:schemas:cli": "find specifications/**/*.schema.json | xargs -P 20 -L 1 jsonlint -q",
-    "format:schemas": "find specifications/**/*.schema.json | xargs -P 20 -L 1 jsonlint -qi",
-    "lint:data": "find specifications/**/data/**/*.json | xargs -P 20 -L 1 jsonlint -q",
-    "format:data": "find specifications/**/data/**/*.json | xargs -P 20 -L 1 jsonlint -qi"
+    "test:unit": "tape tests/**/*.unit.spec.js lib/**/*.unit.spec.js",
+    "lint": "npm-run-all -p lint:bin lint:lib",
+    "lint:bin": "eslint bin",
+    "lint:lib": "eslint lib"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@ministryofjustice/fb-utils-node": "^0.1.1",
     "ajv": "^6.4.0",
     "ajv-cli": "^3.0.0",
     "glob": "^7.1.2",
+    "glob-promise": "^3.4.0",
     "json-schema-merge-allof": "^0.6.0",
     "json-schema-ref-parser": "^5.0.3",
     "jsonlint": "^1.6.3",
@@ -29,12 +34,17 @@
     "mkdirp": "^0.5.1",
     "npm-run-all": "^4.1.2",
     "shelljs": "^0.8.2",
+    "tape": "^4.9.0",
+    "test-console": "^1.1.0",
     "yargs": "^11.0.0"
   },
   "devDependencies": {
-    "@ministryofjustice/eslint-config-fb": "^1.0.1",
-    "glob-promise": "^3.4.0",
-    "tape": "^4.9.0",
-    "test-console": "^1.1.0"
-  }
+    "@ministryofjustice/eslint-config-fb": "^1.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ministryofjustice/fb-specifications.git"
+  },
+  "author": "github@alex.fu2k.org",
+  "license": "MIT"
 }

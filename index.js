@@ -1,13 +1,7 @@
-const path = require('path')
+const schemaUtils = require('./lib/schema-utils')
 
 const specifications = {
-  schemas: [
-    {
-      path: path.resolve(__dirname),
-      $idRoot: 'http://gov.uk/schema/v1.0.0',
-      protected: ['condition']
-    }
-  ]
+  schemaUtils
 }
 
 module.exports = specifications

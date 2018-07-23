@@ -1,6 +1,0 @@
-{%- macro textarea(data) %}
-{% set params = setError(data) %}
-{% set params = setLabel(params) %}
-{% set params = setInputWidthClass(params) %}
-{{ callMacro('govukTextarea', params) }}
-{% endmacro -%}
