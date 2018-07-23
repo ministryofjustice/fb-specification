@@ -2,4 +2,4 @@
 
 const shell = require('shelljs')
 
-shell.exec('npm-run-all -s lint:schemas lint:data')
+shell.exec('lint-schemas && lint-data')
