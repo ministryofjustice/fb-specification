@@ -39,7 +39,7 @@
     "yargs": "^13.2.2"
   },
   "devDependencies": {
-    "@ministryofjustice/eslint-config-fb": "^1.0.4"
+    "@ministryofjustice/eslint-config-fb": "^1.0.5"
   },
   "repository": {
     "type": "git",
