@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-specification",
-  "version": "0.1.6-alpha",
+  "version": "0.1.7-alpha",
   "description": "Form Builder specification library",
   "main": "index.js",
   "bin": {
@@ -36,7 +36,7 @@
     "shelljs": "^0.8.3",
     "tape": "^4.10.1",
     "test-console": "^1.1.0",
-    "yargs": "^13.2.1"
+    "yargs": "^13.2.2"
   },
   "devDependencies": {
     "@ministryofjustice/eslint-config-fb": "^1.0.4"
