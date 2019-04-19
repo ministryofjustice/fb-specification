@@ -75,15 +75,15 @@
 <path fill="none" stroke="#000000" d="M144,-719.9941C144,-700.5933 144,-678.5208 144,-658.3296"/>
 <polygon fill="#000000" stroke="#000000" points="147.5001,-658.2786 144,-648.2787 140.5001,-658.2787 147.5001,-658.2786"/>
 </g>
-<!-- propagateModels -->
+<!-- propagateNamespaces -->
 <g id="node7" class="node">
-<title>propagateModels</title>
+<title>propagateNamespaces</title>
 <polygon fill="none" stroke="#000000" points="288,-468 0,-468 0,-360 288,-360 288,-468"/>
-<text text-anchor="middle" x="144" y="-409.8" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#000000">Propagate models</text>
+<text text-anchor="middle" x="144" y="-409.8" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#000000">Propagate namespaces</text>
 </g>
-<!-- modifyData&#45;&gt;propagateModels -->
+<!-- modifyData&#45;&gt;propagateNamespaces -->
 <g id="edge6" class="edge">
-<title>modifyData&#45;&gt;propagateModels</title>
+<title>modifyData&#45;&gt;propagateNamespaces</title>
 <path fill="none" stroke="#000000" d="M144,-539.9941C144,-520.5933 144,-498.5208 144,-478.3296"/>
 <polygon fill="#000000" stroke="#000000" points="147.5001,-478.2786 144,-468.2787 140.5001,-478.2787 147.5001,-478.2786"/>
 </g>
@@ -93,9 +93,9 @@
 <polygon fill="none" stroke="#000000" points="288,-288 0,-288 0,-180 288,-180 288,-288"/>
 <text text-anchor="middle" x="144" y="-229.8" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#000000">Bubble up dependencies</text>
 </g>
-<!-- propagateModels&#45;&gt;bubbleDepends -->
+<!-- propagateNamespaces&#45;&gt;bubbleDepends -->
 <g id="edge7" class="edge">
-<title>propagateModels&#45;&gt;bubbleDepends</title>
+<title>propagateNamespaces&#45;&gt;bubbleDepends</title>
 <path fill="none" stroke="#000000" d="M144,-359.9941C144,-340.5933 144,-318.5208 144,-298.3296"/>
 <polygon fill="#000000" stroke="#000000" points="147.5001,-298.2786 144,-288.2787 140.5001,-298.2787 147.5001,-298.2786"/>
 </g>

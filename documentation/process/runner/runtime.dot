@@ -11,12 +11,12 @@ digraph {
   findDefs [label = "Determine definition sources"]
   loadDefs [label = "Load defintions"]
   modifyData [label = "Modify"]
-  propagateModels [label = "Propagate models"]
+  propagateNamespaces [label = "Propagate namespaces"]
   bubbleDepends [label = "Bubble up dependencies"]
   addFlow [label = "Add next/previous"]
 
   node [shape = diamond, style = filled, fillcolor = gray90, fontcolor=black, width=1.5];
 
-  findData -> loadData -> expandRefs -> findDefs -> loadDefs -> modifyData -> propagateModels -> bubbleDepends -> addFlow;
+  findData -> loadData -> expandRefs -> findDefs -> loadDefs -> modifyData -> propagateNamespaces -> bubbleDepends -> addFlow;
 
 }

@@ -73,13 +73,13 @@ ${serviceRepository}
 
 User data comes in 2 flavours
 
-- Model data
+- Namespace data
 
   the user’s answers to the questions asked by the service
 - Files uploaded by the user
 
 
-#### Model data
+#### Namespace data
 
 The user’s answers are stored as a [JSON document](/glossary#json-document), using the names of the controls as the properties to store the values against.
 

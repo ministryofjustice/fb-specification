@@ -76,11 +76,11 @@ Pages can have `_isa` and `show`. See [block](/overview/block) for details on th
 
   Further omponents to include in the page (usually after the primary action button)
 
-- `model`
+- `namespace`
 
-  model value to copy to all the page’s components and steps.
+  namespace value to copy to all the page’s components and steps.
 
-  [More about the `model` property](/overview/model)
+  [More about the `namespace` property](/overview/namespace)
 
 - `nextPage`
 
@@ -135,8 +135,8 @@ A page’s steps can be suppressed by setting `stepsShow`
 
 ## Multiple instances - repeating pages
 
-If the `multiple` property is set, then the `model` property must be set.
+If the `multiple` property is set, then the `namespace` property must be set.
 
-[More about `model` and related properties](/overview/model)
+[More about `namespace` and related properties](/overview/namespace)
 
 [More about `multiple` and related properties](/overview/multiple)

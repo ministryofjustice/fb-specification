@@ -38,11 +38,11 @@ The following components can have multiple instances
 
 Multiple instances of such components are repeated on the same page.
 
-## Requirement for model
+## Requirement for namespace
 
-The `model` property must be be set when `multiple` is set.
+The `namespace` property must be be set when `multiple` is set.
 
-[More about the `model` property](/overview/model)
+[More about the `namespace` property](/overview/namespace)
 
 
 ## Properties for defining multiple

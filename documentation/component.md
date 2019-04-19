@@ -55,7 +55,7 @@ They cannot and must not be used in other contexts.
 ## Properties to be explained
 
 - name
-- model
-- modelProtect
+- namespace
+- namespaceProtect
 
-*TODO: flesh this out and link to model stuff*
+*TODO: flesh this out and link to namespace stuff*
