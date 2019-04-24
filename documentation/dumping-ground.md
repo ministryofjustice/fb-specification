@@ -17,7 +17,7 @@ Instance representation
 
 
 
-Transactions would be described using a JSON based description language that refers to the model. They would be designed by expert designers using an interface that uses both a GUI and blocks of raw JSON to create the JSON file that describes the transaction.
+Transactions would be described using a JSON based description language that refers to the namespace. They would be designed by expert designers using an interface that uses both a GUI and blocks of raw JSON to create the JSON file that describes the transaction.
 
 
 

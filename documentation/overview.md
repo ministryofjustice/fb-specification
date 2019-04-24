@@ -25,7 +25,7 @@ Pages, components and the service instance
 A very simple service that demonstrates the basics
 
 
-### [Models and names](/overview/model)
+### [Namespaces and names](/overview/namespace)
 
 Collecting and storing the user’s data
 

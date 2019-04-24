@@ -135,7 +135,7 @@ glob('specifications/**/*.schema.json')
       'schemas',
       'i18n',
       'multiple',
-      'model',
+      'namespace',
       'storage',
       'validation'
     ])

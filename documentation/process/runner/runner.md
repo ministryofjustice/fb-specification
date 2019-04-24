@@ -19,7 +19,7 @@ From the buildtime representation we generate a runtime representation.
 - Determine definition sources
 - Load defintions
 - Modify data
-- Propagate models
+- Propagate namespaces
 - Bubble up dependencies
 - Add next/previous pages
 

@@ -72,7 +72,7 @@ A [JSON document](#json-document) which is an object - ie. a collection of name/
 A schema is a [JSON object](#json-object) that defines a [JSON document](#json-document) conforming to the [JSON Schema](#json-schema) format.
 
 
-*eg. The [Start page](/page/pageStart) schema defines the data model of the service’s Start page [instance](#instance)*
+*eg. The [Start page](/page/pageStart) schema defines the data namespace of the service’s Start page [instance](#instance)*
 
 Schemas allow for the creation and validation of [instances](#instance) as well as for providing instructions for user interfaces with which to edit such instances and validating and transmission of data entered by the user.
 

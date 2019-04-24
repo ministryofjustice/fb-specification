@@ -1,6 +1,6 @@
 ---
 layout: layout-pane.njk
-title: Control names and models
+title: Control names and namespaces
 section: Overview
 ---
 
@@ -12,25 +12,25 @@ The name is used as the key/path to store the input in the user’s data against
 
 By default, control names are not namespaced.
 
-## Model properties
+## Namespace properties
 
-- `model`
+- `namespace`
 
-  The model/namespace to use for a control.
+  The namespace/namespace to use for a control.
 
   It can be set on controls, checkbox items, fieldsets, groups and pages.
 
   It must be set if the block’s can have a `multiple` property and that property is set.
   
   Its value is propagated to any blocks contained within the block.
-- `modelProtect`
+- `namespaceProtect`
 
-  Whether or not to allow a block's name to be prefixed with any propagated `model` value
+  Whether or not to allow a block's name to be prefixed with any propagated `namespace` value
 
 
 ## Examples
 
-In the following examples, properties other than `name`, `model`, `modelProtect`, `multiple` and `components` have been omitted for clarity.
+In the following examples, properties other than `name`, `namespace`, `namespaceProtect`, `multiple` and `components` have been omitted for clarity.
 
 ```
 {
@@ -40,24 +40,24 @@ In the following examples, properties other than `name`, `model`, `modelProtect`
 => name="email"
 ```
 
-Default outcome when no model is set
+Default outcome when no namespace is set
 
 ```
 {
   ...
   "name": "email",
-  "model": "spouse"
+  "namespace": "spouse"
 }
 => name="spouse.email"
 ```
 
-When the block’s model is set 
+When the block’s namespace is set 
 
 ```
 {
   ...
   "name": "email",
-  "model": "child",
+  "namespace": "child",
   "multiple": true
 }
 => name="child[1]email"
@@ -69,7 +69,7 @@ When the block’s multiple is set
 ```
 {
   ...
-  "model": "father",
+  "namespace": "father",
   "components": [
     {
       ...
@@ -80,42 +80,42 @@ When the block’s multiple is set
 => name="father.email"
 ```
 
-When the block’s parent block has a model
+When the block’s parent block has a namespace
 
 ```
 {
   ...
-  "model": "applicant",
+  "namespace": "applicant",
   "components": [
     {
       ...
       "name": "email",
-      "model": "home"
+      "namespace": "home"
     }
   ]
 }
 => name="applicant.home.email"
 ```
 
-When the block’s model is set and the block’s parent block has a model too 
+When the block’s namespace is set and the block’s parent block has a namespace too 
 
 ```
 {
   ...
-  "model": "proceedings",
+  "namespace": "proceedings",
   "components": [
     {
       ...
       "name": "email",
-      "model": "defendant",
-      "modelProtect" true
+      "namespace": "defendant",
+      "namespaceProtect" true
     }
   ]
 }
 => name="defendant.email"
 ```
 
-When the block’s parent block has a model, but the block’s modelProtect is set
+When the block’s parent block has a namespace, but the block’s namespaceProtect is set
 
 The user-supplied data resulting from all these controls would be structured like this
 
