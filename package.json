@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-specification",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Form Builder specification library",
   "main": "index.js",
   "bin": {
@@ -22,7 +22,7 @@
     "lint:lib": "eslint lib"
   },
   "dependencies": {
-    "@ministryofjustice/fb-utils-node": "^0.1.5",
+    "@ministryofjustice/fb-utils-node": "^0.1.6",
     "ajv": "^6.10.0",
     "ajv-cli": "^3.0.0",
     "glob": "^7.1.4",
@@ -30,16 +30,16 @@
     "json-schema-merge-allof": "^0.6.0",
     "json-schema-ref-parser": "^6.1.0",
     "jsonlint": "^1.6.3",
-    "jsonpath": "^1.0.1",
+    "jsonpath": "^1.0.2",
     "mkdirp": "^0.5.1",
     "npm-run-all": "^4.1.5",
     "shelljs": "^0.8.3",
-    "tape": "^4.10.1",
+    "tape": "^4.10.2",
     "test-console": "^1.1.0",
     "yargs": "^13.2.4"
   },
   "devDependencies": {
-    "@ministryofjustice/eslint-config-fb": "^1.0.6"
+    "@ministryofjustice/eslint-config-fb": "^1.0.7"
   },
   "repository": {
     "type": "git",
