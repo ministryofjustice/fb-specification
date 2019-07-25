@@ -60,7 +60,7 @@ const argv = require('yargs')
   }).argv
 
 const {schema, invalid, directory, quiet, allErrors, debug} = argv
-let {path: schemaPaths, idRoot: idRoots} = argv
+const {path: schemaPaths, idRoot: idRoots} = argv
 let specs = []
 try {
   if (schemaPaths && !idRoots) {
