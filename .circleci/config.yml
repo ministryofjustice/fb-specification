@@ -1,0 +1,20 @@
+version: 2.1
+
+jobs:
+  lint_and_test:
+    docker:
+      - image: circleci/node:12.4.0
+    steps:
+      - checkout
+      - run:
+          name: Install
+          command: npm install
+      - run:
+          name: Runs ESLint and test
+          command: npm run test
+
+
+workflows:
+  commit-workflow:
+    jobs:
+      - lint_and_test
