@@ -14,7 +14,7 @@ const localDocPath = process.argv[2] || path.resolve('../../fb-documentation')
 
 const njks = glob.sync('specifications/*/*.njk')
 let njkSource = ''
-let njkBlocks = []
+const njkBlocks = []
 njks.forEach(njkPath => {
   const njkContents = fs.readFileSync(path.resolve(njkPath)).toString()
   njkSource += njkContents
@@ -181,7 +181,7 @@ ${exampleMd}
             const exampleMd = fs.readFileSync(exampleMdPath).toString()
             const exampleJSON = fs.readFileSync(`${dataDir}/${example}.json`).toString()
             examplesOutput += addExample(exampleDocName, exampleMd)
-            let exampleNJK = `---
+            const exampleNJK = `---
 layout: layout-specification.njk
 ---
 ${njkSource}
@@ -298,7 +298,7 @@ ${njkSource}
           .filter(obj => obj.$ref)
           .map(obj => obj.$ref)
           .map($id => {
-            let url = $id.replace(/.*\/v\d+\.\d+\.\d+\//, '').replace(/#.*/, '') // TODO: subsume into schemaUtils
+            const url = $id.replace(/.*\/v\d+\.\d+\.\d+\//, '').replace(/#.*/, '') // TODO: subsume into schemaUtils
             const name = url.replace(/\//g, '.') // TODO: subsume into schemaUtils
             const {title, _name} = getRawSchema(name)
             return getDocsUrl(url, title, _name)
@@ -309,7 +309,7 @@ ${njkSource}
           .split('\n')
           .filter(src => getRawSchema(src)._name !== schema._name)
           .map(src => {
-            let url = src.replace('specifications/', '').replace(/\/[^/]+\.json$/, '')
+            const url = src.replace('specifications/', '').replace(/\/[^/]+\.json$/, '')
             const {title, _name} = getRawSchema(src)
             return getDocsUrl(url, title, _name)
           })
