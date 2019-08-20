@@ -36,7 +36,7 @@
     "shelljs": "^0.8.3",
     "tape": "^4.10.2",
     "test-console": "^1.1.0",
-    "yargs": "^13.2.4"
+    "yargs": "^14.0.0"
   },
   "devDependencies": {
     "@ministryofjustice/eslint-config-fb": "^1.0.7"
