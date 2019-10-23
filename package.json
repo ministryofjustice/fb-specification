@@ -2,7 +2,9 @@
   "name": "@ministryofjustice/fb-specification",
   "version": "0.3.3",
   "description": "Form Builder specification library",
-  "main": "index.js",
+  "author": "Form Builder Team <form-builder-team@digital.justice.gov.uk>",
+  "license": "MIT",
+  "main": "./index.js",
   "bin": {
     "expand-schema": "bin/expand-schema.js",
     "format-data": "bin/format-data.js",
@@ -15,11 +17,9 @@
     "validate-specifications": "bin/validate-specifications.js"
   },
   "scripts": {
-    "test": "npm-run-all -s lint test:unit",
-    "test:unit": "tape tests/**/*.unit.spec.js lib/**/*.unit.spec.js",
-    "lint": "npm-run-all -p lint:bin lint:lib",
-    "lint:bin": "eslint bin",
-    "lint:lib": "eslint lib"
+    "test": "tap --reporter spec",
+    "lint": "eslint *.js bin lib",
+    "lint:fix": "eslint bin lib --fix"
   },
   "dependencies": {
     "@ministryofjustice/fb-utils-node": "^0.1.6",
@@ -34,17 +34,16 @@
     "mkdirp": "^0.5.1",
     "npm-run-all": "^4.1.5",
     "shelljs": "^0.8.3",
-    "tape": "^4.10.2",
     "test-console": "^1.1.0",
     "yargs": "^14.0.0"
   },
   "devDependencies": {
-    "@ministryofjustice/eslint-config-fb": "^1.0.7"
+    "@ministryofjustice/eslint-config-fb": "^1.1.2",
+    "tap": "^14.8.2",
+    "tape": "^4.11.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/ministryofjustice/fb-specifications.git"
-  },
-  "author": "github@alex.fu2k.org",
-  "license": "MIT"
+  }
 }
