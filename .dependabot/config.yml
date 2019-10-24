@@ -5,5 +5,8 @@ update_configs:
     directory: "/"
     update_schedule: "live"
     default_reviewers:
-    - solidgoldpig
-    - elena-vi
+    - asmega
+    - emileswarts
+    - tommotaylor
+    - cob16
+    - sequencemedialimited
