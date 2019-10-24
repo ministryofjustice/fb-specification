@@ -27,7 +27,7 @@
     "ajv-cli": "^3.0.0",
     "glob": "^7.1.4",
     "glob-promise": "^3.4.0",
-    "json-schema-merge-allof": "^0.6.0",
+    "json-schema-merge-allof": "^0.7.0",
     "json-schema-ref-parser": "^7.1.0",
     "jsonlint": "^1.6.3",
     "jsonpath": "^1.0.2",
