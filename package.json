@@ -2,8 +2,6 @@
   "name": "@ministryofjustice/fb-specification",
   "version": "0.3.3",
   "description": "Form Builder specification library",
-  "author": "Form Builder Team <form-builder-team@digital.justice.gov.uk>",
-  "license": "MIT",
   "main": "./index.js",
   "bin": {
     "expand-schema": "bin/expand-schema.js",
@@ -21,6 +19,12 @@
     "lint": "eslint *.js bin lib",
     "lint:fix": "eslint bin lib --fix"
   },
+  "author": "Form Builder Team <form-builder-team@digital.justice.gov.uk>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ministryofjustice/fb-specifications.git"
+  },
+  "license": "MIT",
   "dependencies": {
     "@ministryofjustice/fb-utils-node": "^0.1.6",
     "ajv": "^6.10.0",
@@ -40,9 +44,5 @@
     "tap": "^14.8.2",
     "tape": "^4.11.0",
     "test-console": "^1.1.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ministryofjustice/fb-specifications.git"
   }
 }
