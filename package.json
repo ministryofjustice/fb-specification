@@ -27,17 +27,17 @@
   "license": "MIT",
   "dependencies": {
     "@ministryofjustice/fb-utils-node": "^0.1.6",
-    "ajv": "^6.10.0",
+    "ajv": "^6.10.2",
     "ajv-cli": "^3.0.0",
-    "glob": "^7.1.4",
+    "glob": "^7.1.5",
     "glob-promise": "^3.4.0",
-    "json-schema-merge-allof": "^0.6.0",
-    "json-schema-ref-parser": "^7.1.0",
+    "json-schema-merge-allof": "^0.7.0",
+    "json-schema-ref-parser": "^7.1.2",
     "jsonlint": "^1.6.3",
     "jsonpath": "^1.0.2",
     "mkdirp": "^0.5.1",
     "shelljs": "^0.8.3",
-    "yargs": "^14.0.0"
+    "yargs": "^14.2.0"
   },
   "devDependencies": {
     "@ministryofjustice/eslint-config-fb": "^1.1.2",
