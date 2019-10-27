@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-specification",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Form Builder specification library",
   "main": "./index.js",
   "bin": {
