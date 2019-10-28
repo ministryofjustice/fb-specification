@@ -1,9 +1,7 @@
 {
   "name": "@ministryofjustice/fb-specification",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Form Builder specification library",
-  "author": "Form Builder Team <form-builder-team@digital.justice.gov.uk>",
-  "license": "MIT",
   "main": "./index.js",
   "bin": {
     "expand-schema": "bin/expand-schema.js",
@@ -21,28 +19,30 @@
     "lint": "eslint *.js bin lib",
     "lint:fix": "eslint bin lib --fix"
   },
+  "author": "Form Builder Team <form-builder-team@digital.justice.gov.uk>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ministryofjustice/fb-specifications.git"
+  },
+  "license": "MIT",
   "dependencies": {
     "@ministryofjustice/fb-utils-node": "^0.1.6",
-    "ajv": "^6.10.0",
+    "ajv": "^6.10.2",
     "ajv-cli": "^3.0.0",
-    "glob": "^7.1.4",
+    "glob": "^7.1.5",
     "glob-promise": "^3.4.0",
-    "json-schema-merge-allof": "^0.6.0",
-    "json-schema-ref-parser": "^7.1.0",
+    "json-schema-merge-allof": "^0.7.0",
+    "json-schema-ref-parser": "^7.1.2",
     "jsonlint": "^1.6.3",
     "jsonpath": "^1.0.2",
     "mkdirp": "^0.5.1",
     "shelljs": "^0.8.3",
-    "yargs": "^14.0.0"
+    "yargs": "^14.2.0"
   },
   "devDependencies": {
     "@ministryofjustice/eslint-config-fb": "^1.1.2",
     "tap": "^14.8.2",
     "tape": "^4.11.0",
     "test-console": "^1.1.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ministryofjustice/fb-specifications.git"
   }
 }
