@@ -10,13 +10,35 @@ jobs:
           name: Install
           command: npm install
       - run:
-          name: Lints
+          name: Lint
           command: npm run lint
       - run:
-          name: Tests
+          name: Test
           command: npm run test
+  publish:
+    docker:
+      - image: circleci/node:12.4.0
+    steps:
+      - checkout
+      - run:
+          name: Install
+          command: npm install
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish
 
 workflows:
   commit-workflow:
     jobs:
       - lint_and_test
+      - publish:
+          requires:
+            - lint_and_test
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              only: master
