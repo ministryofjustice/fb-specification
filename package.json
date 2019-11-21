@@ -1,6 +1,6 @@
 {
   "name": "@ministryofjustice/fb-specification",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "Form Builder specification library",
   "main": "./index.js",
   "bin": {
@@ -22,7 +22,7 @@
   "author": "Form Builder Team <form-builder-team@digital.justice.gov.uk>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ministryofjustice/fb-specifications.git"
+    "url": "https://github.com/ministryofjustice/fb-specification.git"
   },
   "license": "MIT",
   "dependencies": {
