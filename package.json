@@ -22,7 +22,7 @@
   "author": "Form Builder Team <form-builder-team@digital.justice.gov.uk>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ministryofjustice/fb-specifications.git"
+    "url": "https://github.com/ministryofjustice/fb-specification.git"
   },
   "license": "MIT",
   "dependencies": {
