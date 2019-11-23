@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
-const test = require('tape')
+const {
+  test
+} = require('tap')
 const glob = require('glob-promise')
 const path = require('path')
 const validateSchema = require('../lib/validate-schema')
 
-const schemas = glob.sync('specifications/**/*.schema.json')
+const schemas = glob.sync('specifications/**/*/*.schema.json')
   .map(schema => path.resolve(schema))
 
 const schemaObjs = require('./getSchemaObjs')()
