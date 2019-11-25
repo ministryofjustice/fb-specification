@@ -1,7 +1,5 @@
 const schemaUtils = require('./lib/schema-utils')
 
-const specifications = {
+module.exports = {
   schemaUtils
 }
-
-module.exports = specifications

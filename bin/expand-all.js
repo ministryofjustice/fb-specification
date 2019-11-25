@@ -1,8 +1,11 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
-const {schemaUtils, schemas: specs} = require('./index')
 
-const {expandSchema, getSchemaName, getSchemaDir, getRawSchema} = schemaUtils(specs)
+/* eslint-disable no-console */
+const {schemaUtils} = require('../index')
+
+const schemaObjs = require('./getSchemaObjs')()
+
+const {expandSchema, getSchemaName, getSchemaDir, getRawSchema} = schemaUtils(schemaObjs)
 const glob = require('glob-promise')
 const fs = require('fs')
 const path = require('path')
@@ -12,7 +15,7 @@ const mkdirp = require('mkdirp')
 
 const localDocPath = process.argv[2] || path.resolve('../../fb-documentation')
 
-const njks = glob.sync('specifications/*/*.njk')
+const njks = glob.sync('specifications/**/*/*.njk')
 let njkSource = ''
 const njkBlocks = []
 njks.forEach(njkPath => {
@@ -52,7 +55,7 @@ ${njkBlocks.join(',\n')}
 `
 // console.log({njkSource})
 
-glob('specifications/**/*.schema.json')
+glob('specifications/**/*/*.schema.json')
   .then(schemaList => {
     return Promise.all(schemaList.map(expandSchema))
   })
