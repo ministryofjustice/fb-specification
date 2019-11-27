@@ -6,7 +6,6 @@ update_configs:
     update_schedule: "live"
     default_reviewers:
     - asmega
-    - emileswarts
-    - tommotaylor
-    - cob16
     - sequencemedialimited
+    - mattempty
+    - form-builder-developers
